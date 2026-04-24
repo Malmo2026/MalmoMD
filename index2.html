@@ -357,41 +357,152 @@
 <!-- ═══════════════════════════════════════════════════════════
      ALL PRODUCTS — 4x2 GRID
      ═══════════════════════════════════════════════════════════ -->
-GRID_START
 <section class="w-full bg-gray-100 py-16" style="border-top:5px solid #fff;">
-    <div class="text-center"><h2 class="text-3xl lg:text-3xl py-10 font-normal tracking-tight text-gray-900 mb-4">Medications In Stock Ready to Ship</h2></div>
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-10">
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 pt-6 rounded-3xl bg-white overflow-hidden relative">
-            <span class="absolute bottom-10 left-4 text-black text-xs font-semibold px-6 py-3 rounded-full shadow-md z-10 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
-            <div class="text-center md:text-left max-w-md">
-                <h2 class="text-5xl font-light tracking-tight text-gray-900 mb-4">Compounded GLP-1 Injections</h2>
-                <hr class="my-5">
-                <img src="images/main.png">
+
+    <div class="text-center">
+        <h2 class="text-3xl lg:text-3xl py-10 font-normal tracking-tight text-gray-900 mb-4">Medications In Stock Ready to Ship</h2>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+            <!-- Card 1: Compounded Semaglutide Injection -->
+            <a href="https://start.freedomdirectrx.com?productId=compounded-semaglutide" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">Compounded GLP-1 Injection</h3>
+                    <span class="text-xs text-gray-500">Semaglutide</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1">
+                    <img src="images/main.png" alt="Compounded Semaglutide Injection" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 2: Compounded Tirzepatide Injection -->
+            <a href="https://start.freedomdirectrx.com?productId=compounded-tirzepatide" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">Compounded GLP-1 Injection</h3>
+                    <span class="text-xs text-gray-500">Tirzepatide</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1" style="min-height:180px;background:#f3f3f3;">
+                    <!-- Replace src="#productimages" with actual image path -->
+                    <img src="#productimages" alt="Compounded Tirzepatide Injection" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 3: Compounded Semaglutide Oral -->
+            <a href="https://start.freedomdirectrx.com?productId=compounded-semaglutide-oral" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">Compounded GLP-1 Tablets</h3>
+                    <span class="text-xs text-gray-500">Semaglutide Oral</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1">
+                    <img src="images/oral.png" alt="Compounded Semaglutide Oral" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 4: Compounded Tirzepatide Oral -->
+            <a href="https://start.freedomdirectrx.com?productId=compounded-tirzepatide-oral" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">Compounded GLP-1 Tablets</h3>
+                    <span class="text-xs text-gray-500">Tirzepatide Oral</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1" style="min-height:180px;background:#f3f3f3;">
+                    <!-- Replace src="#productimages" with actual image path -->
+                    <img src="#productimages" alt="Compounded Tirzepatide Oral" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 5: NAD+ Injection -->
+            <a href="https://start.freedomdirectrx.com?productId=nad-injection" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">NAD+ Injection</h3>
+                    <span class="text-xs text-gray-500">Energy &amp; Anti-Aging</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1" style="min-height:180px;background:#f3f3f3;">
+                    <!-- Replace src="#productimages" with actual image path -->
+                    <img src="#productimages" alt="NAD+ Injection" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 6: Sermorelin Injection -->
+            <a href="https://start.freedomdirectrx.com?productId=sermorelin-injection" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">Sermorelin Injection</h3>
+                    <span class="text-xs text-gray-500">Growth Hormone Support</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1" style="min-height:180px;background:#f3f3f3;">
+                    <!-- Replace src="#productimages" with actual image path -->
+                    <img src="#productimages" alt="Sermorelin Injection" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 7: Tadalafil -->
+            <a href="https://start.freedomdirectrx.com?productId=tadalafil" class="bg-white rounded-3xl overflow-hidden flex flex-col group hover:shadow-lg transition-shadow">
+                <div class="px-5 pt-5">
+                    <h3 class="text-base font-light tracking-tight text-gray-900 mb-1">Tadalafil</h3>
+                    <span class="text-xs text-gray-500">Men's Health</span>
+                    <hr class="mt-3 mb-0">
+                </div>
+                <div class="flex-1" style="min-height:180px;background:#f3f3f3;">
+                    <!-- Replace src="#productimages" with actual image path -->
+                    <img src="#productimages" alt="Tadalafil" class="w-full object-cover">
+                </div>
+                <div class="px-5 pb-5 pt-3">
+                    <span class="inline-block text-black text-xs font-semibold px-4 py-2 rounded-full bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
+                </div>
+            </a>
+
+            <!-- Card 8: Malmo Branding Card -->
+            <div class="bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300 rounded-3xl flex flex-col items-center justify-center p-8 text-center" style="min-height:300px;">
+                <img src="images/Malmologo.png" alt="Malmo" class="max-w-[140px] mb-4">
+                <p class="text-gray-800 text-sm font-medium mb-4">US-Certified Pharmacy.<br>100k+ Happy Customers.</p>
+                <a href="#Client_Link_Goes_HERE" class="inline-block bg-black text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-800 transition">Get Started</a>
             </div>
-        </div>
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 pt-6 rounded-3xl bg-white overflow-hidden relative">
-            <span class="absolute bottom-10 left-4 text-black text-xs font-semibold px-6 py-3 rounded-full shadow-md z-10 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
-            <div class="text-center md:text-left max-w-md">
-                <h2 class="text-5xl font-light tracking-tight text-gray-900 mb-4">Compounded GLP-1 Dissolvable Tablets</h2>
-                <hr class="my-5">
-                <img src="images/oral.png">
-            </div>
+
         </div>
     </div>
-    <section class="max-w-7xl mx-auto px-4 pt-8">
-        <div class="hidden md:flex justify-center space-x-12 p-4 items-center border border-[#E2E2E1] rounded-xl">
+
+    <!-- Trust Bar -->
+    <div class="max-w-7xl mx-auto px-4 pt-10">
+        <div class="hidden md:flex justify-center space-x-12 p-4 items-center border border-[#E2E2E1] rounded-xl bg-white">
             <div class="flex items-center text-center"><img src="index_files/hospital.png" alt="US-Certified Pharmacy" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">US-Certified Pharmacy</p></div>
             <div class="flex items-center text-center"><img src="index_files/personalized.webp" alt="Personalized Treatments" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Personalized Treatments</p></div>
             <div class="flex items-center text-center"><img src="index_files/trusted.webp" alt="Trusted by 100k+ Americans" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Trusted by 100k+ Americans</p></div>
             <div class="flex items-center text-center"><img src="index_files/medical.webp" alt="1:1 Medical Support" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">1:1 Medical Support</p></div>
         </div>
-    </section>
-    <section class="max-w-7xl mx-auto px-4 pt-8 md:pb-8 text-center">
+    </div>
+
+    <!-- CTA -->
+    <div class="max-w-7xl mx-auto px-4 pt-8 md:pb-8 text-center">
         <div class="flex justify-center gap-4 mb-2">
             <a href="#Client_Link_Goes_HERE" class="bg-black text-white px-12 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get started</a>
             <a href="#Client_Link_Goes_HERE" class="bg-white border border-gray-300 text-gray-800 px-12 py-3 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition">See pricing</a>
         </div>
-        <div class="alt mt-4 text-sm text-gray-900 flex flex-col items-center space-y-4">
+        <div class="mt-4 text-sm text-gray-900 flex flex-col items-center space-y-4">
             <div class="flex justify-center gap-4 flex-wrap text-center">
                 <span><i class="bi bi-ban"></i> No Hidden Fees</span>
                 <span><i class="bi bi-ban"></i> No Monthly Membership</span>
@@ -399,168 +510,9 @@ GRID_START
             </div>
             <img src="index_files/trustpiolot.png" alt="Trustpilot Rating" class="w-full max-w-[300px] pt-4 mx-auto h-auto" style="max-width:300px;">
         </div>
-    </section>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     NEW PRODUCT SECTION: NAD+ INJECTION
-     ═══════════════════════════════════════════════════════════ -->
-<section class="w-full bg-gray-100 py-16" style="border-top:5px solid #fff;">
-    <div class="text-center"><h2 class="text-3xl lg:text-3xl py-10 font-normal tracking-tight text-gray-900 mb-4">NAD+ Injection — In Stock &amp; Ready to Ship</h2></div>
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-10">
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 pt-6 rounded-3xl bg-white overflow-hidden relative">
-            <span class="absolute bottom-10 left-4 text-black text-xs font-semibold px-6 py-3 rounded-full shadow-md z-10 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
-            <div class="text-center md:text-left max-w-md w-full">
-                <h2 class="text-5xl font-light tracking-tight text-gray-900 mb-4">NAD+ Injection</h2>
-                <hr class="my-5">
-                <!-- Replace src="#productimages" with your actual NAD+ injection image path -->
-                <img src="#productimages" alt="NAD+ Injection" style="max-width:100%;display:block;min-height:220px;background:#f3f3f3;border-radius:12px;">
-            </div>
-        </div>
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 py-10 rounded-3xl bg-white overflow-hidden">
-            <div class="max-w-md w-full">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-3">What is NAD+?</h3>
-                <p class="text-gray-600 text-sm mb-6">NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme found in every cell of your body, essential for energy production, DNA repair, and healthy aging. NAD+ levels naturally decline with age — supplementing with NAD+ injections can help restore cellular energy, improve mental clarity, and support overall vitality.</p>
-                <ul class="text-sm text-gray-700 space-y-2 mb-8">
-                    <li>✔ Boosts cellular energy &amp; metabolism</li>
-                    <li>✔ Supports healthy aging &amp; DNA repair</li>
-                    <li>✔ Enhances mental clarity &amp; focus</li>
-                    <li>✔ RX Only — prescribed by a licensed provider</li>
-                </ul>
-                <a href="https://start.freedomdirectrx.com?productId=nad-injection" class="inline-block bg-black text-white px-10 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get Started</a>
-            </div>
-        </div>
     </div>
-    <section class="max-w-7xl mx-auto px-4 pt-8">
-        <div class="hidden md:flex justify-center space-x-12 p-4 items-center border border-[#E2E2E1] rounded-xl">
-            <div class="flex items-center text-center"><img src="index_files/hospital.png" alt="US-Certified Pharmacy" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">US-Certified Pharmacy</p></div>
-            <div class="flex items-center text-center"><img src="index_files/personalized.webp" alt="Personalized Treatments" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Personalized Treatments</p></div>
-            <div class="flex items-center text-center"><img src="index_files/trusted.webp" alt="Trusted by 100k+ Americans" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Trusted by 100k+ Americans</p></div>
-            <div class="flex items-center text-center"><img src="index_files/medical.webp" alt="1:1 Medical Support" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">1:1 Medical Support</p></div>
-        </div>
-    </section>
-    <section class="max-w-7xl mx-auto px-4 pt-8 md:pb-8 text-center">
-        <div class="flex justify-center gap-4 mb-2">
-            <a href="https://start.freedomdirectrx.com?productId=nad-injection" class="bg-black text-white px-12 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get started</a>
-            <a href="https://start.freedomdirectrx.com?productId=nad-injection" class="bg-white border border-gray-300 text-gray-800 px-12 py-3 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition">See pricing</a>
-        </div>
-        <div class="alt mt-4 text-sm text-gray-900 flex flex-col items-center space-y-4">
-            <div class="flex justify-center gap-4 flex-wrap text-center">
-                <span><i class="bi bi-ban"></i> No Hidden Fees</span>
-                <span><i class="bi bi-ban"></i> No Monthly Membership</span>
-                <span><i class="bi bi-check-circle"></i> Cancel Anytime</span>
-            </div>
-        </div>
-    </section>
+
 </section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     NEW PRODUCT SECTION: SERMORELIN INJECTION
-     ═══════════════════════════════════════════════════════════ -->
-<section class="w-full bg-gray-100 py-16" style="border-top:5px solid #fff;">
-    <div class="text-center"><h2 class="text-3xl lg:text-3xl py-10 font-normal tracking-tight text-gray-900 mb-4">Sermorelin Injection — In Stock &amp; Ready to Ship</h2></div>
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-10">
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 py-10 rounded-3xl bg-white overflow-hidden">
-            <div class="max-w-md w-full">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-3">What is Sermorelin?</h3>
-                <p class="text-gray-600 text-sm mb-6">Sermorelin is a growth hormone-releasing hormone (GHRH) analogue that stimulates your pituitary gland to naturally produce and secrete growth hormone. It supports lean muscle growth, fat reduction, improved sleep quality, and enhanced recovery — making it popular for anti-aging and wellness optimization.</p>
-                <ul class="text-sm text-gray-700 space-y-2 mb-8">
-                    <li>✔ Stimulates natural growth hormone production</li>
-                    <li>✔ Supports lean muscle &amp; fat loss</li>
-                    <li>✔ Improves sleep quality &amp; recovery</li>
-                    <li>✔ RX Only — prescribed by a licensed provider</li>
-                </ul>
-                <a href="https://start.freedomdirectrx.com?productId=sermorelin-injection" class="inline-block bg-black text-white px-10 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get Started</a>
-            </div>
-        </div>
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 pt-6 rounded-3xl bg-white overflow-hidden relative">
-            <span class="absolute bottom-10 left-4 text-black text-xs font-semibold px-6 py-3 rounded-full shadow-md z-10 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
-            <div class="text-center md:text-left max-w-md w-full">
-                <h2 class="text-5xl font-light tracking-tight text-gray-900 mb-4">Sermorelin Injection</h2>
-                <hr class="my-5">
-                <!-- Replace src="#productimages" with your actual Sermorelin image path -->
-                <img src="#productimages" alt="Sermorelin Injection" style="max-width:100%;display:block;min-height:220px;background:#f3f3f3;border-radius:12px;">
-            </div>
-        </div>
-    </div>
-    <section class="max-w-7xl mx-auto px-4 pt-8">
-        <div class="hidden md:flex justify-center space-x-12 p-4 items-center border border-[#E2E2E1] rounded-xl">
-            <div class="flex items-center text-center"><img src="index_files/hospital.png" alt="US-Certified Pharmacy" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">US-Certified Pharmacy</p></div>
-            <div class="flex items-center text-center"><img src="index_files/personalized.webp" alt="Personalized Treatments" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Personalized Treatments</p></div>
-            <div class="flex items-center text-center"><img src="index_files/trusted.webp" alt="Trusted by 100k+ Americans" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Trusted by 100k+ Americans</p></div>
-            <div class="flex items-center text-center"><img src="index_files/medical.webp" alt="1:1 Medical Support" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">1:1 Medical Support</p></div>
-        </div>
-    </section>
-    <section class="max-w-7xl mx-auto px-4 pt-8 md:pb-8 text-center">
-        <div class="flex justify-center gap-4 mb-2">
-            <a href="https://start.freedomdirectrx.com?productId=sermorelin-injection" class="bg-black text-white px-12 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get started</a>
-            <a href="https://start.freedomdirectrx.com?productId=sermorelin-injection" class="bg-white border border-gray-300 text-gray-800 px-12 py-3 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition">See pricing</a>
-        </div>
-        <div class="alt mt-4 text-sm text-gray-900 flex flex-col items-center space-y-4">
-            <div class="flex justify-center gap-4 flex-wrap text-center">
-                <span><i class="bi bi-ban"></i> No Hidden Fees</span>
-                <span><i class="bi bi-ban"></i> No Monthly Membership</span>
-                <span><i class="bi bi-check-circle"></i> Cancel Anytime</span>
-            </div>
-        </div>
-    </section>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     NEW PRODUCT SECTION: TADALAFIL
-     ═══════════════════════════════════════════════════════════ -->
-<section class="w-full bg-gray-100 py-16" style="border-top:5px solid #fff;">
-    <div class="text-center"><h2 class="text-3xl lg:text-3xl py-10 font-normal tracking-tight text-gray-900 mb-4">Tadalafil — In Stock &amp; Ready to Ship</h2></div>
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-10">
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 pt-6 rounded-3xl bg-white overflow-hidden relative">
-            <span class="absolute bottom-10 left-4 text-black text-xs font-semibold px-6 py-3 rounded-full shadow-md z-10 bg-gradient-to-br from-yellow-200 via-pink-200 to-purple-300">In Stock · $150 OFF</span>
-            <div class="text-center md:text-left max-w-md w-full">
-                <h2 class="text-5xl font-light tracking-tight text-gray-900 mb-4">Tadalafil</h2>
-                <hr class="my-5">
-                <!-- Replace src="#productimages" with your actual Tadalafil image path -->
-                <img src="#productimages" alt="Tadalafil" style="max-width:100%;display:block;min-height:220px;background:#f3f3f3;border-radius:12px;">
-            </div>
-        </div>
-        <div class="md:w-1/2 w-full flex items-center justify-center px-6 py-10 rounded-3xl bg-white overflow-hidden">
-            <div class="max-w-md w-full">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-3">What is Tadalafil?</h3>
-                <p class="text-gray-600 text-sm mb-6">Tadalafil is a clinically proven PDE5 inhibitor used to treat erectile dysfunction (ED) and benign prostatic hyperplasia (BPH). Known for its long-lasting effectiveness — up to 36 hours — Tadalafil gives you the flexibility to be ready when the moment is right, without the pressure of timing.</p>
-                <ul class="text-sm text-gray-700 space-y-2 mb-8">
-                    <li>✔ Clinically proven for ED treatment</li>
-                    <li>✔ Long-lasting — up to 36 hours</li>
-                    <li>✔ 100% online medical visit, no insurance needed</li>
-                    <li>✔ RX Only — prescribed by a licensed provider</li>
-                </ul>
-                <a href="https://start.freedomdirectrx.com?productId=tadalafil" class="inline-block bg-black text-white px-10 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get Started</a>
-            </div>
-        </div>
-    </div>
-    <section class="max-w-7xl mx-auto px-4 pt-8">
-        <div class="hidden md:flex justify-center space-x-12 p-4 items-center border border-[#E2E2E1] rounded-xl">
-            <div class="flex items-center text-center"><img src="index_files/hospital.png" alt="US-Certified Pharmacy" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">US-Certified Pharmacy</p></div>
-            <div class="flex items-center text-center"><img src="index_files/personalized.webp" alt="Personalized Treatments" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Personalized Treatments</p></div>
-            <div class="flex items-center text-center"><img src="index_files/trusted.webp" alt="Trusted by 100k+ Americans" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">Trusted by 100k+ Americans</p></div>
-            <div class="flex items-center text-center"><img src="index_files/medical.webp" alt="1:1 Medical Support" class="mx-auto mr-1"><p class="text-sm lg:text-[16px] font-[400]">1:1 Medical Support</p></div>
-        </div>
-    </section>
-    <section class="max-w-7xl mx-auto px-4 pt-8 md:pb-8 text-center">
-        <div class="flex justify-center gap-4 mb-2">
-            <a href="https://start.freedomdirectrx.com?productId=tadalafil" class="bg-black text-white px-12 py-3 rounded-full font-semibold shadow hover:bg-blue-500 transition">Get started</a>
-            <a href="https://start.freedomdirectrx.com?productId=tadalafil" class="bg-white border border-gray-300 text-gray-800 px-12 py-3 rounded-full font-semibold hover:bg-blue-500 hover:text-white transition">See pricing</a>
-        </div>
-        <div class="alt mt-4 text-sm text-gray-900 flex flex-col items-center space-y-4">
-            <div class="flex justify-center gap-4 flex-wrap text-center">
-                <span><i class="bi bi-ban"></i> No Hidden Fees</span>
-                <span><i class="bi bi-ban"></i> No Monthly Membership</span>
-                <span><i class="bi bi-check-circle"></i> Cancel Anytime</span>
-            </div>
-        </div>
-    </section>
-</section>
-
 
 <!-- FAQs -->
 <section class="max-w-5xl mx-auto px-6 pt-20" id="faqs">
