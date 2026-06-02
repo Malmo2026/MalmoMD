@@ -7,253 +7,305 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
 <style>
 :root {
   --forest:    #0D3B27;
   --forest-md: #1A5C3A;
   --forest-lt: #2E7D52;
-  --cream:     #F8F4EE;
-  --cream-dk:  #EDE7DB;
   --champagne: #C9A96E;
-  --gold:      #A8834A;
   --gold-lt:   #E8D5B0;
-  --ivory:     #FDFAF6;
-  --charcoal:  #1C1C1C;
-  --muted:     #6B7B6E;
-  --r-sm: 12px; --r-md: 18px; --r-lg: 26px; --r-xl: 40px; --r-pill: 999px;
+  --cream:     #F5F0E8;
+  --cream-lt:  #FAF7F2;
+  --white:     #FFFFFF;
+  --charcoal:  #1A1A1A;
+  --text-body: #3D3D3D;
+  --text-muted:#6B6B6B;
+  --r-pill: 999px; --r-lg: 28px; --r-md: 18px; --r-sm: 12px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 17px; }
-body { background: var(--ivory); color: var(--charcoal); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.65; }
-h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+html { scroll-behavior: smooth; }
+body { background: #fff; color: var(--charcoal); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.7; font-size: 16px; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; color: var(--charcoal); line-height: 1.15; font-weight: 700; }
+p { color: var(--text-body); }
 img { max-width: 100%; display: block; }
+a { text-decoration: none; }
 
 @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-/* PROMO */
-.promo-banner { background: var(--forest); text-align: center; padding: 14px 20px; }
-.promo-label { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--gold-lt); }
-.promo-sub { font-size: 13px; font-weight: 300; color: rgba(232,213,176,0.6); letter-spacing: 1px; text-transform: uppercase; margin-top: 3px; }
+/* ── PROMO BANNER ── */
+.promo-banner {
+  background: var(--forest);
+  text-align: center; padding: 13px 20px;
+}
+.promo-pill {
+  display: inline-block; padding: 7px 22px; border-radius: var(--r-pill);
+  background: linear-gradient(135deg, #c9f5a5, #a8e6c4, #7ed6a8);
+  margin-bottom: 4px;
+}
+.promo-headline { font-size: 17px; font-weight: 700; color: var(--forest); font-family: 'DM Sans', sans-serif; }
+.promo-sub-text { font-size: 12px; font-weight: 500; color: var(--forest-md); }
+.promo-guarantee { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.75); font-family: 'DM Sans', sans-serif; }
 
-/* TICKER */
-.ticker-bar { background: var(--cream-dk); overflow: hidden; border-bottom: 1px solid rgba(201,169,110,0.2); }
+/* ── TICKER ── */
+.ticker-bar { background: #EEF7F2; overflow: hidden; border-bottom: 1px solid rgba(13,59,39,0.1); }
 .ticker-track { display: flex; white-space: nowrap; animation: marquee 45s linear infinite; }
-.ticker-item { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--forest); padding: 11px 32px; }
+.ticker-item { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: 0.8px; color: var(--forest-md); padding: 10px 28px; }
 .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--champagne); flex-shrink: 0; }
 
-/* HEADER */
-header { background: var(--ivory); border-bottom: 1px solid rgba(13,59,39,0.1); position: sticky; top: 0; z-index: 100; }
-.header-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
-nav { display: flex; gap: 32px; align-items: center; }
-.nav-link { font-size: 13px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; font-weight: 500; }
+/* ── HEADER ── */
+header { background: #fff; border-bottom: 1px solid rgba(13,59,39,0.08); position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 28px; }
+nav { display: flex; gap: 36px; align-items: center; }
+.nav-link { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; font-weight: 500; }
 .nav-link:hover { color: var(--forest); }
 .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--forest); font-size: 26px; line-height: 1; }
-.mobile-nav { display: none; flex-direction: column; background: var(--ivory); border-top: 1px solid rgba(13,59,39,0.08); padding: 20px 24px; gap: 0; }
+.mobile-nav { display: none; flex-direction: column; background: #fff; border-top: 1px solid rgba(13,59,39,0.08); padding: 16px 24px; gap: 0; }
 .mobile-nav.open { display: flex; }
-.mobile-nav a { font-size: 16px; color: var(--forest); text-decoration: none; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(13,59,39,0.06); }
-.mobile-nav a.btn-primary { text-align: center; margin-top: 16px; border-bottom: none; border-radius: var(--r-pill); }
+.mobile-nav a { font-size: 16px; color: var(--forest); font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(13,59,39,0.06); display: block; }
+.mobile-nav .btn-primary-solid { text-align: center; margin-top: 16px; border-bottom: none; }
 
-/* BUTTONS */
-.btn-primary { background: var(--forest); color: var(--gold-lt); padding: 13px 30px; border-radius: var(--r-pill); font-size: 14px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; transition: background 0.25s; border: 1.5px solid var(--forest); cursor: pointer; }
-.btn-primary:hover { background: var(--forest-md); color: #fff; }
-.btn-outline { background: transparent; color: var(--forest); padding: 12px 30px; border-radius: var(--r-pill); font-size: 14px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; transition: all 0.25s; border: 1.5px solid var(--forest); cursor: pointer; }
-.btn-outline:hover { background: var(--forest); color: var(--gold-lt); }
-.btn-ghost { background: transparent; color: var(--champagne); padding: 12px 30px; border-radius: var(--r-pill); font-size: 14px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; transition: all 0.25s; border: 1.5px solid rgba(201,169,110,0.4); cursor: pointer; }
-.btn-ghost:hover { border-color: var(--champagne); color: var(--gold-lt); background: rgba(201,169,110,0.1); }
+/* ── BUTTONS ── */
+.btn-primary-solid {
+  background: var(--forest); color: #fff;
+  padding: 14px 32px; border-radius: var(--r-pill);
+  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+  display: inline-block; transition: background 0.2s; border: 2px solid var(--forest);
+}
+.btn-primary-solid:hover { background: var(--forest-md); border-color: var(--forest-md); }
+.btn-outline-dark {
+  background: #fff; color: var(--charcoal);
+  padding: 13px 32px; border-radius: var(--r-pill);
+  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+  display: inline-block; transition: all 0.2s; border: 2px solid rgba(0,0,0,0.15);
+}
+.btn-outline-dark:hover { border-color: var(--forest); color: var(--forest); }
+.btn-outline-green {
+  background: transparent; color: var(--forest);
+  padding: 13px 32px; border-radius: var(--r-pill);
+  font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif;
+  display: inline-block; transition: all 0.2s; border: 2px solid var(--forest);
+}
+.btn-outline-green:hover { background: var(--forest); color: #fff; }
 .btn-full { display: block; text-align: center; width: 100%; }
 
-/* HERO */
-.hero-section { background: var(--forest); padding: 72px 24px 0; overflow: hidden; position: relative; }
-.hero-section::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--champagne), var(--gold-lt), var(--champagne), transparent); }
-.hero-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: flex-end; }
-.hero-eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--champagne); margin-bottom: 18px; font-weight: 500; }
-.hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5vw, 66px); font-weight: 400; line-height: 1.1; color: #fff; margin-bottom: 16px; }
-.hero-h1 em { color: var(--champagne); font-style: italic; }
-.hero-sub { font-size: 16px; color: rgba(255,255,255,0.58); font-weight: 300; margin-bottom: 26px; max-width: 480px; line-height: 1.75; }
-.hero-price { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--gold-lt); font-weight: 500; line-height: 1; }
-.hero-price-label { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 300; }
-.hero-checks { list-style: none; margin: 22px 0; }
-.hero-checks li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.72); margin-bottom: 11px; font-weight: 300; }
-.check-icon { color: var(--champagne); flex-shrink: 0; font-style: normal; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
-.hero-meta { display: flex; gap: 20px; flex-wrap: wrap; padding-bottom: 56px; }
-.hero-meta span { font-size: 12px; color: rgba(255,255,255,0.3); }
+/* ── HERO ── */
+.hero-section { background: #fff; padding: 16px 16px 0; }
+.hero-gradient-box {
+  background: linear-gradient(135deg, #d4f5e2 0%, #e8f7ef 40%, #f0f9f4 70%, #e6f7ee 100%);
+  border-radius: var(--r-lg);
+  padding: 52px 56px 0;
+  overflow: hidden;
+  max-width: 1180px; margin: 0 auto;
+}
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: flex-end; max-width: 1180px; margin: 0 auto; }
+.hero-stars { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+.hero-stars svg { width: 20px; height: 20px; fill: var(--forest); }
+.hero-stars span { font-size: 14px; color: var(--text-muted); }
+.hero-h1 { font-size: clamp(42px, 6vw, 76px); font-weight: 800; color: var(--charcoal); margin-bottom: 10px; line-height: 1.05; }
+.hero-h1 span { font-size: 18px; font-weight: 300; color: var(--text-muted); display: block; margin-top: 8px; line-height: 1.5; font-family: 'DM Sans', sans-serif; }
+.hero-price-line { font-size: 17px; color: var(--text-body); margin-bottom: 20px; }
+.hero-price-line strong { font-size: 28px; color: var(--charcoal); }
+.hero-checklist { list-style: none; margin-bottom: 28px; }
+.hero-checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-body); margin-bottom: 10px; font-weight: 400; }
+.check-green { color: var(--forest-lt); font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.hero-meta-list { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero-meta-list span { font-size: 13px; color: var(--text-muted); }
+.hero-meta-list .bi { color: var(--forest-lt); margin-right: 4px; }
+.hero-img-col { display: flex; align-items: flex-end; justify-content: center; }
+.hero-img-col img { max-height: 500px; object-fit: contain; }
 
-/* SECTION HELPERS */
-.gold-divider { width: 44px; height: 1.5px; background: var(--champagne); margin: 0 auto 12px; border-radius: var(--r-pill); }
-.section-eyebrow { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--champagne); font-weight: 500; text-align: center; margin-bottom: 12px; }
+/* ── FEATURED IN ── */
+.featured-bar { background: #fff; text-align: center; padding: 28px 24px 20px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.featured-bar p { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; font-weight: 500; }
+
+/* ── FEATURE STRIP ── */
+.feature-strip { background: #EEF7F2; border-bottom: 1px solid rgba(13,59,39,0.1); padding: 18px 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.feature-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--forest-md); font-weight: 500; }
+.fi-img { height: 28px; width: auto; }
+
+/* ── SECTION HELPERS ── */
+.section-eyebrow { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--champagne); font-weight: 600; text-align: center; margin-bottom: 10px; }
 .section-header { text-align: center; margin-bottom: 52px; }
-.section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 50px); font-weight: 400; color: var(--forest); line-height: 1.2; }
-.section-header p { font-size: 16px; color: var(--muted); font-weight: 300; margin-top: 12px; }
-.max-w { max-width: 1120px; margin: 0 auto; }
-.cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
-.meta-row { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 16px; }
-.meta-row span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+.section-header h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; color: var(--charcoal); }
+.section-header p { font-size: 17px; color: var(--text-muted); font-weight: 300; margin-top: 12px; }
+.gold-rule { width: 44px; height: 2px; background: var(--champagne); margin: 0 auto 12px; border-radius: var(--r-pill); }
+.max-w { max-width: 1180px; margin: 0 auto; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
+.meta-bullets { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+.meta-bullets span { font-size: 13px; color: var(--text-muted); }
 
-/* FEATURE STRIP */
-.feature-strip { background: var(--cream); border-bottom: 1px solid rgba(201,169,110,0.18); padding: 20px 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-.feature-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--forest); font-weight: 400; }
-.fi-icon { width: 34px; height: 34px; border-radius: 50%; background: rgba(201,169,110,0.14); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+/* ── RESULTS SECTION ── */
+.results-section { background: #f7f7f7; padding: 80px 24px; }
+.results-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 
-/* FEATURED IN */
-.featured-section { background: #fff; text-align: center; padding: 28px 24px; border-bottom: 1px solid rgba(13,59,39,0.06); }
-.featured-section p { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-.featured-section img { margin: 0 auto; max-width: 100%; }
-
-/* RESULTS */
-.results-section { background: var(--cream); padding: 80px 24px; }
-.results-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-
-/* BEFORE/AFTER SLIDER */
-.ba-wrapper { border-radius: var(--r-lg); overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(13,59,39,0.13); }
+/* B/A SLIDER */
+.ba-wrapper { border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
 .ba-inner { position: relative; cursor: col-resize; user-select: none; line-height: 0; }
 .ba-inner img { width: 100%; display: block; }
 .ba-after-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; clip-path: inset(0 50% 0 0); }
-.ba-label { position: absolute; z-index: 5; bottom: 18px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; padding: 6px 16px; border-radius: var(--r-pill); }
-.ba-label-before { left: 16px; background: rgba(255,255,255,0.92); color: var(--forest); }
-.ba-label-after { right: 16px; background: var(--champagne); color: #fff; }
-.ba-handle { position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.85); left: 50%; transform: translateX(-50%); z-index: 10; cursor: col-resize; }
-.ba-handle-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 42px; height: 42px; border-radius: 50%; background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; color: var(--forest); font-size: 15px; }
+.ba-label { position: absolute; z-index: 5; bottom: 16px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; padding: 6px 14px; border-radius: var(--r-pill); }
+.ba-label-before { left: 14px; background: rgba(255,255,255,0.92); color: var(--forest); }
+.ba-label-after { right: 14px; background: var(--forest); color: #fff; }
+.ba-handle { position: absolute; top: 0; bottom: 0; width: 3px; background: #fff; left: 50%; transform: translateX(-50%); z-index: 10; cursor: col-resize; box-shadow: 0 0 12px rgba(0,0,0,0.2); }
+.ba-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; border-radius: 50%; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; color: var(--forest); font-size: 16px; }
 
 /* CALCULATOR */
-.calc-panel { padding: 0 8px; }
-.calc-panel h2 { font-size: clamp(24px, 3vw, 40px); font-weight: 400; line-height: 1.2; color: var(--forest); margin-bottom: 14px; }
-.accent-line { width: 40px; height: 2px; background: var(--champagne); margin-bottom: 22px; border-radius: var(--r-pill); }
-.calc-label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.calc-number { font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 500; color: var(--forest); line-height: 1; }
-.calc-unit { font-size: 20px; color: var(--muted); font-weight: 300; margin-left: 6px; }
-input[type=number] { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 500; color: var(--forest); border: none; background: transparent; width: 130px; outline: none; border-bottom: 2px solid var(--champagne); padding-bottom: 4px; }
-input[type=range] { width: 100%; height: 3px; background: var(--cream-dk); border-radius: var(--r-pill); outline: none; cursor: pointer; -webkit-appearance: none; appearance: none; margin: 16px 0; }
-input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--forest); border: 2.5px solid var(--champagne); cursor: pointer; }
-.calc-result-box { margin-top: 26px; padding: 24px 22px; background: var(--cream-dk); border-left: 4px solid var(--champagne); border-radius: 0 var(--r-md) var(--r-md) 0; }
+.calc-card { background: #fff; border-radius: var(--r-lg); padding: 40px 36px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+.calc-card h2 { font-size: clamp(30px, 3.5vw, 48px); font-weight: 800; color: var(--charcoal); margin-bottom: 8px; }
+.calc-card hr { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 20px 0; }
+.calc-weight-label { font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 10px; }
+input[type=number].weight-input {
+  font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700;
+  color: var(--charcoal); border: none; background: transparent;
+  width: 140px; outline: none; border-bottom: 3px solid var(--champagne); padding-bottom: 4px;
+}
+input[type=range].weight-range {
+  width: 100%; height: 4px; background: #e0e0e0; border-radius: var(--r-pill);
+  outline: none; cursor: pointer; -webkit-appearance: none; appearance: none; margin: 16px 0;
+}
+input[type=range].weight-range::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--forest); border: 3px solid var(--champagne); cursor: pointer;
+}
+.calc-result-tag {
+  display: inline-block; padding: 20px 28px; border-radius: var(--r-lg);
+  background: linear-gradient(135deg, #d4f5e2, #c8eed8, #b8e8cc);
+  margin-top: 16px;
+}
+.calc-result-tag .label { font-size: 14px; color: var(--forest-md); margin-bottom: 4px; }
+.calc-result-tag .value { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; color: var(--forest); line-height: 1; }
+.calc-result-tag .unit { font-size: 22px; color: var(--forest-md); font-weight: 400; margin-left: 6px; }
 
-/* REVIEWS */
-.reviews-section { background: var(--forest); padding: 80px 24px; }
-.review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,169,110,0.2); border-radius: var(--r-md); padding: 28px 24px; }
-.review-stars { color: var(--champagne); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
-.review-quote { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: rgba(255,255,255,0.84); line-height: 1.65; margin-bottom: 14px; }
-.review-author { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--champagne); font-weight: 500; }
+/* ── TRUST BADGES ── */
+.trust-bar { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; padding: 18px 24px; border: 1px solid rgba(13,59,39,0.1); border-radius: var(--r-md); background: #fff; margin-top: 40px; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-body); font-weight: 500; }
+.trust-item img { height: 30px; width: auto; }
 
-/* VIMEO CAROUSEL */
-.vimeo-carousel { width: 100%; }
+/* ── REVIEWS / VIDEOS ── */
+.reviews-section { background: #f7f7f7; padding: 80px 24px; }
 .vimeo-carousel .swiper-slide { display: flex; justify-content: center; }
-.vimeo-card { width: 100%; max-width: 340px; border-radius: var(--r-md); overflow: hidden; background: var(--forest-md); border: 1px solid rgba(201,169,110,0.12); }
+.vimeo-card { width: 100%; max-width: 320px; border-radius: var(--r-md); overflow: hidden; background: #1a1a1a; }
 .vimeo-frame { position: relative; width: 100%; aspect-ratio: 9/16; }
 .vimeo-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.vimeo-spinner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.spinner-dot { width: 44px; height: 44px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.25); border-top-color: #fff; animation: spin 0.9s linear infinite; }
+.vimeo-spinner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; background: rgba(0,0,0,0.3); }
+.spinner-dot { width: 40px; height: 40px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; animation: spin 0.9s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .vimeo-carousel .swiper-button-prev,
-.vimeo-carousel .swiper-button-next { color: var(--champagne) !important; }
-.vimeo-carousel .swiper-pagination-bullet-active { background: var(--champagne) !important; }
+.vimeo-carousel .swiper-button-next { color: var(--forest) !important; }
+.vimeo-carousel .swiper-pagination-bullet-active { background: var(--forest) !important; }
 
-/* HOW IT WORKS */
-.hiw-section { background: var(--ivory); padding: 80px 24px; }
-.hiw-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-.hiw-step { display: flex; gap: 22px; padding: 24px 0; border-bottom: 1px solid rgba(13,59,39,0.07); align-items: flex-start; }
-.step-num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 400; color: rgba(201,169,110,0.35); min-width: 50px; line-height: 1; }
-.step-time { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--champagne); margin-bottom: 6px; font-weight: 500; }
-.step-title { font-size: 17px; font-weight: 500; color: var(--forest); margin-bottom: 5px; }
-.step-desc { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.65; }
+/* REVIEW CARDS */
+.review-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 48px; }
+.review-card { background: #fff; border-radius: var(--r-md); padding: 26px 22px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.05); }
+.review-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+.review-body { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+.review-author { font-size: 12px; color: var(--text-muted); margin-top: 12px; font-weight: 500; }
 
-/* TESTIMONIAL CAROUSEL */
-.testimonials-section { background: var(--cream); padding: 80px 0; }
-.tcard { background: var(--ivory); padding: 28px 24px; border-radius: var(--r-md); border: 1px solid rgba(201,169,110,0.15); }
-.tcard-stars { color: var(--champagne); font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
-.tcard-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--forest); margin-bottom: 8px; }
-.tcard-body { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.65; }
-.tcard-author { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--champagne); margin-top: 14px; font-weight: 500; }
+/* ── HOW IT WORKS ── */
+.hiw-section { background: #fff; padding: 80px 16px; }
+.hiw-box { background: #fff; border-radius: var(--r-lg); overflow: hidden; max-width: 1180px; margin: 0 auto; padding: 56px; border: 1px solid rgba(13,59,39,0.08); }
+.hiw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.hiw-h2 { font-size: clamp(34px, 4.5vw, 60px); font-weight: 800; color: var(--charcoal); margin-bottom: 12px; }
+.hiw-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 36px; }
+.hiw-step { border-bottom: 1px solid rgba(0,0,0,0.07); padding: 16px 0; }
+.hiw-step-time { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--champagne); font-weight: 600; margin-bottom: 4px; }
+.hiw-step-title { font-size: 17px; font-weight: 600; color: var(--charcoal); }
+.hiw-step:last-child { border: none; }
+.hiw-phone-img { border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+.hiw-phone-img img { width: 100%; display: block; }
+
+/* ── TESTIMONIALS CAROUSEL ── */
+.testimonials-section { background: #f7f7f7; padding: 80px 0; }
+.tcard { background: #fff; padding: 26px 22px; border-radius: var(--r-md); box-shadow: 0 2px 12px rgba(0,0,0,0.06); height: 100%; }
+.tcard-stars { color: #f59e0b; font-size: 14px; letter-spacing: 1.5px; margin-bottom: 10px; }
+.tcard-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--charcoal); margin-bottom: 8px; font-weight: 500; }
+.tcard-body { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+.tcard-author { font-size: 12px; color: var(--text-muted); margin-top: 12px; font-weight: 500; }
 .testimonials-carousel .swiper-button-prev,
-.testimonials-carousel .swiper-button-next { color: var(--champagne) !important; }
+.testimonials-carousel .swiper-button-next { color: var(--forest) !important; }
 
-/* PRODUCTS */
-.products-section { background: var(--cream); padding: 80px 24px; border-top: 4px solid #fff; }
-.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.product-card { background: var(--ivory); border-radius: var(--r-lg); border: 1px solid rgba(201,169,110,0.2); overflow: hidden; padding: 34px 28px; position: relative; }
-.product-card.featured { border-color: rgba(201,169,110,0.55); border-width: 2px; }
-.product-badge { display: inline-block; padding: 6px 16px; border-radius: var(--r-pill); background: var(--champagne); color: #fff; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; margin-bottom: 20px; }
-.product-price { font-family: 'Playfair Display', serif; font-size: 46px; font-weight: 400; color: var(--forest); line-height: 1; }
-.product-per { font-size: 13px; color: var(--muted); font-weight: 300; }
-.product-rule { width: 32px; height: 1.5px; background: var(--champagne); margin: 16px 0; border-radius: var(--r-pill); }
-.product-title { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 400; color: var(--forest); margin-bottom: 7px; }
-.product-sub { font-size: 14px; color: var(--muted); font-weight: 300; margin-bottom: 20px; line-height: 1.55; }
+/* ── PRODUCTS ── */
+.products-section { background: #f7f7f7; padding: 80px 24px; border-top: 5px solid #fff; }
+.products-header h2 { font-size: clamp(34px, 4.5vw, 60px); font-weight: 800; color: var(--charcoal); text-align: center; margin-bottom: 40px; }
+.products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto; }
+.product-card { background: #fff; border-radius: var(--r-lg); padding: 36px 32px; position: relative; border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+.product-card.featured { border-color: var(--forest); border-width: 2px; }
+.product-badge { display: inline-block; padding: 5px 16px; border-radius: var(--r-pill); background: linear-gradient(135deg, #d4f5e2, #c8eed8); color: var(--forest); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 20px; }
+.product-price { font-family: 'Playfair Display', serif; font-size: 50px; font-weight: 700; color: var(--charcoal); line-height: 1; }
+.product-per { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.product-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
+.product-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.55; }
 .product-features { list-style: none; margin-bottom: 26px; }
-.product-features li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--charcoal); padding: 9px 0; border-bottom: 1px solid rgba(13,59,39,0.05); font-weight: 300; }
-.pf-check { color: var(--champagne); font-size: 13px; flex-shrink: 0; }
-.product-img { margin-top: 20px; border-radius: var(--r-md); overflow: hidden; text-align: center; }
-.product-img img { max-height: 180px; margin: 0 auto; }
+.product-features li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-body); padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.pf-check { color: var(--forest-lt); font-size: 16px; flex-shrink: 0; }
+.product-img { margin-top: 20px; text-align: center; }
+.product-img img { max-height: 200px; margin: 0 auto; }
 
-/* FAQ */
-.faq-section { background: var(--ivory); padding: 80px 24px; }
+/* ── FAQ ── */
+.faq-section { background: #fff; padding: 80px 24px; }
 .faq-inner { max-width: 740px; margin: 0 auto; }
-.faq-list { border-top: 1px solid rgba(13,59,39,0.08); }
-.faq-item { border-bottom: 1px solid rgba(13,59,39,0.08); }
+.faq-list { border-top: 1px solid rgba(0,0,0,0.08); }
+.faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
 .faq-btn { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.faq-q { font-size: 17px; font-weight: 400; color: var(--forest); line-height: 1.4; }
-.faq-icon { font-size: 24px; color: var(--champagne); flex-shrink: 0; transition: transform 0.25s; font-weight: 300; line-height: 1; }
+.faq-q { font-size: 17px; font-weight: 500; color: var(--charcoal); line-height: 1.4; }
+.faq-icon { font-size: 26px; color: var(--forest); flex-shrink: 0; transition: transform 0.25s; line-height: 1; font-weight: 300; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-a { display: none; padding: 0 0 22px; font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.8; }
+.faq-a { display: none; padding: 0 0 22px; font-size: 15px; color: var(--text-muted); line-height: 1.8; }
 .faq-item.open .faq-a { display: block; }
-.faq-a a { color: var(--champagne); text-decoration: none; }
-.faq-a a:hover { text-decoration: underline; }
+.faq-a a { color: var(--forest); }
 .faq-a ol, .faq-a ul { padding-left: 20px; margin-top: 8px; }
 .faq-a li { margin-bottom: 6px; }
 
-/* FOOTER */
-.footer-cta { background: var(--forest); padding: 80px 24px; text-align: center; }
-.footer-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 50px); font-weight: 400; color: #fff; margin-bottom: 14px; }
-.footer-cta h2 em { color: var(--champagne); font-style: italic; }
-.footer-cta p { font-size: 16px; color: rgba(255,255,255,0.48); font-weight: 300; margin-bottom: 28px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.75; }
-.footer-links { background: #0a2f1f; padding: 52px 24px; }
-.footer-links-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 160px 1fr 3fr; gap: 44px; align-items: start; }
+/* ── FOOTER ── */
+.footer-cta { background: linear-gradient(135deg, #c8f5d8, #d8f3e4, #c2eed4); padding: 80px 24px; text-align: center; border-radius: 40px 40px 0 0; margin-top: 40px; }
+.footer-cta h2 { font-size: clamp(34px, 5vw, 62px); font-weight: 800; color: var(--charcoal); margin-bottom: 12px; }
+.footer-cta p { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.footer-links { background: var(--forest); padding: 52px 24px; }
+.footer-links-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 160px 1fr 3fr; gap: 48px; align-items: start; }
 .footer-bottom { background: #081f14; padding: 18px 24px; text-align: center; }
-.footer-bottom p { font-size: 12px; letter-spacing: 0.8px; color: rgba(255,255,255,0.18); }
-.footer-legal { font-size: 12px; color: rgba(255,255,255,0.22); line-height: 1.85; }
-.footer-legal a { color: rgba(201,169,110,0.55); text-decoration: none; }
+.footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.55); }
+.footer-legal { font-size: 13px; color: rgba(255,255,255,0.92); line-height: 1.9; }
 .footer-legal p { margin-bottom: 8px; }
-.footer-link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--champagne); margin-bottom: 18px; font-weight: 500; display: block; }
-.footer-link-col a { font-size: 14px; color: rgba(255,255,255,0.32); text-decoration: none; display: block; margin-bottom: 12px; transition: color 0.2s; }
-.footer-link-col a:hover { color: rgba(255,255,255,0.7); }
+.footer-legal a { color: rgba(201,169,110,0.7); }
+.footer-link-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--champagne); margin-bottom: 18px; font-weight: 600; display: block; }
+.footer-link-col a { font-size: 14px; color: rgba(255,255,255,0.82); display: block; margin-bottom: 12px; transition: color 0.2s; }
+.footer-link-col a:hover { color: #fff; }
 
-/* COMMUNITY STRIP */
-.community-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(201,169,110,0.15); border: 1px solid rgba(201,169,110,0.15); border-radius: var(--r-md); overflow: hidden; }
-.community-card { background: var(--ivory); padding: 28px 24px; }
-.community-stars { font-size: 13px; color: var(--champagne); margin-bottom: 10px; letter-spacing: 2px; }
-.community-text { font-size: 15px; font-weight: 300; color: var(--charcoal); line-height: 1.7; margin-bottom: 12px; }
-.community-author { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+/* ── TRUSTPILOT ── */
+.trustpilot-img { max-width: 260px; margin: 16px auto 0; }
 
-/* TRUSTPILOT IMG */
-.trustpilot-img { max-width: 280px; margin: 16px auto 0; }
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
   nav { display: none; }
   .hamburger { display: block; }
-  .header-btn { display: none; }
+  .header-cta-btn { display: none; }
+  .hero-gradient-box { padding: 36px 28px 0; border-radius: var(--r-lg); }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-img-col { display: none; }
-  .hero-section { padding: 56px 20px 0; }
-  .results-grid { grid-template-columns: 1fr; gap: 36px; }
+  .results-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hiw-box { padding: 36px 28px; }
   .hiw-grid { grid-template-columns: 1fr; gap: 36px; }
-  .hiw-sticky { display: none; }
-  .products-grid { grid-template-columns: 1fr; gap: 18px; }
-  .community-grid { grid-template-columns: 1fr 1fr; }
+  .hiw-phone-img { display: none; }
+  .products-grid { grid-template-columns: 1fr; max-width: 480px; }
   .footer-links-inner { grid-template-columns: 1fr 1fr; }
   .footer-legal-col { grid-column: 1 / -1; }
-  .feature-strip { gap: 18px; padding: 16px 20px; }
+  .feature-strip { gap: 18px; padding: 14px 20px; }
 }
 @media (max-width: 600px) {
-  html { font-size: 16px; }
-  .hero-h1 { font-size: 34px; }
-  .hero-price { font-size: 42px; }
-  .community-grid { grid-template-columns: 1fr; }
-  .footer-links-inner { grid-template-columns: 1fr; }
-  .cta-row { flex-direction: column; align-items: center; }
+  .hero-gradient-box { padding: 28px 20px 0; }
+  .hero-h1 { font-size: 32px; }
   .hero-btns { flex-direction: column; }
-  .results-section, .reviews-section, .hiw-section, .products-section, .faq-section, .footer-cta { padding-left: 18px; padding-right: 18px; }
-  .section-header { margin-bottom: 36px; }
+  .cta-row { flex-direction: column; align-items: center; }
+  .review-cards-grid { grid-template-columns: 1fr; }
+  .calc-card { padding: 28px 22px; }
+  .hiw-box { padding: 28px 20px; }
+  .footer-links-inner { grid-template-columns: 1fr; }
+  .footer-cta { padding: 56px 20px; border-radius: 28px 28px 0 0; }
+  .results-section, .reviews-section, .testimonials-section, .products-section, .faq-section { padding-left: 16px; padding-right: 16px; }
 }
 </style>
 </head>
@@ -261,8 +313,13 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 
 <!-- PROMO BANNER -->
 <div class="promo-banner">
-  <div class="promo-label">New Year Discount Applied — Just $149</div>
-  <div class="promo-sub">Free Shipping &nbsp;·&nbsp; Backed by our weight loss guarantee</div>
+  <div class="promo-pill">
+    <div class="promo-headline">NEW YEAR Discount Applied!</div>
+    <div class="promo-sub-text">Just $149 + Fast, Free Shipping</div>
+  </div>
+  <div style="margin-top:5px;">
+    <div class="promo-guarantee">+ Fully backed by our weight loss guarantee!</div>
+  </div>
 </div>
 
 <!-- TICKER -->
@@ -286,14 +343,14 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a href="#"><img src="images/Malmologo.png" alt="Malmo" style="max-height:44px;width:auto;display:block;"></a>
+    <a href="#"><img src="images/Malmologo.png" alt="Malmo" style="max-height:42px;width:auto;"></a>
     <nav>
       <a href="#howitworks" class="nav-link">How it works</a>
       <a href="#reviews" class="nav-link">Reviews</a>
       <a href="#faqs" class="nav-link">FAQ</a>
       <a href="#pricing" class="nav-link">Pricing</a>
     </nav>
-    <a href="#" class="btn-primary header-btn">Begin your journey</a>
+    <a href="#" class="btn-primary-solid header-cta-btn">Start Your Journey</a>
     <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">☰</button>
   </div>
   <div class="mobile-nav" id="mobileNav">
@@ -301,148 +358,162 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
     <a href="#reviews" onclick="document.getElementById('mobileNav').classList.remove('open')">Reviews</a>
     <a href="#faqs" onclick="document.getElementById('mobileNav').classList.remove('open')">FAQ</a>
     <a href="#pricing" onclick="document.getElementById('mobileNav').classList.remove('open')">Pricing</a>
-    <a href="#" class="btn-primary">Begin your journey</a>
+    <a href="#" class="btn-primary-solid btn-primary-solid" style="text-align:center;margin-top:14px;display:block;border-bottom:none;">Start Your Journey</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero-section">
-  <div class="hero-grid">
-    <div style="padding-bottom:60px;">
-      <p class="hero-eyebrow">Medically supervised weight loss</p>
-      <h1 class="hero-h1">Lose 2 lbs a week.<br><em>Scientifically.</em></h1>
-      <p class="hero-sub">Compounded Semaglutide &amp; Tirzepatide — the proven way to lose up to 23% of your body weight, delivered to your door.</p>
-      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px;">
-        <span class="hero-price">$149</span>
-        <span class="hero-price-label">&nbsp;/ first month · includes everything</span>
+  <div class="hero-gradient-box">
+    <div class="hero-grid">
+      <div>
+        <!-- Stars -->
+        <div class="hero-stars">
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.943a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.444a1 1 0 00-.364 1.118l1.286 3.943c.3.921-.755 1.688-1.54 1.118l-3.36-2.444a1 1 0 00-1.176 0l-3.36 2.444c-.784.57-1.838-.197-1.54-1.118l1.287-3.943a1 1 0 00-.364-1.118L2.075 9.37c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.943z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.943a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.444a1 1 0 00-.364 1.118l1.286 3.943c.3.921-.755 1.688-1.54 1.118l-3.36-2.444a1 1 0 00-1.176 0l-3.36 2.444c-.784.57-1.838-.197-1.54-1.118l1.287-3.943a1 1 0 00-.364-1.118L2.075 9.37c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.943z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.943a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.444a1 1 0 00-.364 1.118l1.286 3.943c.3.921-.755 1.688-1.54 1.118l-3.36-2.444a1 1 0 00-1.176 0l-3.36 2.444c-.784.57-1.838-.197-1.54-1.118l1.287-3.943a1 1 0 00-.364-1.118L2.075 9.37c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.943z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.943a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.444a1 1 0 00-.364 1.118l1.286 3.943c.3.921-.755 1.688-1.54 1.118l-3.36-2.444a1 1 0 00-1.176 0l-3.36 2.444c-.784.57-1.838-.197-1.54-1.118l1.287-3.943a1 1 0 00-.364-1.118L2.075 9.37c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.943z"/></svg>
+          <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.943a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.444a1 1 0 00-.364 1.118l1.286 3.943c.3.921-.755 1.688-1.54 1.118l-3.36-2.444a1 1 0 00-1.176 0l-3.36 2.444c-.784.57-1.838-.197-1.54-1.118l1.287-3.943a1 1 0 00-.364-1.118L2.075 9.37c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.943z"/></svg>
+          <span>(4.8) Excellent! Over 50,000+ happy customers</span>
+        </div>
+
+        <!-- Mobile: headline + image side by side -->
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;" class="mobile-hero-row">
+          <h1 class="hero-h1" style="flex:1;">
+            Want to Lose 2lbs per week?
+            <span>The proven way to lose 23% of your body weight fast!</span>
+          </h1>
+          <div class="mobile-hero-img" style="flex-shrink:0;width:42%;display:none;">
+            <img src="index_files/30woman4.png" alt="Happy Woman">
+          </div>
+        </div>
+        <h1 class="hero-h1 desktop-hero-h1">
+          Want to Lose 2lbs per week?
+          <span>The proven way to lose 23% of your body weight fast!</span>
+        </h1>
+
+        <p class="hero-price-line" style="margin-top:16px;">
+          Starting at <strong>$149</strong> — Compounded <strong>Semaglutide</strong> (Ozempic®) &amp; <strong>Tirzepatide</strong> (Mounjaro®) in stock
+        </p>
+
+        <ul class="hero-checklist">
+          <li><span class="check-green">✓</span> 100% online medical visit. Injections and oral options available.</li>
+          <li><span class="check-green">✓</span> Prescription &amp; telemed visits included. No insurance required.</li>
+          <li><span class="check-green">✓</span> <strong>Same price, every dose. No hidden fees.</strong></li>
+          <li><span class="check-green">✓</span> Free shipping. Arrives in 1–2 days.</li>
+        </ul>
+
+        <div class="hero-btns">
+          <a href="#" class="btn-primary-solid">Get started</a>
+          <a href="#pricing" class="btn-outline-dark">See pricing</a>
+        </div>
+        <div class="hero-meta-list">
+          <span><i class="bi bi-slash-circle"></i> No Hidden Fees</span>
+          <span><i class="bi bi-slash-circle"></i> No Monthly Membership</span>
+          <span><i class="bi bi-check-circle"></i> Cancel Anytime</span>
+        </div>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px;">
-        <span style="color:var(--champagne);font-size:14px;letter-spacing:2px;">★★★★★</span>
-        <span style="font-size:13px;color:rgba(255,255,255,0.36);">(4.8) Excellent! Over 50,000+ happy customers</span>
+
+      <div class="hero-img-col">
+        <img src="index_files/30woman4.png" alt="Happy Woman who lost weight with Malmo">
       </div>
-      <ul class="hero-checks">
-        <li><i class="check-icon">✦</i> 100% online medical visit — injections and oral options available</li>
-        <li><i class="check-icon">✦</i> Prescription &amp; telemed visits included. No insurance required.</li>
-        <li><i class="check-icon">✦</i> Same price, every dose. No hidden fees.</li>
-        <li><i class="check-icon">✦</i> Free shipping. Arrives in 1–2 days.</li>
-      </ul>
-      <div class="hero-btns">
-        <a href="#" class="btn-ghost">Get started</a>
-        <a href="#pricing" class="btn-ghost" style="background:rgba(201,169,110,0.08);">See pricing</a>
-      </div>
-      <div class="hero-meta">
-        <span>No Hidden Fees</span>
-        <span>No Monthly Membership</span>
-        <span>Cancel Anytime</span>
-      </div>
-    </div>
-    <div class="hero-img-col" style="display:flex;justify-content:center;align-items:flex-end;">
-      <img src="index_files/30woman4.png" alt="Happy woman who lost weight" style="max-width:360px;max-height:520px;object-fit:contain;">
     </div>
   </div>
 </section>
 
-<!-- FEATURE STRIP -->
-<div class="feature-strip">
-  <div class="feature-item"><div class="fi-icon">🏥</div><span>US-Certified Pharmacy</span></div>
-  <div class="feature-item"><div class="fi-icon">🧬</div><span>Personalized Treatments</span></div>
-  <div class="feature-item"><div class="fi-icon">👥</div><span>100k+ Americans Served</span></div>
-  <div class="feature-item"><div class="fi-icon">👨‍⚕️</div><span>1:1 Medical Support</span></div>
-  <div class="feature-item"><div class="fi-icon">📦</div><span>Free 1-Day Shipping</span></div>
-</div>
-
 <!-- FEATURED IN -->
-<div class="featured-section">
+<div class="featured-bar">
   <p>We've been featured all over</p>
   <picture>
     <source srcset="images/seen-on-mobile.png" media="(max-width:767px)">
-    <img src="images/seen-on-desktop.png" alt="As seen on" class="social-proof" style="max-width:700px;">
+    <img src="images/seen-on-desktop.png" alt="As seen on" style="max-width:680px;margin:0 auto;">
   </picture>
+</div>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="feature-item"><img src="index_files/hospital.png" alt="" class="fi-img"> US-Certified Pharmacy</div>
+  <div class="feature-item"><img src="index_files/personalized.webp" alt="" class="fi-img"> Personalized Treatments</div>
+  <div class="feature-item"><img src="index_files/trusted.webp" alt="" class="fi-img"> Trusted by 100k+ Americans</div>
+  <div class="feature-item"><img src="index_files/medical.webp" alt="" class="fi-img"> 1:1 Medical Support</div>
 </div>
 
 <!-- RESULTS + CALCULATOR -->
 <section class="results-section">
-  <div class="section-header">
-    <div class="gold-divider"></div>
-    <p class="section-eyebrow">Real results</p>
-    <h2>How much will you lose in 3 months?</h2>
-  </div>
   <div class="results-grid">
-    <!-- Before/After Slider -->
+    <!-- B/A Slider -->
     <div class="ba-wrapper">
       <div class="ba-inner" id="baContainer">
-        <img src="index_files/slider-after.png" alt="Before" style="width:100%;display:block;">
+        <img src="index_files/slider-after.png" alt="Before">
         <img src="index_files/slider-before.png" alt="After" class="ba-after-img" id="baAfterImg">
-        <div class="ba-handle" id="baHandle">
-          <div class="ba-handle-circle">⇔</div>
-        </div>
+        <div class="ba-handle" id="baHandle"><div class="ba-circle">⇔</div></div>
         <span class="ba-label ba-label-before">June 2025</span>
         <span class="ba-label ba-label-after">August 2025</span>
       </div>
     </div>
 
     <!-- Calculator -->
-    <div class="calc-panel">
-      <div class="accent-line"></div>
-      <h2>Your potential loss</h2>
-      <p style="font-size:15px;color:var(--muted);font-weight:300;margin-bottom:26px;line-height:1.7;">Enter your current weight to see projected results based on clinical trial averages.</p>
-      <div class="calc-label">Current weight</div>
-      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
-        <input type="number" id="weightNum" value="220" min="100" max="600">
-        <span style="font-size:18px;color:var(--muted);font-weight:300;">lbs</span>
+    <div class="calc-card">
+      <h2>How much fat will you drop in 3 months?</h2>
+      <hr>
+      <p class="calc-weight-label">Your current weight:</p>
+      <div style="display:flex;align-items:baseline;gap:8px;">
+        <input type="number" id="weightNum" value="220" min="100" max="600" class="weight-input">
+        <span style="font-size:18px;color:var(--text-muted);">lbs</span>
       </div>
-      <input type="range" id="weightRange" min="100" max="600" value="220" step="1">
-      <div class="calc-result-box">
-        <div class="calc-label" style="margin-bottom:8px;">You could easily lose:</div>
-        <div style="display:flex;align-items:baseline;gap:8px;">
-          <span class="calc-number" id="lbsResult">44</span>
-          <span class="calc-unit">lbs</span>
+      <input type="range" id="weightRange" min="100" max="600" value="220" step="1" class="weight-range">
+      <div class="calc-result-tag">
+        <div class="label">You could easily lose:</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:4px;">
+          <span class="value" id="lbsResult">44</span>
+          <span class="unit">lbs</span>
         </div>
-        <p style="font-size:12px;color:var(--muted);font-weight:300;margin-top:10px;line-height:1.65;">Based on 20% average body weight loss over 12 weeks with GLP-1 treatment.*</p>
       </div>
-      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="#" class="btn-primary">Start now — $149</a>
-        <a href="#pricing" class="btn-outline">See all plans</a>
+
+      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#" class="btn-primary-solid">Get started</a>
+        <a href="#pricing" class="btn-outline-green">See pricing</a>
       </div>
+      <div class="meta-bullets" style="justify-content:flex-start;margin-top:14px;">
+        <span><i class="bi bi-slash-circle"></i> No Hidden Fees</span>
+        <span><i class="bi bi-slash-circle"></i> No Membership</span>
+        <span><i class="bi bi-check-circle"></i> Cancel Anytime</span>
+      </div>
+      <img src="index_files/trustpiolot.png" alt="Trustpilot" class="trustpilot-img" style="margin-left:0;margin-top:18px;">
     </div>
   </div>
 
-  <!-- Trust badges -->
-  <div class="max-w" style="margin-top:40px;">
-    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:18px;border:1px solid rgba(201,169,110,0.18);border-radius:var(--r-md);background:#fff;">
-      <div class="feature-item"><img src="index_files/hospital.png" alt="US-Certified Pharmacy" style="height:32px;width:auto;margin-right:8px;"> US-Certified Pharmacy</div>
-      <div class="feature-item"><img src="index_files/personalized.webp" alt="Personalized Treatments" style="height:32px;width:auto;margin-right:8px;"> Personalized Treatments</div>
-      <div class="feature-item"><img src="index_files/trusted.webp" alt="Trusted" style="height:32px;width:auto;margin-right:8px;"> Trusted by 100k+ Americans</div>
-      <div class="feature-item"><img src="index_files/medical.webp" alt="Medical Support" style="height:32px;width:auto;margin-right:8px;"> 1:1 Medical Support</div>
+  <div class="max-w" style="margin-top:44px;padding:0 0;">
+    <div class="trust-bar">
+      <div class="trust-item"><img src="index_files/hospital.png" alt=""> US-Certified Pharmacy</div>
+      <div class="trust-item"><img src="index_files/personalized.webp" alt=""> Personalized Treatments</div>
+      <div class="trust-item"><img src="index_files/trusted.webp" alt=""> Trusted by 100k+ Americans</div>
+      <div class="trust-item"><img src="index_files/medical.webp" alt=""> 1:1 Medical Support</div>
     </div>
   </div>
 
   <div class="cta-row">
-    <a href="#" class="btn-primary">Get started</a>
-    <a href="#pricing" class="btn-outline">See pricing</a>
+    <a href="#" class="btn-primary-solid">Get started</a>
+    <a href="#pricing" class="btn-outline-green">See pricing</a>
   </div>
-  <div class="meta-row">
-    <span>No Hidden Fees</span>
-    <span>No Monthly Membership</span>
-    <span>Cancel Anytime</span>
-  </div>
-  <div style="text-align:center;margin-top:20px;">
-    <img src="index_files/trustpiolot.png" alt="Trustpilot Rating" class="trustpilot-img">
-  </div>
+  <div class="meta-bullets"><span><i class="bi bi-slash-circle"></i> No Hidden Fees</span><span><i class="bi bi-slash-circle"></i> No Monthly Membership</span><span><i class="bi bi-check-circle"></i> Cancel Anytime</span></div>
+  <div style="text-align:center;"><img src="index_files/trustpiolot.png" alt="Trustpilot" class="trustpilot-img"></div>
 </section>
 
-<!-- REVIEWS / VIDEO TESTIMONIALS -->
+<!-- REVIEWS -->
 <section class="reviews-section" id="reviews">
   <div class="max-w">
-    <div class="section-header" style="margin-bottom:44px;">
-      <div class="gold-divider"></div>
-      <p class="section-eyebrow">Patient stories</p>
-      <h2 style="color:#fff;">Real customers. <em style="color:var(--champagne);">All confidence.</em></h2>
-      <p style="color:rgba(255,255,255,0.38);font-weight:300;margin-top:10px;font-size:16px;">There's no shame in science. GLP-1s work — here's the proof.</p>
+    <div class="section-header">
+      <div class="gold-rule"></div>
+      <p class="section-eyebrow">Patient Stories</p>
+      <h2>Real Customers. No shame.<br><em style="font-style:italic;color:var(--forest);">All Confidence.</em></h2>
+      <p>There's no shame in using medical weight loss to support your health when traditional methods aren't cutting it.</p>
     </div>
 
+    <h3 style="text-align:center;font-size:20px;font-weight:400;color:var(--text-muted);margin-bottom:28px;">Watch what our customers have to say about losing weight with Malmo:</h3>
+
     <!-- VIMEO CAROUSEL -->
-    <div class="swiper vimeo-carousel" style="padding-bottom:50px;">
+    <div class="swiper vimeo-carousel" style="padding-bottom:52px;">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><div class="vimeo-card"><div class="vimeo-frame"><div class="vimeo-spinner"><div class="spinner-dot"></div></div><iframe src="https://player.vimeo.com/video/1129000682?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe></div></div></div>
         <div class="swiper-slide"><div class="vimeo-card"><div class="vimeo-frame"><div class="vimeo-spinner"><div class="spinner-dot"></div></div><iframe src="https://player.vimeo.com/video/1128998480?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe></div></div></div>
@@ -459,49 +530,34 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
       <div class="swiper-button-next"></div>
     </div>
 
-    <!-- Written reviews -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:44px;">
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-quote">"I've never felt more confident and supported. The team truly cares about your progress."</p><div class="review-author">— Jessica R.</div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-quote">"Down to 220 from 245 in only 3 months. I just don't eat like I used to — remarkable."</p><div class="review-author">— B.H.</div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-quote">"For the first time in my life, I don't think about food. No head hunger whatsoever."</p><div class="review-author">— Daniel T.</div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-quote">"Lost 6 lbs in my first week. That used to take me 3 months of starving myself."</p><div class="review-author">— Mary</div></div>
-      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-quote">"Changed my life mentally and physically. No desire to drink either — unexpected bonus."</p><div class="review-author">— Johnny J.</div></div>
+    <div class="section-header" style="margin-top:20px;margin-bottom:0;">
+      <h2 style="font-size:clamp(26px,3.5vw,44px);">Ready to lose 23% of your body weight?</h2>
     </div>
-
     <div class="cta-row">
-      <a href="#" class="btn-ghost">Let's Go!</a>
-      <a href="#pricing" class="btn-ghost" style="background:rgba(201,169,110,0.08);">See pricing</a>
+      <a href="#" class="btn-primary-solid">Let's Go!</a>
+      <a href="#pricing" class="btn-outline-green">See pricing</a>
     </div>
-    <div class="meta-row" style="margin-top:14px;">
-      <span style="color:rgba(255,255,255,0.25);">No Hidden Fees</span>
-      <span style="color:rgba(255,255,255,0.25);">No Monthly Membership</span>
-      <span style="color:rgba(255,255,255,0.25);">Cancel Anytime</span>
-    </div>
-    <div style="text-align:center;margin-top:18px;">
-      <img src="index_files/trustpiolot.png" alt="Trustpilot Rating" class="trustpilot-img">
-    </div>
+    <div class="meta-bullets"><span><i class="bi bi-slash-circle"></i> No Hidden Fees</span><span><i class="bi bi-slash-circle"></i> No Monthly Membership</span><span><i class="bi bi-check-circle"></i> Cancel Anytime</span></div>
+    <div style="text-align:center;"><img src="index_files/trustpiolot.png" alt="Trustpilot" class="trustpilot-img"></div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="hiw-section" id="howitworks">
-  <div class="hiw-grid">
-    <div>
-      <div class="gold-divider" style="margin:0 0 12px;"></div>
-      <p class="section-eyebrow" style="text-align:left;">The process</p>
-      <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:400;color:var(--forest);margin-bottom:12px;line-height:1.2;">Why we're better at weight loss</h2>
-      <p style="font-size:15px;color:var(--muted);font-weight:300;margin-bottom:36px;line-height:1.7;">Fast and effective weight loss prescriptions, without the long wait times or doctor denials.</p>
-      <div class="hiw-step"><div class="step-num">01</div><div><div class="step-time">Today</div><div class="step-title">Save $150 — complete your intake</div><div class="step-desc">A 5-minute health qualifier and medication selection.</div></div></div>
-      <div class="hiw-step"><div class="step-num">02</div><div><div class="step-time">Within 24 hrs</div><div class="step-title">Provider reviews &amp; writes your Rx</div><div class="step-desc">A licensed physician reviews your chart — often within 5 hours.</div></div></div>
-      <div class="hiw-step"><div class="step-num">03</div><div><div class="step-time">Same day</div><div class="step-title">Ships from a licensed US pharmacy</div><div class="step-desc">Temperature-controlled packaging via 1-day FedEx or UPS.</div></div></div>
-      <div class="hiw-step" style="border:none;"><div class="step-num">04</div><div><div class="step-time">Ongoing</div><div class="step-title">Begin treatment with 1:1 support</div><div class="step-desc">Your doctor adjusts your dose monthly. We're with you every step.</div></div></div>
-      <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;">
-        <a href="#" class="btn-primary">Get started</a>
-        <a href="#pricing" class="btn-outline">See plans</a>
+  <div class="hiw-box">
+    <div class="hiw-grid">
+      <div>
+        <h2 class="hiw-h2">Why we're better at weight loss</h2>
+        <p class="hiw-sub">Fast and effective weight loss prescriptions, without the long wait times or doctor denials.</p>
+        <div class="hiw-step"><div class="hiw-step-time">Today</div><div class="hiw-step-title">Save $150 Today!</div></div>
+        <div class="hiw-step"><div class="hiw-step-time">In 1 day</div><div class="hiw-step-title">Provider writes an Rx</div></div>
+        <div class="hiw-step"><div class="hiw-step-time">Within 1 day</div><div class="hiw-step-title">Your order ships from our licensed US pharmacies</div></div>
+        <div class="hiw-step"><div class="hiw-step-time">Free &amp; Discreet 2-Day Delivery</div><div class="hiw-step-title">Get your medication</div></div>
+        <div class="hiw-step"><div class="hiw-step-time">On-going care &amp; support</div><div class="hiw-step-title">Begin treatment</div></div>
       </div>
-    </div>
-    <div class="hiw-sticky" style="position:sticky;top:100px;">
-      <img src="images/phone.png" alt="Malmo app on phone" style="width:100%;border-radius:var(--r-lg);box-shadow:0 20px 60px rgba(13,59,39,0.15);">
+      <div class="hiw-phone-img">
+        <img src="images/phone.png" alt="Malmo app on phone">
+      </div>
     </div>
   </div>
 </section>
@@ -510,101 +566,74 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 <section class="testimonials-section">
   <div class="max-w" style="padding:0 24px;">
     <div class="section-header">
-      <div class="gold-divider"></div>
-      <p class="section-eyebrow">Trusted by 100,000+ Americans</p>
-      <h2>More from our community</h2>
+      <h2>100k+ Happy Customers :)</h2>
+      <p>Real results, real people. Discover how we've transformed lives.</p>
     </div>
   </div>
-  <div class="swiper testimonials-carousel" style="padding:0 24px 50px;">
+  <div class="swiper testimonials-carousel" style="padding:0 24px 56px;">
     <div class="swiper-wrapper">
       <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Life-Changing!</div><p class="tcard-body">I've never felt more confident and supported. The team truly cares about your progress and it shows.</p><div class="tcard-author">— Jessica R.</div></div></div>
       <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Highly Recommend</div><p class="tcard-body">The process was seamless and the results were faster than I expected. 5 stars!</p><div class="tcard-author">— Daniel T.</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Back to size 4 since High School</div><p class="tcard-body">I'm 42 and every year I was just getting heavier. Losing the amount of weight that I did is completely life changing.</p><div class="tcard-author">— Sarah</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Absolutely incredible!</div><p class="tcard-body">I take it once a week and I cannot believe how fast I am losing weight. I'm down to 220 from 245 in only 3 months.</p><div class="tcard-author">— B.H.</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">A miracle</div><p class="tcard-body">A miracle, has changed my life mentally and physically. Also, no desire to drink — a side benefit!</p><div class="tcard-author">— Johnny J.</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Lost 6 lbs in one week</div><p class="tcard-body">Today, in one week since my first injection, I lost 6 lbs. The last diet took me 3 months to lose 10 lbs by starving.</p><div class="tcard-author">— Mary</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">The Missing Key</div><p class="tcard-body">I started at 240 and have consistently lost a couple pounds a week. Starting the second round and couldn't be happier.</p><div class="tcard-author">— James</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Nothing less than a miracle</div><p class="tcard-body">NO HEAD HUNGER! For the first time in my life, I don't think about food. I don't crave junk food.</p><div class="tcard-author">— Daniel T.</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Down 15 lbs!</div><p class="tcard-body">I used to work out 3–5 days per week but was not losing weight. I am down 15 lbs and have lost all cravings.</p><div class="tcard-author">— Jenny J.</div></div></div>
-      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Don't be afraid to try it!</div><p class="tcard-body">I've lost 6 lbs in the first 2 weeks. I've had no side effects. I am 64 and I think it's an amazing drug.</p><div class="tcard-author">— Amy J.</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Size 4 since High School!</div><p class="tcard-body">I'm 42 and every year I was just getting heavier. Losing this weight is completely life changing.</p><div class="tcard-author">— Sarah</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Absolutely incredible!</div><p class="tcard-body">I take it once a week and I cannot believe how fast I am losing weight. Down to 220 from 245 in only 3 months.</p><div class="tcard-author">— B.H.</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">A miracle</div><p class="tcard-body">Changed my life mentally and physically. Also, no desire to drink — a side benefit!</p><div class="tcard-author">— Johnny J.</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Lost 6 lbs in one week</div><p class="tcard-body">In one week since my first injection, I lost 6 lbs. Dieting used to take me 3 months to lose 10 lbs.</p><div class="tcard-author">— Mary</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">The Missing Key</div><p class="tcard-body">I started at 240 and consistently lose a couple pounds a week. Couldn't be happier overall.</p><div class="tcard-author">— James</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Nothing less than a miracle</div><p class="tcard-body">NO HEAD HUNGER! For the first time, I don't think about food. I get full very quickly.</p><div class="tcard-author">— Daniel T.</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Down 15 lbs!</div><p class="tcard-body">I used to work out 3–5 days a week but wasn't losing weight. Down 15 lbs and lost all cravings.</p><div class="tcard-author">— Jenny J.</div></div></div>
+      <div class="swiper-slide" style="height:auto;"><div class="tcard"><div class="tcard-stars">★★★★★</div><div class="tcard-title">Don't be afraid to try it!</div><p class="tcard-body">Lost 6 lbs in the first 2 weeks. No side effects whatsoever. I'm 64 and think it's an amazing drug.</p><div class="tcard-author">— Amy J.</div></div></div>
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
 </section>
 
-<!-- PRODUCTS / PRICING -->
+<!-- PRODUCTS -->
 <section class="products-section" id="pricing">
   <div class="max-w">
-    <div class="section-header">
-      <div class="gold-divider"></div>
-      <p class="section-eyebrow">In stock &amp; ready to ship</p>
-      <h2>Medications in stock, ready to ship</h2>
-      <p>Simple, transparent pricing. No membership fees. Cancel anytime.</p>
+    <div class="products-header">
+      <h2>Medications In Stock Ready to Ship</h2>
     </div>
     <div class="products-grid">
       <div class="product-card">
-        <span class="product-badge">Oral · Non-injectable</span>
-        <div class="product-price">$249</div>
+        <span class="product-badge">In Stock · $150 OFF</span>
+        <div class="product-price">$297</div>
         <div class="product-per">/month · all-inclusive</div>
-        <div class="product-rule"></div>
-        <div class="product-title">Sublingual Tablets</div>
-        <div class="product-sub">Compounded Semaglutide &amp; Tirzepatide — dissolves in 30 seconds, no needles</div>
+        <div class="product-title">Compounded GLP-1 Injections</div>
+        <div class="product-sub">Compounded Semaglutide (Ozempic®) — weekly self-injection, clinically proven</div>
         <ul class="product-features">
-          <li><span class="pf-check">✦</span> Oral dissolving tablet</li>
-          <li><span class="pf-check">✦</span> Doctor visit included</li>
-          <li><span class="pf-check">✦</span> Free 1-day shipping</li>
-          <li><span class="pf-check">✦</span> All supplies included</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> Weekly subcutaneous injection</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> Doctor visit included</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> Free 1-day shipping</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> All supplies included</li>
         </ul>
-        <a href="#" class="btn-outline btn-full">Get started</a>
-        <div class="product-img"><img src="images/oral.png" alt="Oral GLP-1 tablets"></div>
+        <a href="#" class="btn-primary-solid btn-full">Get started</a>
+        <div class="product-img"><img src="images/main.png" alt="GLP-1 injections"></div>
       </div>
 
       <div class="product-card featured">
-        <span class="product-badge" style="background:var(--forest);">Injection · Most Effective</span>
-        <div class="product-price">$297</div>
+        <span class="product-badge">In Stock · $150 OFF</span>
+        <div class="product-price">$249</div>
         <div class="product-per">/month · all-inclusive</div>
-        <div class="product-rule"></div>
-        <div class="product-title">Compounded Semaglutide</div>
-        <div class="product-sub">Same active ingredient as Ozempic® — weekly self-injection, clinically proven</div>
+        <div class="product-title">Compounded GLP-1 Dissolvable Tablets</div>
+        <div class="product-sub">Oral sublingual Semaglutide &amp; Tirzepatide — dissolves in 30 seconds, no needles</div>
         <ul class="product-features">
-          <li><span class="pf-check">✦</span> Weekly subcutaneous injection</li>
-          <li><span class="pf-check">✦</span> Doctor visit included</li>
-          <li><span class="pf-check">✦</span> Free 1-day shipping</li>
-          <li><span class="pf-check">✦</span> All supplies included</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> Oral dissolving tablet</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> Doctor visit included</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> Free 1-day shipping</li>
+          <li><span class="pf-check"><i class="bi bi-check-lg"></i></span> All supplies included</li>
         </ul>
-        <a href="#" class="btn-primary btn-full">Get started</a>
-        <div class="product-img"><img src="images/main.png" alt="GLP-1 injection"></div>
+        <a href="#" class="btn-outline-green btn-full">Get started</a>
+        <div class="product-img"><img src="images/oral.png" alt="GLP-1 oral tablets"></div>
       </div>
-
-      <div class="product-card">
-        <span class="product-badge">Injection · Maximum Dose</span>
-        <div class="product-price">$497</div>
-        <div class="product-per">/month · all-inclusive</div>
-        <div class="product-rule"></div>
-        <div class="product-title">Compounded Tirzepatide</div>
-        <div class="product-sub">Same active ingredient as Mounjaro® — dual-action GLP-1 + GIP</div>
-        <ul class="product-features">
-          <li><span class="pf-check">✦</span> Weekly subcutaneous injection</li>
-          <li><span class="pf-check">✦</span> Doctor visit included</li>
-          <li><span class="pf-check">✦</span> Free 1-day shipping</li>
-          <li><span class="pf-check">✦</span> Dual GLP-1 + GIP action</li>
-        </ul>
-        <a href="#" class="btn-outline btn-full">Get started</a>
-        <div class="product-img"><img src="images/main.png" alt="Tirzepatide injection"></div>
-      </div>
-    </div>
-
-    <div style="margin-top:16px;padding:18px 24px;background:var(--ivory);border:1px solid rgba(201,169,110,0.18);border-radius:var(--r-md);text-align:center;">
-      <p style="font-size:14px;color:var(--muted);font-weight:300;">All plans include: licensed physician review · free 1-day insured shipping · all supplies · patient portal · full refund if not approved</p>
     </div>
 
     <div class="cta-row">
-      <a href="#" class="btn-primary">Get started</a>
-      <a href="#" class="btn-outline">See pricing</a>
+      <a href="#" class="btn-primary-solid">Get started</a>
+      <a href="#" class="btn-outline-green">See pricing</a>
     </div>
-    <div class="meta-row"><span>No Hidden Fees</span><span>No Monthly Membership</span><span>Cancel Anytime</span></div>
-    <div style="text-align:center;margin-top:16px;"><img src="index_files/trustpiolot.png" alt="Trustpilot" class="trustpilot-img"></div>
+    <div class="meta-bullets"><span><i class="bi bi-slash-circle"></i> No Hidden Fees</span><span><i class="bi bi-slash-circle"></i> No Monthly Membership</span><span><i class="bi bi-check-circle"></i> Cancel Anytime</span></div>
+    <div style="text-align:center;"><img src="index_files/trustpiolot.png" alt="Trustpilot" class="trustpilot-img"></div>
   </div>
 </section>
 
@@ -612,8 +641,6 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
 <section class="faq-section" id="faqs">
   <div class="faq-inner">
     <div class="section-header">
-      <div class="gold-divider"></div>
-      <p class="section-eyebrow">Common questions</p>
       <h2>We've got you.</h2>
       <p>You have questions, we have answers.</p>
     </div>
@@ -636,19 +663,19 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">How does the pricing work?</span><span class="faq-icon">+</span></button>
-        <div class="faq-a">For Semaglutide (same active ingredient in Ozempic®) we charge $297/month. For Tirzepatide (same active ingredient found in Mounjaro®) we charge $497/month. Our lowest cost option is $249/month for non-injectable sublingual oral medication.<br><br>Included in this simple pricing is your medication, doctor visits (normally $99/visit), 1-day FedEx or UPS shipping, and all supplies needed for injections. No hidden fees or membership charges.</div>
+        <div class="faq-a">For Semaglutide (same active ingredient in Ozempic®) we charge $297/month. For Tirzepatide (same active ingredient found in Mounjaro®) we charge $497/month. Our lowest cost option is $249/month for non-injectable sublingual oral medication.<br><br>Included in this simple pricing is your medication, doctor visits, 1-day FedEx or UPS shipping, and all supplies needed for injections. No hidden fees or membership charges.</div>
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">What if I need to cancel?</span><span class="faq-icon">+</span></button>
-        <div class="faq-a">No contracts. Month to month customers can cancel anytime by emailing <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or calling <a href="tel:+13433035101">+1-343-303-5101</a>. If you are unhappy with your results, let us know and we'll make it right.</div>
+        <div class="faq-a">No contracts. Month to month customers can cancel anytime by emailing <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or calling <a href="tel:+13433035101">+1-343-303-5101</a>. We offer a patient satisfaction guarantee — if you are unhappy with your results, let us know and we'll make it right.</div>
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Is the medication real semaglutide &amp; tirzepatide?</span><span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes, both of our GLP-1 weight loss medications are real prescription medications prescribed by a doctor and compounded by a real US-based pharmacy. These are the same medications that people are talking about and getting real results with all over social media.</div>
+        <div class="faq-a">Yes — both of our GLP-1 weight loss medications are real prescription medications prescribed by a doctor and compounded by a real US-based pharmacy. These are the same medications that people are talking about and getting real results with all over social media.</div>
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Do you offer non-injectable options?</span><span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes! We currently offer oral sublingual Semaglutide and Tirzepatide. Simply place one tablet inside your mouth and allow it to dissolve for 30 seconds. Studies show this is a great and effective alternative to injections.</div>
+        <div class="faq-a">Yes! We offer oral sublingual Semaglutide and Tirzepatide. Simply place one tablet inside your mouth and allow it to dissolve for 30 seconds. Studies show this is a great and effective alternative to injections.</div>
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Where do my prescriptions come from?</span><span class="faq-icon">+</span></button>
@@ -656,7 +683,7 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">How is it shipped?</span><span class="faq-icon">+</span></button>
-        <div class="faq-a">Prescriptions received before 2pm CT will be shipped same-day via next-day UPS in a temperature-controlled package. Weekend orders (Friday–Sunday) will be shipped Monday. You'll receive a tracking number for every shipment. Each shipment is fully insured.<br><br>Questions? Email <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or call <a href="tel:+13433035101">+1-343-303-5101</a>.</div>
+        <div class="faq-a">Prescriptions received before 2pm CT will be shipped same-day via next-day UPS in a temperature-controlled package. Weekend orders ship Monday. You'll receive a tracking number for every shipment. Each shipment is fully insured.<br><br>Questions? Email <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or call <a href="tel:+13433035101">+1-343-303-5101</a>.</div>
       </div>
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">How much weight will I lose?</span><span class="faq-icon">+</span></button>
@@ -670,31 +697,22 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
   </div>
 </section>
 
-<!-- FOOTER CTA -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-cta">
-    <div class="gold-divider"></div>
-    <p class="section-eyebrow" style="margin-bottom:18px;">Get started today</p>
-    <h2>Ready to stop food cravings?<br><em>Get $150 off instantly.</em></h2>
-    <p>It's not cheating — it's science! Lose up to 23% of your body weight (1–2 lbs per week) with medically supervised treatment from the comfort of your home.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="#" class="btn-ghost">Get started</a>
-      <a href="#pricing" class="btn-ghost" style="background:rgba(201,169,110,0.08);">View pricing</a>
-    </div>
-    <div style="display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-      <span style="font-size:12px;color:rgba(255,255,255,0.22);letter-spacing:1px;text-transform:uppercase;">No hidden fees</span>
-      <span style="font-size:12px;color:rgba(255,255,255,0.22);letter-spacing:1px;text-transform:uppercase;">No monthly membership</span>
-      <span style="font-size:12px;color:rgba(255,255,255,0.22);letter-spacing:1px;text-transform:uppercase;">Cancel anytime</span>
-    </div>
+    <p style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--forest-md);font-weight:600;margin-bottom:14px;">Get Started</p>
+    <h2>Ready to Stop Food Cravings?<br>Get $150 OFF your prescription instantly!</h2>
+    <p>It's not cheating, it's science! Lose up to 23% of your body weight (1–2 lbs per week) with medically supervised safe &amp; effective treatment from the comfort of your home.</p>
+    <a href="#" class="btn-primary-solid">Get started</a>
   </div>
 
   <div class="footer-links">
     <div class="footer-links-inner">
       <div>
-        <img src="images/Malmologo.png" alt="Malmo" style="max-width:130px;margin-bottom:14px;filter:brightness(0) invert(1);opacity:0.6;">
-        <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-bottom:14px;">© 2026 Malmo</p>
-        <p style="margin-bottom:8px;"><a href="mailto:hello@malmohealth.com" style="font-size:13px;color:rgba(201,169,110,0.65);text-decoration:none;">hello@malmohealth.com</a></p>
-        <p><a href="tel:+13433035101" style="font-size:13px;color:rgba(201,169,110,0.65);text-decoration:none;">+1-343-303-5101</a></p>
+        <img src="images/Malmologo.png" alt="Malmo" style="max-width:130px;margin-bottom:14px;filter:brightness(0) invert(1);opacity:0.7;">
+        <p style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:14px;">© 2026 Malmo</p>
+        <p style="margin-bottom:8px;"><a href="mailto:hello@malmohealth.com" style="font-size:13px;color:rgba(201,169,110,0.75);">hello@malmohealth.com</a></p>
+        <p><a href="tel:+13433035101" style="font-size:13px;color:rgba(201,169,110,0.75);">+1-343-303-5101</a></p>
       </div>
       <div class="footer-link-col">
         <span class="footer-link-label">Links</span>
@@ -717,6 +735,19 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px;
     <p>© 2026 Malmo. All rights reserved.</p>
   </div>
 </footer>
+
+<!-- MOBILE HERO: show image on mobile -->
+<style>
+@media (max-width: 960px) {
+  .mobile-hero-row { display: flex !important; }
+  .mobile-hero-img { display: block !important; }
+  .desktop-hero-h1 { display: none !important; }
+}
+@media (min-width: 961px) {
+  .mobile-hero-row { display: none !important; }
+  .desktop-hero-h1 { display: block !important; }
+}
+</style>
 
 <script>
 // FAQ
@@ -755,15 +786,12 @@ baContainer.addEventListener('touchmove', e => { if (dragging) moveBA(e.touches[
 
 // Vimeo carousel
 new Swiper('.vimeo-carousel', {
-  slidesPerView: 1.1,
-  spaceBetween: 16,
-  centeredSlides: true,
-  loop: false,
+  slidesPerView: 1.15, spaceBetween: 16, centeredSlides: true, loop: false,
   pagination: { el: '.vimeo-carousel .swiper-pagination', clickable: true, dynamicBullets: true },
   navigation: { nextEl: '.vimeo-carousel .swiper-button-next', prevEl: '.vimeo-carousel .swiper-button-prev' },
   breakpoints: {
-    640:  { slidesPerView: 1.3, spaceBetween: 18 },
-    768:  { slidesPerView: 2.2, spaceBetween: 20 },
+    640:  { slidesPerView: 1.4, spaceBetween: 18 },
+    768:  { slidesPerView: 2.3, spaceBetween: 20 },
     1024: { slidesPerView: 3,   spaceBetween: 24, centeredSlides: false },
     1280: { slidesPerView: 4,   spaceBetween: 24, centeredSlides: false }
   }
@@ -771,12 +799,10 @@ new Swiper('.vimeo-carousel', {
 
 // Testimonials carousel
 new Swiper('.testimonials-carousel', {
-  slidesPerView: 1.2,
-  spaceBetween: 16,
-  loop: true,
-  autoplay: { delay: 5000 },
+  slidesPerView: 1.2, spaceBetween: 16, loop: true,
+  autoplay: { delay: 4500, disableOnInteraction: false },
   navigation: { nextEl: '.testimonials-carousel .swiper-button-next', prevEl: '.testimonials-carousel .swiper-button-prev' },
-  breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } }
+  breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4, spaceBetween: 20 } }
 });
 </script>
 </body>
