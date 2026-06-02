@@ -33,6 +33,16 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; }
 
 @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
+/* Hide floating bottles on mobile */
+@media (max-width: 768px) {
+  .bottle-float { display: none !important; }
+}
+
+/* Bigger current weight input on mobile */
+@media (max-width: 768px) {
+  #weight { font-size: 2rem !important; width: 100% !important; border-radius: 10px !important; padding: 10px 14px !important; border: 2px solid #C5E6D5 !important; display: block !important; margin-top: 8px; }
+}
+
 /* ── PROMO BANNER ── */
 /* original: black bg → forest green */
 div[style*="background:#000"],
@@ -418,7 +428,7 @@ p[style*="color:#c87ad4"] {
         <h2 class="text-3xl lg:text-5xl font-bold mb-4" style="color:#0D3B27;font-family:'Cormorant Garamond',serif;">How much fat will you drop in 3 months?</h2>
         <hr style="border-color:#C5E6D5;margin:20px 0;">
         <h3 class="py-2 text-lg font-semibold" style="color:#0D3B27;">Your current weight:</h3>
-        <input name="weight" id="weight" type="number" value="220" style="border:2px solid #C5E6D5;border-radius:10px;padding:6px 10px;font-size:1.2rem;color:#0D3B27;width:120px;font-family:'Cormorant Garamond',serif;"><br>
+        <input name="weight" id="weight" type="number" value="220" style="border:2px solid #C5E6D5;border-radius:10px;padding:10px 14px;font-size:1.8rem;color:#0D3B27;width:160px;font-family:'Cormorant Garamond',serif;font-weight:600;display:block;margin-top:8px;"><br>
         <input name="weight_slider" id="weightSlider" type="range" min="100" max="600" style="width:100%;margin-top:12px;accent-color:#0D3B27;">
         <div style="display:inline-block;padding:18px 24px;border-radius:16px;margin-top:14px;background:linear-gradient(135deg,#DCF0E7,#C5E6D5);color:#0D3B27;font-family:'Cormorant Garamond',serif;">
           You could easily lose:
@@ -479,10 +489,10 @@ p[style*="color:#c87ad4"] {
 <div style="background:linear-gradient(180deg,#f0faf5 0%,#e8f5ef 40%,#f4faf7 100%);" id="reviews">
   <section style="position:relative;overflow:hidden;padding:80px 24px 40px;text-align:center;">
 
-    <!-- Floating bottle images — bigger and properly positioned -->
-    <img src="images/sematall.png" alt="Semaglutide" style="position:absolute;left:-20px;bottom:0;width:clamp(140px,16vw,240px);opacity:0.95;transform:rotate(-12deg);pointer-events:none;z-index:1;">
-    <img src="images/tirztall.png" alt="Tirzepatide" style="position:absolute;top:10px;right:12%;width:clamp(100px,12vw,190px);opacity:0.95;transform:rotate(18deg);pointer-events:none;z-index:1;">
-    <img src="images/tirztall.png" alt="Tirzepatide" style="position:absolute;right:-10px;top:38%;width:clamp(110px,13vw,200px);opacity:0.95;transform:rotate(6deg);pointer-events:none;z-index:1;">
+    <!-- Floating bottle images — hidden on mobile, visible on desktop -->
+    <img src="images/sematall.png" alt="Semaglutide" class="bottle-float" style="position:absolute;left:-20px;bottom:0;width:clamp(140px,16vw,240px);opacity:0.95;transform:rotate(-12deg);pointer-events:none;z-index:1;">
+    <img src="images/tirztall.png" alt="Tirzepatide" class="bottle-float" style="position:absolute;top:10px;right:12%;width:clamp(100px,12vw,190px);opacity:0.95;transform:rotate(18deg);pointer-events:none;z-index:1;">
+    <img src="images/tirztall.png" alt="Tirzepatide" class="bottle-float" style="position:absolute;right:-10px;top:38%;width:clamp(110px,13vw,200px);opacity:0.95;transform:rotate(6deg);pointer-events:none;z-index:1;">
     <div style="max-width:740px;margin:0 auto 40px;">
       <h1 class="text-5xl sm:text-6xl font-bold" style="color:#0D3B27;font-family:'Cormorant Garamond',serif;">Real Customers. No shame.</h1>
       <h1 class="text-5xl sm:text-6xl font-bold" style="color:#0D3B27;font-family:'Cormorant Garamond',serif;">All <em>Confidence.</em></h1>
