@@ -449,12 +449,14 @@ p[style*="color:#c87ad4"] {
       <div class="flex items-center gap-2 text-sm" style="color:#0D3B27;"><img src="index_files/medical.webp" style="height:28px;width:auto;"> 1:1 Medical Support</div>
     </div>
     <!-- Mobile trust badges swiper -->
-    <div class="swiper features-slider md:hidden" style="border:1px solid #C5E6D5;border-radius:12px;overflow:hidden;">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide flex items-center justify-center gap-2 px-4 py-3" style="height:60px;"><img src="index_files/trusted.webp" style="height:28px;width:auto;"><span style="font-size:14px;color:#0D3B27;font-weight:500;">Trusted by 100k+ Americans</span></div>
-        <div class="swiper-slide flex items-center justify-center gap-2 px-4 py-3" style="height:60px;"><img src="index_files/medical.webp" style="height:28px;width:auto;"><span style="font-size:14px;color:#0D3B27;font-weight:500;">1:1 Medical Support</span></div>
-        <div class="swiper-slide flex items-center justify-center gap-2 px-4 py-3" style="height:60px;"><img src="index_files/hospital.png" style="height:28px;width:auto;"><span style="font-size:14px;color:#0D3B27;font-weight:500;">US-Certified Pharmacy</span></div>
-        <div class="swiper-slide flex items-center justify-center gap-2 px-4 py-3" style="height:60px;"><img src="index_files/personalized.webp" style="height:28px;width:auto;"><span style="font-size:14px;color:#0D3B27;font-weight:500;">Personalized Treatments</span></div>
+    <div class="md:hidden" style="border:1px solid #C5E6D5;border-radius:12px;overflow:hidden;max-height:64px;">
+      <div class="swiper features-slider" style="height:64px;">
+        <div class="swiper-wrapper" style="align-items:center;">
+          <div class="swiper-slide" style="display:flex!important;align-items:center;justify-content:center;gap:10px;height:64px;padding:0 16px;"><img src="index_files/trusted.webp" style="height:26px;width:auto;flex-shrink:0;"><span style="font-size:14px;color:#0D3B27;font-weight:500;white-space:nowrap;">Trusted by 100k+ Americans</span></div>
+          <div class="swiper-slide" style="display:flex!important;align-items:center;justify-content:center;gap:10px;height:64px;padding:0 16px;"><img src="index_files/medical.webp" style="height:26px;width:auto;flex-shrink:0;"><span style="font-size:14px;color:#0D3B27;font-weight:500;white-space:nowrap;">1:1 Medical Support</span></div>
+          <div class="swiper-slide" style="display:flex!important;align-items:center;justify-content:center;gap:10px;height:64px;padding:0 16px;"><img src="index_files/hospital.png" style="height:26px;width:auto;flex-shrink:0;"><span style="font-size:14px;color:#0D3B27;font-weight:500;white-space:nowrap;">US-Certified Pharmacy</span></div>
+          <div class="swiper-slide" style="display:flex!important;align-items:center;justify-content:center;gap:10px;height:64px;padding:0 16px;"><img src="index_files/personalized.webp" style="height:26px;width:auto;flex-shrink:0;"><span style="font-size:14px;color:#0D3B27;font-weight:500;white-space:nowrap;">Personalized Treatments</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -484,7 +486,7 @@ p[style*="color:#c87ad4"] {
         Paired with a balanced diet and regular exercise, a weight loss treatment plan can help you overcome biological barriers, maintain healthy habits, and reach your goals.
       </p>
       <h2 class="text-2xl font-light" style="color:#0D3B27;font-family:'Cormorant Garamond',serif;">Watch what our customers have to say about losing weight with Malmo:</h2>
-      <img src="index_files/dwnarrow.png" style="width:70px;margin:28px auto 0;">
+      <div style="margin:24px auto 0;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:20px solid #C9A96E;opacity:0.6;"></div>
     </div>
 
     <!-- Vimeo carousel -->
@@ -596,7 +598,7 @@ p[style*="color:#c87ad4"] {
       <div class="text-center md:text-left max-w-md">
         <h2 class="text-4xl font-light tracking-tight mb-4" style="color:#0D3B27;font-family:'Cormorant Garamond',serif;">Compounded GLP-1 Injections</h2>
         <hr style="border-color:#C5E6D5;margin:16px 0;">
-        <img src="images/main.png" alt="GLP-1 Injections">
+        <img src="images/main.png" alt="GLP-1 Injections" style="max-width:100%;min-height:160px;object-fit:contain;">
       </div>
     </div>
     <div class="md:w-1/2 w-full flex items-center justify-center px-6 pt-6 relative overflow-hidden" style="border-radius:28px;background:#fff;border:1.5px solid #C5E6D5;min-height:300px;">
@@ -604,7 +606,7 @@ p[style*="color:#c87ad4"] {
       <div class="text-center md:text-left max-w-md">
         <h2 class="text-4xl font-light tracking-tight mb-4" style="color:#0D3B27;font-family:'Cormorant Garamond',serif;">Compounded GLP-1 Dissolvable Tablets</h2>
         <hr style="border-color:#C5E6D5;margin:16px 0;">
-        <img src="images/oral.png" alt="GLP-1 Oral Tablets">
+        <img src="images/oral.png" alt="GLP-1 Oral Tablets" style="max-width:100%;min-height:160px;object-fit:contain;">
       </div>
     </div>
   </div>
@@ -743,9 +745,9 @@ new Swiper('.testimonials-carousel', {
   breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4, spaceBetween: 20 } }
 });
 
-// Features slider mobile
+// Features slider mobile — only 4 slides so no loop, use rewind
 new Swiper('.features-slider', {
-  slidesPerView: 1, spaceBetween: 0, loop: true,
+  slidesPerView: 1, spaceBetween: 0, loop: false, rewind: true,
   autoplay: { delay: 3000, disableOnInteraction: false }, speed: 600
 });
 </script>
