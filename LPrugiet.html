@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Ready Quiz | Malmo</title>
+<meta name="description" content="10 MILLION+ NIGHT UPGRADED. Confidence restored. See why thousands are raving about us."/>
+<meta property="og:title" content="Ready Quiz"/>
+<meta property="og:description" content="10 MILLION+ NIGHT UPGRADED. Confidence restored. See why thousands are raving about us."/>
+<meta property="og:site_name" content="Malmo"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #1f776d;
+    --green-dark: #185e56;
+    --green-light: #e8f2f1;
+    --black: #000;
+    --white: #fff;
+    --light-grey: #e7e5e4;
+    --light-grey-2: #f0ede9;
+    --mid-grey: #d5d3d1;
+    --text: #000;
+    --light-text: rgba(0,0,0,0.5);
+    --font-display: 'Archivo', sans-serif;
+    --font-body: 'Archivo', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--text); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  .banner { background: var(--green); text-align: center; padding: 10px 16px; font-size: 14px; font-weight: 500; position: sticky; top: 0; z-index: 100; }
+  .banner a { color: var(--white); text-decoration: underline; }
+  .banner { color: var(--white); }
+
+  /* HERO */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 40px); }
+  @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-image { height: 70vw; max-height: 480px; } }
+
+  .hero-image { position: relative; background: var(--black); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+  .hero-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: 0.9; }
+
+  /* LOGO */
+  .hero-logo { position: absolute; top: 32px; left: 40px; z-index: 2; text-decoration: none; }
+  .hero-logo img { max-width: 130px; height: auto; display: block; filter: brightness(0) invert(1); }
+  @media (max-width: 900px) { .hero-logo { top: 20px; left: 20px; } .hero-logo img { max-width: 100px; } }
+
+  .hero-overlay { position: relative; z-index: 2; color: var(--white); display: flex; flex-direction: column; gap: 14px; max-width: 90%; }
+  .hero-badge { display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.6); border-radius: 20px; padding: 4px 12px; font-size: 11px; width: fit-content; }
+  .hero-eyebrow { font-size: 13px; opacity: 0.8; }
+  .hero-eyebrow strong { opacity: 1; font-weight: 700; }
+  .hero-overlay h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4vw, 48px); line-height: 1.0; letter-spacing: -0.01em; }
+  .hero-overlay p.sub { font-size: 14px; opacity: 0.75; line-height: 1.4; max-width: 380px; }
+
+  /* QUIZ SECTIONS */
+  .quiz-wrap { display: flex; flex-direction: column; }
+  .quiz-block { padding: 48px 40px; display: flex; align-items: center; justify-content: center; }
+  .quiz-block:first-child { min-height: 100%; }
+  .quiz-inner { width: 100%; max-width: 520px; }
+  @media (max-width: 900px) { .quiz-block { padding: 40px 20px; min-height: auto; } }
+
+  .quiz-progress { display: flex; justify-content: space-between; border-bottom: 1px solid var(--mid-grey); padding-bottom: 12px; margin-bottom: 26px; position: relative; }
+  .quiz-progress-bar { position: absolute; bottom: -1px; left: 0; height: 2px; background: var(--green); }
+  .step-num { font-family: var(--font-mono); font-size: 13px; width: 34px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--light-text); }
+  .step-num.on { color: var(--white); background: var(--green); font-weight: 700; }
+
+  .quiz-q { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.15; margin-bottom: 22px; letter-spacing: -0.01em; }
+
+  .quiz-answers { display: flex; flex-direction: column; gap: 6px; }
+  .quiz-answer { display: flex; align-items: center; height: 56px; padding: 0 20px; background: var(--light-grey-2); cursor: pointer; font-size: 15px; border: none; transition: background 0.18s; text-align: left; font-family: inherit; color: inherit; }
+  .quiz-answer:hover { background: var(--light-grey); }
+  .quiz-answer.selected { background: var(--green); color: var(--white); font-weight: 600; }
+
+  .quiz-skip { text-align: center; font-size: 14px; color: var(--light-text); margin-top: 26px; }
+  .quiz-skip a { color: inherit; text-decoration: underline; }
+
+  /* RESULTS */
+  .results { background: var(--black); color: var(--white); padding: 70px 40px; display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 900px) { .results { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 900px) { .results { padding: 48px 20px; } }
+  .results-imgcol { position: relative; }
+  .results-imgcol img { width: 100%; max-width: 460px; display: block; margin: 0 auto; }
+  .results-content { display: flex; flex-direction: column; gap: 22px; max-width: 460px; }
+  .results-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3.5vw, 42px); line-height: 1.0; letter-spacing: -0.01em; }
+  .best-seller { display: inline-block; background: var(--green); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; width: fit-content; }
+  .features { display: flex; flex-direction: column; }
+  .feature { display: flex; align-items: center; gap: 12px; padding: 13px 0; border-top: 1px solid rgba(255,255,255,0.2); font-size: 15px; font-weight: 600; }
+  .feature svg { width: 18px; height: 18px; color: var(--white); flex-shrink: 0; }
+  .cta { display: block; background: var(--green); color: var(--white); font-weight: 700; font-size: 15px; padding: 16px; text-align: center; text-decoration: none; transition: background 0.2s; letter-spacing: 0.02em; }
+  .cta:hover { background: var(--green-dark); }
+  .disclaimer { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+  .disclaimer a { color: rgba(255,255,255,0.65); }
+
+  /* CONFIDENCE */
+  .confidence { padding: 70px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  @media (max-width: 900px) { .confidence { padding: 48px 20px; } }
+  .stars { color: var(--green); font-size: 18px; letter-spacing: 2px; }
+  .conf-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+  .conf-headline { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.0; letter-spacing: -0.02em; }
+  .conf-sub { font-size: 15px; color: var(--light-text); }
+
+  /* REVIEWS */
+  .reviews { padding: 0 40px 70px; display: grid; gap: 16px; grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 1100px) { .reviews { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .reviews { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .reviews { padding: 0 20px 48px; } }
+  .review-card { background: var(--light-grey-2); padding: 24px; display: flex; flex-direction: column; min-height: 340px; }
+  .review-card .stars { font-size: 14px; margin-bottom: 14px; }
+  .review-headline { font-family: var(--font-display); font-weight: 800; font-size: 26px; line-height: 1.0; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 16px; }
+  .review-text { font-family: var(--font-mono); font-size: 13px; line-height: 1.5; flex-grow: 1; }
+  .review-name { font-family: var(--font-display); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 20px; }
+
+  /* FAQ */
+  .faq { padding: 70px 40px; display: grid; gap: 40px; }
+  @media (min-width: 900px) { .faq { grid-template-columns: 1fr 2fr; } }
+  @media (max-width: 900px) { .faq { padding: 48px 20px; } }
+  .faq-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4vw, 44px); line-height: 1.0; letter-spacing: -0.01em; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-top: 1px solid var(--mid-grey); }
+  .faq-item:last-child { border-bottom: 1px solid var(--mid-grey); }
+  .faq-q { width: 100%; background: none; border: none; cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 16px 0; font-family: var(--font-body); font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.4; }
+  .faq-icon { flex-shrink: 0; width: 16px; height: 16px; position: relative; }
+  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: currentColor; }
+  .faq-icon::before { width: 100%; height: 1.5px; top: 50%; left: 0; transform: translateY(-50%); }
+  .faq-icon::after { width: 1.5px; height: 100%; top: 0; left: 50%; transform: translateX(-50%); transition: transform 0.3s, opacity 0.3s; }
+  .faq-item.open .faq-icon::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 14px; line-height: 1.7; color: var(--light-text); }
+  .faq-a-inner { padding-bottom: 20px; }
+  .faq-item.open .faq-a { max-height: 700px; }
+  .faq-a ul { margin-top: 8px; padding-left: 20px; display: flex; flex-direction: column; gap: 3px; }
+
+  /* FOOTER */
+  footer { background: var(--green); color: var(--white); padding: 60px 40px 40px; }
+  @media (max-width: 900px) { footer { padding: 40px 20px; } }
+  .footer-top { display: flex; align-items: flex-end; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
+  .footer-logo img { max-width: 150px; height: auto; display: block; filter: brightness(0) invert(1); }
+  .footer-tagline { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 4vw, 48px); line-height: 0.95; letter-spacing: -0.01em; text-transform: uppercase; }
+  .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr) 1.2fr; gap: 32px; border-top: 1px solid rgba(255,255,255,0.25); padding-top: 32px; }
+  @media (max-width: 900px) { .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; } }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-links a { font-size: 14px; color: var(--white); text-decoration: none; opacity: 0.8; }
+  .footer-links a:hover { opacity: 1; text-decoration: underline; }
+  .footer-links a.bold { font-weight: 700; opacity: 1; }
+  .app-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .app-badge { background: rgba(0,0,0,0.2); color: var(--white); border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; font-size: 12px; text-decoration: none; transition: background 0.2s; }
+  .app-badge:hover { background: rgba(0,0,0,0.35); }
+  .app-badge small { display: block; font-size: 9px; opacity: 0.7; }
+  .footer-app-title { font-weight: 700; font-size: 14px; margin-bottom: 12px; opacity: 0.8; }
+  .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,0.25); margin-top: 40px; padding-top: 24px; font-size: 13px; color: rgba(255,255,255,0.7); }
+  .footer-bottom a { color: rgba(255,255,255,0.85); text-decoration: none; }
+  .footer-bottom a:hover { text-decoration: underline; }
+  .fb-col { display: flex; flex-direction: column; gap: 6px; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" target="_blank" rel="noopener">Try 2 months of Ready™, get 1 free &gt;</a>
+</div>
+
+<!-- HERO + Q1 -->
+<section class="hero">
+  <div class="hero-image">
+
+    <!-- LOGO -->
+    <a href="#" class="hero-logo" aria-label="Malmo">
+      <img src="images/Malmologo.png" alt="Malmo"/>
+    </a>
+
+    <div class="hero-overlay">
+      <div class="hero-badge">10M+ Nights Upgraded</div>
+      <p class="hero-eyebrow">Malmo is rated <strong>EXCELLENT</strong> on ★ Trustpilot</p>
+      <h1>Powerful treatments for your best sex ever</h1>
+      <p class="sub">Fast-acting formulas with up to 3X the power of generics—built for real performance.</p>
+    </div>
+    <img src="https://cdn.sanity.io/images/hgt43vn7/production/e5834ea653044e21aa1f4b6d7dfb913313682807-733x800.png?w=900&q=85&fit=max&auto=format" alt="Malmo Ready"/>
+  </div>
+
+  <div class="quiz-wrap">
+    <div class="quiz-block">
+      <div class="quiz-inner">
+        <div class="quiz-progress">
+          <span class="step-num on">01</span><span class="step-num">02</span><span class="step-num">03</span><span class="step-num">04</span>
+          <div class="quiz-progress-bar" style="width:25%"></div>
+        </div>
+        <p class="quiz-q">What's your goal in the bedroom?</p>
+        <div class="quiz-answers">
+          <button class="quiz-answer" onclick="goto('q2',this)">Get hard, faster</button>
+          <button class="quiz-answer" onclick="goto('q2',this)">Longer sex</button>
+          <button class="quiz-answer" onclick="goto('q2',this)">All of the above</button>
+        </div>
+        <p class="quiz-skip"><a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" target="_blank">Skip and start online visit</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q2 -->
+<section class="quiz-block" id="q2">
+  <div class="quiz-inner">
+    <div class="quiz-progress">
+      <span class="step-num">01</span><span class="step-num on">02</span><span class="step-num">03</span><span class="step-num">04</span>
+      <div class="quiz-progress-bar" style="width:50%"></div>
+    </div>
+    <p class="quiz-q">Have you tried other ED meds before?</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" onclick="goto('q3',this)">Yes</button>
+      <button class="quiz-answer" onclick="goto('q3',this)">No</button>
+    </div>
+    <p class="quiz-skip"><a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" target="_blank">Skip and start online visit</a></p>
+  </div>
+</section>
+
+<!-- Q3 -->
+<section class="quiz-block" id="q3">
+  <div class="quiz-inner">
+    <div class="quiz-progress">
+      <span class="step-num">01</span><span class="step-num">02</span><span class="step-num on">03</span><span class="step-num">04</span>
+      <div class="quiz-progress-bar" style="width:75%"></div>
+    </div>
+    <p class="quiz-q">What do you like most about Malmo?</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" onclick="goto('q4',this)">Works when traditional ED meds fail</button>
+      <button class="quiz-answer" onclick="goto('q4',this)">Targeted formulas for brain and body</button>
+      <button class="quiz-answer" onclick="goto('q4',this)">Fewer side effects than the rest</button>
+      <button class="quiz-answer" onclick="goto('q4',this)">Made in the USA</button>
+    </div>
+    <p class="quiz-skip"><a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" target="_blank">Skip and start online visit</a></p>
+  </div>
+</section>
+
+<!-- Q4 -->
+<section class="quiz-block" id="q4">
+  <div class="quiz-inner">
+    <div class="quiz-progress">
+      <span class="step-num">01</span><span class="step-num">02</span><span class="step-num">03</span><span class="step-num on">04</span>
+      <div class="quiz-progress-bar" style="width:100%"></div>
+    </div>
+    <p class="quiz-q">What matters most to you in a treatment?</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" onclick="goto('results',this)">A fast-acting treatment</button>
+      <button class="quiz-answer" onclick="goto('results',this)">Stronger than Viagra, Cialis or others</button>
+      <button class="quiz-answer" onclick="goto('results',this)">Better climax control</button>
+      <button class="quiz-answer" onclick="goto('results',this)">An always-on daily solution</button>
+    </div>
+    <p class="quiz-skip"><a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" target="_blank">Skip and start online visit</a></p>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="results-imgcol">
+    <img src="https://cdn.sanity.io/images/hgt43vn7/production/1a58a1dd487d1fda0229d58aeefd42cb496340b8-1816x2164.png?w=700&q=85&fit=max&auto=format" alt="Malmo Ready"/>
+  </div>
+  <div class="results-content">
+    <h2 class="results-title">We've got you. Get started with Ready.</h2>
+    <span class="best-seller">Best Seller</span>
+    <div class="features">
+      <div class="feature"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M216 23.86c0-23.8-30.65-32.77-44.15-13.04C48 191.85 224 200 224 288c0 35.63-29.11 64.46-64.85 63.99-35.17-.45-63.15-29.77-63.15-64.94v-85.51c0-21.7-26.47-32.23-41.43-16.5C27.8 213.16 0 261.33 0 320c0 105.87 86.13 192 192 192s192-86.13 192-192c0-170.29-168-193-168-296.14z"/></svg>Arousal-boosting 3-in-1 formula</div>
+      <div class="feature"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Works in under 15 mins*</div>
+      <div class="feature"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M216 23.86c0-23.8-30.65-32.77-44.15-13.04C48 191.85 224 200 224 288c0 35.63-29.11 64.46-64.85 63.99-35.17-.45-63.15-29.77-63.15-64.94v-85.51c0-21.7-26.47-32.23-41.43-16.5C27.8 213.16 0 261.33 0 320c0 105.87 86.13 192 192 192s192-86.13 192-192c0-170.29-168-193-168-296.14z"/></svg>Active for up to 36 hours</div>
+    </div>
+    <a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" class="cta" target="_blank">QUALIFY NOW</a>
+    <p class="disclaimer">*Ranking based on rankings from a number of comparison shopping platforms.<br/><br/>*In studies of sublingual <a href="https://pubmed.ncbi.nlm.nih.gov/15509203/" target="_blank">sildenafil</a> and <a href="https://www.tandfonline.com/doi/abs/10.1517/13543784.11.2.295" target="_blank">apomorphine</a>.<br/><br/>Prescription products require an online consultation with a healthcare provider. The featured products include compounded products which have not been approved by the FDA. The FDA does not verify the safety or effectiveness of compounded drugs.</p>
+  </div>
+</section>
+
+<!-- CONFIDENCE -->
+<section class="confidence reveal">
+  <div class="stars">★★★★★</div>
+  <p class="conf-eyebrow">10 MILLION+ NIGHT UPGRADED</p>
+  <h2 class="conf-headline">Confidence restored.</h2>
+  <p class="conf-sub">See why thousands are raving about us.</p>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews reveal">
+  <div class="review-card">
+    <div class="stars">★★★★★</div>
+    <h3 class="review-headline">All I can say is wow</h3>
+    <p class="review-text">All I can say is wow this product is the real deal. I have tried them all, over the last 20 years….literally nothing is going to make you and your girl more happy. Best product on the market!</p>
+    <p class="review-name">Verified Patient</p>
+  </div>
+  <div class="review-card">
+    <div class="stars">★★★★★</div>
+    <h3 class="review-headline">Better and Faster</h3>
+    <p class="review-text">Other brands work, but Malmo definitely works much better and faster (and tastes better).</p>
+    <p class="review-name">Verified Patient</p>
+  </div>
+  <div class="review-card">
+    <div class="stars">★★★★★</div>
+    <h3 class="review-headline">This is a super product!</h3>
+    <p class="review-text">This is a super product! First good sex in over a year, I works better than the hype, which is really saying something</p>
+    <p class="review-name">Verified Patient</p>
+  </div>
+  <div class="review-card">
+    <div class="stars">★★★★★</div>
+    <h3 class="review-headline">Game Changer</h3>
+    <p class="review-text">Game changer! Literally, takes me back to my 20's and 30's! Hands down the best product on the market!</p>
+    <p class="review-name">Verified Patient</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div><h2 class="faq-title reveal">Frequently<br/>Asked Questions</h2></div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">If Viagra/Cialis didn't work for me, will Ready? <span class="faq-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">There are many people who have successfully treated their ED with Malmo Ready, even after single-ingredient treatments did not yield results.<br/><br/>Malmo Ready combines both sildenafil and tadalafil, which are short and long acting PDE5 inhibitors. It also includes apomorphine. Because the medication dissolves under the tongue, it increases absorption directly into the bloodstream, making it work faster.<br/><br/>Our physicians can customize doses specifically to each patient's need.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long does Malmo Ready take to start working? <span class="faq-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Malmo Ready comes in the form of a sublingual troche, which dissolves under the tongue and is directly absorbed into the bloodstream, bypassing the liver and digestive system. This allows for a typical onset time of 15 minutes or less. For best results, take it at least 30 minutes prior to sexual activity.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long do the effects of Malmo Ready last? <span class="faq-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Malmo Ready's effects typically last 24–36 hours. For those with liver or kidney disease, the medication may remain in the body longer, so it's best to consult your doctor before use.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What are some common side effects? <span class="faq-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Possible common side effects include:<ul><li>Headache</li><li>Flushing</li><li>Rash</li><li>Cyanopsia (blue-tinted vision)</li><li>Mild blurred vision</li><li>Indigestion</li><li>Irritation of the skin within the mouth and under the tongue</li><li>Nasal Congestion</li><li>Nausea</li><li>Back Pain</li><li>Muscle pain (myalgia)</li><li>Dizziness</li><li>Drowsiness</li></ul></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How much does Malmo Ready cost? <span class="faq-icon"></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Malmo Ready starts at about $7 per dose for our lowest-strength prescription. Pricing increases with higher strengths and larger quantities.<br/><br/>Save more when you order more — our no-risk subscription plans include free doctor consultations and shipping.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img src="images/Malmologo.png" alt="Malmo"/>
+    </div>
+    <div class="footer-tagline">Performance<br/>Medicine for Men</div>
+  </div>
+
+  <div class="footer-cols">
+    <ul class="footer-links">
+      <li><a href="#" class="bold">All Treatments</a></li>
+      <li><a href="#">Sleep</a></li>
+      <li><a href="#">Sex</a></li>
+      <li><a href="#">Weight</a></li>
+      <li><a href="#">Hair</a></li>
+      <li><a href="#">Testosterone</a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="https://start.malmo.com/products/malmo-ready/pre_questionnaire" target="_blank">Get Started</a></li>
+      <li><a href="https://start.malmo.com/" target="_blank">Log In</a></li>
+      <li><a href="#">Refer a Friend</a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">FAQ</a></li>
+      <li><a href="#">Science</a></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Careers</a></li>
+    </ul>
+    <ul class="footer-links">
+      <li><a href="https://www.instagram.com/malmohealth/" target="_blank">Instagram</a></li>
+      <li><a href="https://www.facebook.com/malmomen/" target="_blank">Facebook</a></li>
+      <li><a href="https://www.linkedin.com/company/malmomen/" target="_blank">LinkedIn</a></li>
+      <li><a href="https://x.com/MalmoHealth" target="_blank">X / Twitter</a></li>
+      <li><a href="https://www.tiktok.com/@malmohealth" target="_blank">TikTok</a></li>
+    </ul>
+    <div>
+      <p class="footer-app-title">Get the Malmo App</p>
+      <div class="app-badges">
+        <a class="app-badge" href="#"><span>&#63743;</span><span><small>Download on the</small>App Store</span></a>
+        <a class="app-badge" href="#"><span>&#9654;</span><span><small>GET IT ON</small>Google Play</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="fb-col">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Telehealth Consent</a>
+      <a href="#">Privacy Choices</a>
+    </div>
+    <div class="fb-col">
+      <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a>
+      <a href="tel:+13433035101">+1-343-303-5101</a>
+      <span>M–F 8:30am–5:30pm CT</span>
+      <span>Sat 11am–4pm CT</span>
+    </div>
+    <div class="fb-col">
+      <span>7030 Woodbine Avenue, Suite 500</span>
+      <span>Markham, Ontario, L3R 6G2</span>
+      <span>Canada</span>
+    </div>
+    <div class="fb-col">
+      <span>© 2026 Malmo.</span>
+      <span>All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function goto(targetId, el) {
+    document.querySelectorAll('.quiz-answer.selected').forEach(function(b){
+      if (b.parentElement === el.parentElement) b.classList.remove('selected');
+    });
+    el.classList.add('selected');
+    setTimeout(function() {
+      document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 250);
+  }
+
+  function toggleFaq(btn) {
+    var item = btn.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+</script>
+</body>
+</html>
