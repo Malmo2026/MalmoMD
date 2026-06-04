@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Malmo – GLP-1 Weight Loss Medication</title>
-<link rel="icon" type="image/png" href="https://malmohealth.com/images/Malmologo.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="images/favicon.png" href="https://malmohealth.com/images/Malmologo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -13,389 +13,275 @@ body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hid
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
 
+/* ── ANIMATIONS ── */
+@keyframes floatUpDown{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+@keyframes rotateCW{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes rotateCCW{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
 /* ── ANNOUNCE BAR ── */
 .announce-bar{
-  background:#1A6B5A;
-  color:#fff;
-  text-align:center;
-  padding:9px 16px;
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:.01em;
+  background:#1A6B5A;color:#fff;text-align:center;
+  padding:8px 16px;font-size:13px;font-weight:500;
 }
-.announce-bar strong{font-weight:700;}
+.announce-bar a{color:#a8e6cf;text-decoration:underline;margin-left:6px;}
 
 /* ── NAV ── */
 .navbar{
-  background:#fff;
-  border-bottom:1px solid #eee;
-  padding:0 24px;
-  position:sticky;top:0;z-index:999;
+  background:#fff;border-bottom:1px solid #eee;
+  padding:0 24px;position:sticky;top:0;z-index:999;
+  transition:box-shadow .2s;
 }
-.nav-inner{
-  max-width:1200px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-  height:60px;
-}
-.nav-logo svg{display:block;}
-.nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500;color:#555;}
+.navbar.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08);}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500;color:#444;}
 .nav-links a:hover{color:#1A6B5A;}
-.nav-cta{
-  background:#1A6B5A;color:#fff;
-  padding:9px 20px;border-radius:8px;
-  font-size:13px;font-weight:600;
-  transition:background .2s;
-}
-.nav-cta:hover{background:#2B8A72;}
-.nav-right{display:flex;align-items:center;gap:16px;}
+.nav-right{display:flex;align-items:center;gap:14px;}
 .nav-account{font-size:13px;color:#555;font-weight:500;}
-
-/* hamburger */
+.btn-nav{background:#1A6B5A;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;transition:background .2s;}
+.btn-nav:hover{background:#155c4d;}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
-.hamburger span{display:block;width:22px;height:2px;background:#333;margin:4px 0;border-radius:2px;}
-.mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #eee;padding:16px 24px;gap:16px;}
-.mobile-menu a{font-size:15px;font-weight:500;color:#333;border-bottom:1px solid #f0f0f0;padding-bottom:12px;}
-.mobile-menu .mob-cta{background:#1A6B5A;color:#fff;text-align:center;padding:13px;border-radius:8px;font-weight:600;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:#333;margin:5px 0;border-radius:2px;}
+.mobile-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #eee;padding:16px 24px;gap:0;}
+.mobile-menu a{font-size:15px;font-weight:500;color:#333;border-bottom:1px solid #f5f5f5;padding:13px 0;}
+.mobile-menu .mob-cta{background:#1A6B5A;color:#fff;text-align:center;padding:13px;border-radius:8px;font-weight:600;margin-top:12px;}
+.mobile-menu.open{display:flex;}
+
+/* ── BUTTONS ── */
+.btn-dark{display:inline-block;background:#111;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;transition:background .2s;}
+.btn-dark:hover{background:#333;}
+.btn-outline{display:inline-block;background:#fff;color:#111;border:2px solid #ccc;padding:11px 24px;border-radius:8px;font-size:14px;font-weight:600;transition:all .2s;}
+.btn-outline:hover{border-color:#111;}
+.btn-green{display:inline-block;background:#1A6B5A;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;transition:background .2s;}
+.btn-green:hover{background:#155c4d;}
+.btns-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.micro-trust{font-size:12px;color:#888;display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;}
 
 /* ── HERO ── */
-.hero{
-  background:linear-gradient(135deg,#f0f4ff 0%,#fdf5ff 40%,#fff5e6 100%);
-  padding:0 16px 0;
-}
-.hero-inner{
-  max-width:1200px;margin:0 auto;
-  display:flex;align-items:flex-end;
-  gap:0;
-  min-height:480px;
-}
-.hero-text{
-  flex:1;
-  padding:48px 32px 48px 0;
-  max-width:560px;
-}
-.hero-stars{display:flex;align-items:center;gap:6px;margin-bottom:14px;}
-.star{color:#F5A623;font-size:18px;}
-.hero-stars span{font-size:12px;color:#666;margin-left:4px;}
-.hero-h1{
-  font-size:clamp(28px,4vw,46px);
-  font-weight:800;
-  line-height:1.12;
-  letter-spacing:-0.03em;
-  color:#111;
-  margin-bottom:8px;
-}
-.hero-h1 em{color:#1A6B5A;font-style:normal;}
-.hero-sub{font-size:14px;color:#666;margin-bottom:20px;font-weight:400;}
-.hero-sub strong{color:#1A6B5A;}
-.hero-checks{list-style:none;margin-bottom:24px;}
-.hero-checks li{
-  display:flex;align-items:flex-start;gap:8px;
-  font-size:14px;color:#333;margin-bottom:8px;line-height:1.4;
-}
-.hero-checks li::before{content:"✓";color:#1A6B5A;font-weight:700;flex-shrink:0;margin-top:1px;}
-.hero-price{
-  font-size:14px;color:#555;margin-bottom:20px;
-}
-.hero-price strong{font-size:30px;color:#1A6B5A;font-weight:800;}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
-.btn-primary{
-  background:#1A6B5A;color:#fff;
-  padding:13px 28px;border-radius:8px;
-  font-size:14px;font-weight:700;
-  transition:background .2s;display:inline-block;
-}
-.btn-primary:hover{background:#2B8A72;}
-.btn-outline{
-  background:#fff;color:#1A6B5A;
-  border:2px solid #1A6B5A;
-  padding:11px 24px;border-radius:8px;
-  font-size:14px;font-weight:600;
-  transition:all .2s;display:inline-block;
-}
-.btn-outline:hover{background:#1A6B5A;color:#fff;}
-.hero-trust{margin-top:4px;}
-.hero-trust img{max-height:36px;width:auto;}
-
-/* hero image side */
-.hero-img-col{
-  flex-shrink:0;
-  width:420px;
-  display:flex;align-items:flex-end;justify-content:center;
-  position:relative;
-}
-.hero-img-col img{
-  width:100%;
-  max-height:520px;
-  object-fit:contain;
-  object-position:bottom;
-}
+.hero{background:linear-gradient(135deg,#f3f0ff 0%,#fce8f5 40%,#fef0e0 100%);padding:0 24px;}
+.hero-inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-end;min-height:500px;gap:24px;}
+.hero-text{flex:1;padding:52px 0 52px;max-width:580px;}
+.hero-rating{display:flex;align-items:center;gap:6px;font-size:13px;color:#666;margin-bottom:16px;}
+.hero-stars-sm{color:#F5A623;font-size:16px;letter-spacing:1px;}
+.hero-h1{font-size:clamp(28px,3.8vw,44px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;color:#111;margin-bottom:10px;}
+.hero-h1 .accent{color:#1A6B5A;}
+.hero-sub{font-size:15px;color:#555;margin-bottom:22px;}
+.hero-checks{list-style:none;margin-bottom:22px;}
+.hero-checks li{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:#333;margin-bottom:9px;line-height:1.4;}
+.hero-checks li::before{content:"✓";color:#1A6B5A;font-weight:700;flex-shrink:0;font-size:14px;}
+.hero-price{font-size:14px;color:#555;margin-bottom:22px;}
+.hero-price strong{font-size:32px;color:#111;font-weight:800;}
+.hero-trust-img{max-height:32px;width:auto;margin-top:14px;}
+.hero-img-col{flex-shrink:0;width:400px;display:flex;align-items:flex-end;justify-content:center;}
+.hero-img-col img{width:100%;max-height:520px;object-fit:contain;object-position:bottom;}
 
 /* ── MEDIA BAR ── */
-.media-bar{
-  border-top:1px solid #eee;border-bottom:1px solid #eee;
-  padding:18px 24px;text-align:center;background:#fff;
-}
-.media-bar p{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-bottom:12px;}
-.media-bar img{max-height:40px;margin:0 auto;filter:grayscale(1);opacity:.6;}
+.media-bar{background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:16px 24px;text-align:center;}
+.media-bar-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#aaa;margin-bottom:12px;}
+.media-bar img{max-height:38px;margin:0 auto;filter:grayscale(1);opacity:.55;}
 
-/* ── ANIMATIONS ── */
-@keyframes floatUpDown {
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-18px);}
-}
-@keyframes rotateSlow {
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
-}
-@keyframes rotateSlowCCW {
-  from{transform:rotate(0deg);}
-  to{transform:rotate(-360deg);}
-}
+/* ── REVIEW HERO ── */
+.review-hero{background:#fff;padding:56px 24px;text-align:center;}
+.rh-count{font-size:11px;color:#999;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.rh-stars{color:#F5A623;font-size:20px;letter-spacing:2px;margin-bottom:12px;}
+.rh-quote{font-size:clamp(20px,2.8vw,30px);font-weight:700;color:#111;margin-bottom:4px;}
+.rh-quote strong{font-weight:800;}
+.rh-verified{font-size:11px;color:#888;font-weight:600;letter-spacing:.04em;margin-bottom:0;}
+.rh-verified span{color:#1A6B5A;}
 
-/* ── REVIEW HERO (word cloud section) ── */
-.review-hero{
-  background:#fff;
-  padding:64px 24px;
-  text-align:center;
-  position:relative;
+/* word-cloud layout: vial center, words orbit */
+.rh-cloud{
+  position:relative;max-width:720px;margin:0 auto 32px;
+  height:340px;display:flex;align-items:center;justify-content:center;
 }
-.review-stars-big{font-size:22px;color:#F5A623;letter-spacing:3px;margin-bottom:4px;}
-.review-count{font-size:11px;color:#888;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;}
-.review-verified{font-size:11px;color:#888;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;}
-.review-verified span{color:#1A6B5A;}
-.review-quote{font-size:clamp(22px,3vw,34px);font-weight:700;color:#111;margin-bottom:24px;line-height:1.2;}
-.review-quote em{color:#1A6B5A;font-style:normal;}
-/* vial floats up and down */
-.review-vial-wrap{position:relative;display:inline-block;margin:0 auto 20px;}
-.review-vial{max-height:240px;width:auto;animation:floatUpDown 3s ease-in-out infinite;}
-/* word cloud layout — vial in center, words around */
-.review-cloud{
-  position:relative;
-  max-width:760px;margin:0 auto 32px;
-  min-height:320px;
-  display:flex;align-items:center;justify-content:center;
-}
-.review-cloud-vial{
-  position:relative;z-index:2;
-  animation:floatUpDown 3s ease-in-out infinite;
-}
-.review-cloud-vial img{max-height:260px;width:auto;}
-.review-cloud-words{
-  position:absolute;inset:0;
-  pointer-events:none;
-}
-.rcw{position:absolute;white-space:nowrap;line-height:1.4;}
-.review-words-below{
-  max-width:700px;margin:0 auto 32px;
-  display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;
-  font-size:clamp(11px,1.5vw,14px);color:#555;line-height:1.5;
-}
-.review-words-below span{white-space:nowrap;}
-.review-words-below .big{font-size:clamp(14px,2vw,20px);color:#1A6B5A;font-weight:600;}
-.review-words-below .md{font-size:clamp(12px,1.7vw,16px);color:#333;font-weight:500;}
-.review-trust-bar{margin:0 auto 28px;max-width:480px;}
-.review-trust-bar img{width:100%;opacity:.75;}
-.review-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;}
+.rh-cloud-vial{position:relative;z-index:2;animation:floatUpDown 3s ease-in-out infinite;}
+.rh-cloud-vial img{max-height:260px;width:auto;}
+.rh-word{position:absolute;line-height:1.4;color:#666;}
+.rh-word .verified-tag{display:block;font-size:9px;color:#bbb;margin-top:2px;}
+/* left column */
+.rh-w1{top:5%;left:0;max-width:180px;font-size:14px;text-align:right;}
+.rh-w2{top:38%;left:2%;max-width:190px;font-size:13px;text-align:right;color:#888;}
+.rh-w3{bottom:8%;left:0;max-width:185px;font-size:14px;text-align:right;}
+/* right column */
+.rh-w4{top:5%;right:0;max-width:180px;font-size:18px;font-weight:600;color:#333;text-align:left;}
+.rh-w5{top:38%;right:2%;max-width:200px;font-size:14px;text-align:left;}
+.rh-w6{bottom:8%;right:0;max-width:180px;font-size:13px;color:#888;text-align:left;}
 
-/* ── CONFIDENCE / REAL CUSTOMERS ── */
+.rh-trust-strip{
+  display:flex;justify-content:center;align-items:center;gap:0;
+  border:1px solid #eee;border-radius:10px;overflow:hidden;
+  max-width:680px;margin:0 auto 28px;background:#fafafa;
+}
+.rh-trust-item{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 8px;font-size:12px;font-weight:600;color:#444;
+  border-right:1px solid #eee;white-space:nowrap;
+}
+.rh-trust-item:last-child{border-right:none;}
+.rh-trust-item svg{flex-shrink:0;}
+
+/* ── CONFIDENCE ── */
 .confidence{
-  background:#f2ede6;
-  padding:72px 0;
-  position:relative;
-  overflow:hidden;
+  background:#f0ebe3;padding:80px 24px;
+  position:relative;overflow:hidden;text-align:center;
 }
-/* Floating bottle decorators — absolute positioned */
-.conf-bottle{
-  position:absolute;
-  pointer-events:none;
-  z-index:1;
-}
-.conf-bottle img{width:100%;height:100%;object-fit:contain;}
-/* left bottle: upside-down, bottom-left, rotates slowly */
-.conf-bottle-left{
-  left:-30px;bottom:-20px;width:200px;
-  transform-origin:center center;
-  animation:rotateSlow 18s linear infinite;
-}
-/* top bottle: top-center, rotates CCW */
-.conf-bottle-top{
-  top:-30px;left:50%;margin-left:-80px;width:160px;
-  animation:rotateSlowCCW 22s linear infinite;
-}
-/* right bottle: right side, tilted, rotates slowly */
-.conf-bottle-right{
-  right:-20px;top:30%;width:180px;
-  animation:rotateSlow 20s linear infinite;
-}
-.conf-inner{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:2;text-align:center;}
-.conf-h{font-size:clamp(32px,4vw,56px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:#111;margin-bottom:20px;}
-.conf-h em{font-style:italic;}
-.conf-p{font-size:15px;color:#555;line-height:1.7;margin-bottom:14px;max-width:640px;margin-left:auto;margin-right:auto;}
-.conf-sub{font-size:14px;color:#888;margin-bottom:8px;}
-.conf-arrow{font-size:28px;color:#111;margin-bottom:24px;display:block;}
-/* video grid */
-.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px;}
-.video-thumb{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:9/16;}
-.video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
-.video-thumb:hover img{transform:scale(1.04);}
-.video-play{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.28);color:#fff;font-size:28px;
-  transition:background .2s;
-}
-.video-thumb:hover .video-play{background:rgba(26,107,90,.5);}
-.conf-ready{font-size:18px;font-weight:700;color:#111;margin-bottom:16px;}
+/* Bottles — absolute, partially cropped off edges */
+.cb{position:absolute;pointer-events:none;z-index:1;}
+.cb img{width:100%;height:100%;object-fit:contain;}
+.cb-left{left:-60px;bottom:-30px;width:220px;animation:rotateCW 20s linear infinite;}
+.cb-top{top:-40px;left:calc(50% - 90px);width:180px;animation:rotateCCW 24s linear infinite;}
+.cb-right{right:-50px;top:20%;width:200px;animation:rotateCW 18s linear infinite;}
+
+.confidence-inner{max-width:860px;margin:0 auto;position:relative;z-index:2;}
+.conf-h{font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.06;letter-spacing:-0.04em;color:#111;margin-bottom:20px;}
+.conf-h em{font-style:italic;font-weight:900;}
+.conf-p{font-size:16px;color:#555;line-height:1.7;max-width:640px;margin:0 auto 12px;}
+.conf-sub{font-size:14px;color:#888;margin-bottom:6px;}
+.conf-arrow{font-size:32px;color:#333;margin-bottom:28px;display:block;}
+/* video row */
+.video-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:820px;margin:0 auto 28px;}
+.vt{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/16;cursor:pointer;}
+.vt img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.vt:hover img{transform:scale(1.04);}
+.vt-play{position:absolute;inset:0;background:rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;transition:background .2s;}
+.vt:hover .vt-play{background:rgba(26,107,90,.5);}
+.conf-cta-label{font-size:18px;font-weight:700;color:#111;margin-bottom:18px;}
 
 /* ── WHY BETTER ── */
-.why-section{background:#fff;padding:64px 24px;}
-.why-inner{max-width:1200px;margin:0 auto;display:flex;gap:64px;align-items:center;}
-.why-content{flex:1.2;}
-.why-h{font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-0.02em;color:#111;margin-bottom:10px;}
-.why-sub{font-size:14px;color:#666;margin-bottom:28px;}
-.why-steps{list-style:none;}
-.why-step{
-  border-bottom:1px solid #eee;
-  padding:14px 0;
-  display:flex;align-items:center;gap:12px;
-  font-size:15px;color:#333;font-weight:500;
+.why-section{background:#f9f9f7;padding:32px 24px 64px;}
+.why-card{
+  max-width:1100px;margin:0 auto;
+  background:#fff;border-radius:28px;
+  display:flex;align-items:center;gap:0;
+  overflow:hidden;box-shadow:0 2px 32px rgba(0,0,0,.06);
 }
-.why-step:last-child{border-bottom:none;}
-.why-step::before{content:"✓";color:#1A6B5A;font-weight:700;font-size:16px;flex-shrink:0;}
-.why-phone{flex-shrink:0;width:260px;}
-.why-phone img{width:100%;border-radius:20px;box-shadow:0 12px 40px rgba(0,0,0,.12);}
+.why-text{flex:1.2;padding:52px 48px;}
+.why-h{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-0.02em;color:#111;margin-bottom:8px;}
+.why-sub{font-size:14px;color:#888;margin-bottom:28px;}
+.why-list{list-style:none;}
+.why-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #f0f0f0;font-size:15px;color:#222;font-weight:500;}
+.why-item:last-child{border-bottom:none;}
+.why-item::before{content:"✓";color:#1A6B5A;font-weight:800;font-size:16px;flex-shrink:0;}
+.why-phone{flex-shrink:0;width:300px;padding:32px 32px 0;display:flex;align-items:flex-end;justify-content:center;}
+.why-phone img{width:100%;max-height:440px;object-fit:contain;object-position:bottom;}
 
-/* ── REVIEWS CARDS ── */
-.reviews-section{background:#f7f5f0;padding:64px 24px;text-align:center;}
-.reviews-h{font-size:clamp(24px,3vw,38px);font-weight:800;letter-spacing:-0.02em;color:#111;margin-bottom:6px;}
-.reviews-sub{font-size:14px;color:#888;margin-bottom:36px;}
-.reviews-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;
-  text-align:left;
-}
-.review-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.06);}
-.review-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.10);transition:all .2s;}
-.rc-stars{color:#F5A623;font-size:13px;margin-bottom:8px;}
-.rc-text{font-size:13px;color:#555;line-height:1.6;margin-bottom:12px;}
-.rc-user{display:flex;align-items:center;gap:10px;}
-.rc-user img{width:40px;height:40px;border-radius:50%;object-fit:cover;}
-.rc-user strong{font-size:13px;color:#111;display:block;}
-.rc-user span{font-size:11px;color:#999;}
+/* ── REVIEWS ── */
+.reviews-section{background:#f9f9f7;padding:64px 24px;}
+.reviews-inner{max-width:1200px;margin:0 auto;}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1A6B5A;margin-bottom:8px;}
+.reviews-h{font-size:clamp(26px,3.5vw,42px);font-weight:800;letter-spacing:-0.025em;color:#111;margin-bottom:6px;}
+.reviews-sub{font-size:14px;color:#999;margin-bottom:36px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+.rc{background:#fff;border-radius:14px;padding:20px;box-shadow:0 1px 12px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s;}
+.rc:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.09);}
+.rc-stars{color:#F5A623;font-size:12px;margin-bottom:8px;letter-spacing:1px;}
+.rc-title{font-size:13px;font-weight:700;color:#111;margin-bottom:6px;}
+.rc-text{font-size:12px;color:#666;line-height:1.6;margin-bottom:12px;}
+.rc-user{display:flex;align-items:center;gap:8px;}
+.rc-user img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
+.rc-name{font-size:12px;font-weight:600;color:#111;}
+.rc-tag{font-size:10px;color:#aaa;}
 
 /* ── STATS ── */
-.stats-section{background:#fff;padding:72px 24px;text-align:center;}
-.stats-h{font-size:clamp(20px,2.5vw,30px);font-weight:700;color:#111;max-width:600px;margin:0 auto 8px;line-height:1.3;}
-.stats-sub{font-size:14px;color:#888;margin-bottom:44px;}
-.stats-grid{
-  max-width:900px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
-}
-.stat-card{background:#EBF5F0;border-radius:16px;padding:32px 16px;}
-.stat-num{font-size:clamp(30px,4vw,48px);font-weight:800;color:#1A6B5A;line-height:1;margin-bottom:8px;}
-.stat-num sup{font-size:40%;vertical-align:super;}
-.stat-label{font-size:13px;color:#555;line-height:1.4;}
+.stats-section{background:#fff;padding:80px 24px;text-align:center;}
+.stats-eyebrow{font-size:14px;color:#888;margin-bottom:6px;}
+.stats-h{font-size:clamp(22px,3vw,34px);font-weight:700;color:#111;max-width:640px;margin:0 auto 6px;line-height:1.3;}
+.stats-sub{font-size:14px;color:#aaa;margin-bottom:48px;}
+.stats-grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stat-card{background:#f4faf7;border-radius:18px;padding:32px 16px;}
+.stat-num{font-size:clamp(34px,4.5vw,52px);font-weight:800;color:#1A6B5A;line-height:1;margin-bottom:8px;}
+.stat-num sup{font-size:50%;vertical-align:super;font-weight:700;}
+.stat-label{font-size:13px;color:#666;line-height:1.4;}
 
 /* ── FAQ ── */
-.faq-section{background:#f7f5f0;padding:72px 24px;}
-.faq-inner{max-width:760px;margin:0 auto;}
-.faq-h{font-size:clamp(28px,3.5vw,44px);font-weight:800;letter-spacing:-0.02em;color:#111;margin-bottom:6px;}
-.faq-sub{font-size:14px;color:#888;margin-bottom:36px;}
-.faq-item{background:#fff;border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.faq-section{background:#f9f9f7;padding:72px 24px;}
+.faq-inner{max-width:720px;margin:0 auto;}
+.faq-h{font-size:clamp(32px,4vw,52px);font-weight:800;letter-spacing:-0.03em;color:#111;margin-bottom:6px;}
+.faq-sub{font-size:14px;color:#aaa;margin-bottom:36px;}
+.faq-item{background:#fff;border-radius:12px;margin-bottom:8px;overflow:hidden;}
 .faq-btn{
   width:100%;background:none;border:none;text-align:left;
-  padding:18px 20px;
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:15px;font-weight:500;color:#111;
-  cursor:pointer;gap:12px;
+  padding:18px 20px;display:flex;justify-content:space-between;align-items:center;
+  font-size:15px;font-weight:500;color:#111;cursor:pointer;gap:12px;
 }
 .faq-btn:hover{color:#1A6B5A;}
 .faq-btn.open{color:#1A6B5A;}
-.faq-icon{font-size:22px;font-weight:300;color:#1A6B5A;flex-shrink:0;transition:transform .25s;}
-.faq-btn.open .faq-icon{transform:rotate(45deg);}
+.faq-icon{font-size:22px;color:#999;flex-shrink:0;transition:transform .25s;font-weight:300;}
+.faq-btn.open .faq-icon{transform:rotate(45deg);color:#1A6B5A;}
 .faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.faq-body.open{max-height:400px;}
-.faq-body p,.faq-body ol{font-size:14px;color:#555;line-height:1.7;padding:0 20px 18px;}
-.faq-body ol{padding-left:40px;}
-.faq-body a{color:#1A6B5A;}
+.faq-body.open{max-height:500px;}
+.faq-body-inner{padding:0 20px 18px;font-size:14px;color:#555;line-height:1.75;}
+.faq-body-inner ol{padding-left:20px;margin-top:8px;}
+.faq-body-inner li{margin-bottom:6px;}
+.faq-body-inner a{color:#1A6B5A;}
 
-/* ── QUIZ / WEIGHT GOAL ── */
-.quiz-section{
-  background:linear-gradient(135deg,#1A6B5A 0%,#2B8A72 100%);
-  padding:72px 24px;text-align:center;
-}
-.quiz-h{font-size:clamp(24px,3.5vw,40px);font-weight:800;color:#fff;margin-bottom:32px;letter-spacing:-0.02em;}
-.quiz-card{
-  background:#fff;border-radius:16px;
-  padding:28px;max-width:480px;margin:0 auto;
-}
+/* ── QUIZ ── */
+.quiz-section{background:#f0ebe3;padding:72px 24px;text-align:center;}
+.quiz-h{font-size:clamp(26px,3.5vw,42px);font-weight:800;letter-spacing:-0.025em;color:#111;margin-bottom:32px;}
+.quiz-card{background:#fff;border-radius:16px;padding:28px 28px 24px;max-width:440px;margin:0 auto;box-shadow:0 4px 32px rgba(0,0,0,.08);}
 .quiz-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
 .quiz-opt{
-  display:flex;align-items:center;gap:12px;
-  padding:13px 16px;border:2px solid #eee;border-radius:10px;
-  cursor:pointer;font-size:14px;font-weight:500;color:#333;
-  transition:all .18s;text-align:left;
+  display:flex;align-items:center;gap:12px;padding:13px 16px;
+  border:1.5px solid #e5e5e5;border-radius:10px;cursor:pointer;
+  font-size:14px;font-weight:500;color:#333;transition:all .18s;
 }
-.quiz-opt:hover,.quiz-opt.active{border-color:#1A6B5A;background:#EBF5F0;}
+.quiz-opt:hover,.quiz-opt.sel{border-color:#1A6B5A;background:#f0faf6;}
 .quiz-opt input{accent-color:#1A6B5A;width:16px;height:16px;flex-shrink:0;}
 .quiz-submit{
   width:100%;background:#1A6B5A;color:#fff;
   padding:14px;border:none;border-radius:8px;
-  font-size:15px;font-weight:700;cursor:pointer;
+  font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.01em;
   transition:background .2s;
 }
-.quiz-submit:hover{background:#2B8A72;}
+.quiz-submit:hover{background:#155c4d;}
 
 /* ── FOOTER ── */
-.footer{background:#111;color:#fff;padding:40px 24px 24px;}
+.footer{background:#111;color:#fff;padding:48px 24px 24px;}
 .footer-inner{max-width:1200px;margin:0 auto;}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px;}
-.footer-logo-wrap{margin-bottom:12px;}
-.footer-tagline{font-size:12px;color:#888;line-height:1.6;margin-bottom:12px;}
-.footer-contact a{font-size:13px;color:#aaa;display:block;margin-bottom:4px;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-logo{margin-bottom:14px;}
+.footer-logo img{height:32px;width:auto;}
+.footer-desc{font-size:12px;color:#666;line-height:1.7;margin-bottom:14px;}
+.footer-contact a{display:block;font-size:13px;color:#888;margin-bottom:5px;}
 .footer-contact a:hover{color:#fff;}
-.footer-col h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:12px;letter-spacing:.02em;}
-.footer-col a{display:block;font-size:13px;color:#888;margin-bottom:8px;}
+.footer-col h4{font-size:12px;font-weight:700;color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:#666;margin-bottom:8px;}
 .footer-col a:hover{color:#fff;}
-.footer-bottom{border-top:1px solid #222;padding-top:18px;text-align:center;font-size:11px;color:#555;}
-.footer-disc{font-size:11px;color:#555;line-height:1.7;margin-bottom:16px;max-width:900px;}
-
-/* ── TRUST STRIP ── */
-.trust-strip{
-  background:#fff;border:1px solid #eee;border-radius:12px;
-  display:flex;justify-content:center;align-items:center;
-  gap:32px;padding:14px 24px;flex-wrap:wrap;
-  max-width:800px;margin:24px auto 0;
-  font-size:13px;color:#555;font-weight:500;
-}
-.trust-strip span{display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.footer-disc{font-size:11px;color:#444;line-height:1.75;margin-bottom:20px;max-width:900px;}
+.footer-bottom{border-top:1px solid #222;padding-top:16px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#444;flex-wrap:wrap;gap:8px;}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .reviews-grid{grid-template-columns:repeat(3,1fr);}
+  .hero-img-col{width:340px;}
+}
 @media(max-width:900px){
   .hero-inner{flex-direction:column;min-height:auto;}
-  .hero-img-col{width:100%;max-width:360px;margin:0 auto;}
-  .hero-text{padding:32px 0 20px;max-width:100%;}
-  .why-inner{flex-direction:column;}
-  .why-phone{width:100%;max-width:240px;margin:0 auto;}
+  .hero-img-col{width:100%;max-width:340px;margin:0 auto;}
+  .hero-text{padding:36px 0 16px;max-width:100%;}
+  .why-card{flex-direction:column;}
+  .why-text{padding:36px 28px 24px;}
+  .why-phone{width:100%;max-width:220px;padding:0 0 32px;}
   .stats-grid{grid-template-columns:1fr 1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
-  .video-grid{grid-template-columns:repeat(2,1fr);}
-  .conf-bottle-left{width:120px;left:-15px;}
-  .conf-bottle-top{width:100px;}
-  .conf-bottle-right{width:110px;right:-10px;}
-  .review-cloud{min-height:260px;}
-  .review-cloud-vial img{max-height:190px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .video-row{grid-template-columns:repeat(2,1fr);}
+  .cb-left{width:150px;left:-40px;}
+  .cb-top{width:130px;}
+  .cb-right{width:150px;right:-35px;}
+  .rh-cloud{height:280px;}
+  .rh-cloud-vial img{max-height:200px;}
 }
-@media(max-width:600px){
+@media(max-width:640px){
   .nav-links,.nav-account{display:none;}
   .hamburger{display:block;}
-  .mobile-menu.open{display:flex;}
+  .rh-word{display:none;}
+  .rh-cloud{height:200px;}
+  .reviews-grid{grid-template-columns:1fr 1fr;}
   .stats-grid{grid-template-columns:1fr 1fr;}
-  .reviews-grid{grid-template-columns:1fr;}
-  .video-grid{grid-template-columns:repeat(2,1fr);}
-  .conf-bottle{display:none;}
-  .review-cloud-words{display:none;}
-  .review-cloud{min-height:200px;}
+  .footer-top{grid-template-columns:1fr;}
+  .cb{display:none;}
+  .rh-trust-strip{flex-wrap:wrap;}
+  .rh-trust-item{flex:none;width:50%;}
 }
 </style>
 </head>
@@ -403,33 +289,33 @@ a{text-decoration:none;color:inherit;}
 
 <!-- ANNOUNCE BAR -->
 <div class="announce-bar">
-  🎁 <strong>Only 9 Spots Left</strong> (Save $139) — <u style="cursor:pointer;">Free Shipping</u>
+  🎁 <strong>Only 9 Spots Left</strong> (Save $139) —<a href="#quiz">Free Shipping</a>
 </div>
 
 <!-- NAV -->
-<nav class="navbar">
+<nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo" style="display:flex;align-items:center;"><img src="https://malmohealth.com/images/Malmologo.png" alt="Malmo" style="height:36px;width:auto;"></a>
+    <a href="#"><img src="https://malmohealth.com/images/Malmologo.png" alt="Malmo" style="height:38px;width:auto;"></a>
     <div class="nav-links">
-      <a href="#why">How It Works</a>
+      <a href="#why">How it works</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#pricing">Pricing</a>
     </div>
     <div class="nav-right">
-      <a href="#" class="nav-account">My Account</a>
-      <a href="#quiz" class="btn-primary nav-cta">Start Your Journey</a>
+      <span class="nav-account">My Account</span>
+      <a href="#quiz" class="btn-nav">Start Your Journey</a>
     </div>
-    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <button class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#why" onclick="document.getElementById('mobileMenu').classList.remove('open')">How It Works</a>
-    <a href="#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a>
-    <a href="#faq" onclick="document.getElementById('mobileMenu').classList.remove('open')">FAQ</a>
-    <a href="#pricing" onclick="document.getElementById('mobileMenu').classList.remove('open')">Pricing</a>
-    <a href="#quiz" class="mob-cta" onclick="document.getElementById('mobileMenu').classList.remove('open')">Start Your Journey</a>
+  <div class="mobile-menu" id="mob">
+    <a href="#why" onclick="document.getElementById('mob').classList.remove('open')">How it works</a>
+    <a href="#reviews" onclick="document.getElementById('mob').classList.remove('open')">Reviews</a>
+    <a href="#faq" onclick="document.getElementById('mob').classList.remove('open')">FAQ</a>
+    <a href="#pricing" onclick="document.getElementById('mob').classList.remove('open')">Pricing</a>
+    <a href="#quiz" class="mob-cta" onclick="document.getElementById('mob').classList.remove('open')">Start Your Journey</a>
   </div>
 </nav>
 
@@ -437,12 +323,12 @@ a{text-decoration:none;color:inherit;}
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-stars">
-        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      <div class="hero-rating">
+        <span class="hero-stars-sm">★★★★★</span>
         <span>Weight Loss, Done Smarter</span>
       </div>
       <h1 class="hero-h1">
-        Finally serious about weight loss? <em>Drop 40lbs by August</em> with personalized care &amp; GLP-1 medication
+        Finally serious about weight loss? <span class="accent">Drop 40lbs by August</span> with personalized care &amp; GLP-1 medication
       </h1>
       <p class="hero-sub">Weight Loss, Done Smarter.</p>
       <ul class="hero-checks">
@@ -453,13 +339,16 @@ a{text-decoration:none;color:inherit;}
         <li>Delivered to your door from licensed US pharmacies</li>
       </ul>
       <p class="hero-price">Starting at <strong>$149</strong> /month</p>
-      <div class="hero-btns">
-        <a href="#quiz" class="btn-primary">Get Started</a>
-        <a href="#pricing" class="btn-outline">See Pricing →</a>
+      <div class="btns-row" style="margin-bottom:12px;">
+        <a href="#quiz" class="btn-dark">Get Started</a>
+        <a href="#pricing" class="btn-outline">See Pricing</a>
       </div>
-      <div class="hero-trust">
-        <img src="images/trustpilot.png" alt="Trustpilot Excellent 4.8">
+      <div class="micro-trust">
+        <span>🚫 No Hidden Fees</span>
+        <span>🚫 No Monthly Membership</span>
+        <span>✓ Cancel Anytime</span>
       </div>
+      <img class="hero-trust-img" src="images/trustpilot.png" alt="Trustpilot Excellent 4.8">
     </div>
     <div class="hero-img-col">
       <img src="images/hero-woman.png" alt="Happy Malmo customer with GLP-1 medication">
@@ -469,211 +358,190 @@ a{text-decoration:none;color:inherit;}
 
 <!-- MEDIA BAR -->
 <section class="media-bar">
-  <p>As Featured In</p>
+  <p class="media-bar-label">As Featured In</p>
   <img src="images/seen-on-desktop.png" alt="OK!, Balancing Act, Woman's World, LA Weekly, Lifetime, Health Uncensored">
 </section>
 
-<!-- REVIEW HERO (floating vial + word cloud) -->
+<!-- REVIEW HERO -->
 <section class="review-hero">
-  <p class="review-count">10,000+ Patients Agree</p>
-  <div class="review-stars-big">★★★★★</div>
-  <h2 class="review-quote">"When nothing else worked, <em>Malmo did</em>"</h2>
-  <p class="review-verified">✓ <span>Verified Malmo Customer</span></p>
+  <p class="rh-count">10,000+ Patients Agree</p>
+  <div class="rh-stars">★★★★★</div>
+  <h2 class="rh-quote">"When nothing else worked, <strong>Malmo did</strong>"</h2>
+  <p class="rh-verified">✓ <span>Verified Malmo Customer</span></p>
 
-  <!-- Vial centered, words floating around it -->
-  <div class="review-cloud">
-    <!-- LEFT words -->
-    <div class="review-cloud-words">
-      <span class="rcw" style="top:6%;left:2%;font-size:15px;color:#999;text-align:right;max-width:180px;">Very easy and convenient for a very busy working lady.</span>
-      <span class="rcw" style="top:3%;left:2%;margin-top:72px;font-size:10px;color:#bbb;">✓ Verified Malmo Customer</span>
-
-      <span class="rcw" style="top:38%;left:1%;font-size:14px;color:#aaa;max-width:190px;">Everyone I have had contact with has been amazing</span>
-      <span class="rcw" style="top:38%;left:1%;margin-top:50px;font-size:10px;color:#ccc;">✓ Verified Malmo Customer</span>
-
-      <span class="rcw" style="bottom:20%;left:2%;font-size:16px;color:#777;max-width:190px;">Very nice and informative Dr. Quick and easy!</span>
-      <span class="rcw" style="bottom:20%;left:2%;margin-top:52px;font-size:10px;color:#bbb;">✓ Verified Malmo Customer</span>
-
-      <!-- RIGHT words -->
-      <span class="rcw" style="top:8%;right:2%;font-size:18px;color:#555;font-weight:500;">…the weight vanished!</span>
-      <span class="rcw" style="top:8%;right:2%;margin-top:30px;font-size:10px;color:#bbb;">✓ Verified Malmo Customer</span>
-
-      <span class="rcw" style="top:38%;right:1%;font-size:15px;color:#666;max-width:200px;text-align:left;">Every person I have contact with shows compassion.</span>
-      <span class="rcw" style="top:38%;right:1%;margin-top:58px;font-size:10px;color:#bbb;">✓ Verified Malmo Customer</span>
-
-      <span class="rcw" style="bottom:18%;right:2%;font-size:14px;color:#888;max-width:180px;text-align:left;">NP was very helpful and friendly!</span>
-      <span class="rcw" style="bottom:18%;right:2%;margin-top:42px;font-size:10px;color:#bbb;">✓ Verified Malmo Customer</span>
+  <!-- Floating vial + word cloud -->
+  <div class="rh-cloud">
+    <!-- Left words -->
+    <div class="rh-word rh-w1">
+      Very easy and convenient for a very busy working lady.
+      <span class="verified-tag">✓ Verified Malmo Customer</span>
     </div>
-
-    <!-- Center floating vial -->
-    <div class="review-cloud-vial">
-      <img src="images/vial-glp1-gip.png" alt="Malmo GLP-1 + GIP medication vial">
+    <div class="rh-word rh-w2">
+      Everyone I have had contact with has been amazing.
+      <span class="verified-tag">✓ Verified Malmo Customer</span>
+    </div>
+    <div class="rh-word rh-w3">
+      Very nice and informative Dr. Quick and easy!
+      <span class="verified-tag">✓ Verified Malmo Customer</span>
+    </div>
+    <!-- Right words -->
+    <div class="rh-word rh-w4">
+      …the weight vanished!
+      <span class="verified-tag">✓ Verified Malmo Customer</span>
+    </div>
+    <div class="rh-word rh-w5">
+      Every person I have contact with shows compassion.
+      <span class="verified-tag">✓ Verified Malmo Customer</span>
+    </div>
+    <div class="rh-word rh-w6">
+      NP was very helpful and friendly!
+      <span class="verified-tag">✓ Verified Malmo Customer</span>
+    </div>
+    <!-- Center vial (floats up/down) -->
+    <div class="rh-cloud-vial">
+      <img src="images/vial-glp1-gip.png" alt="Malmo GLP-1 + GIP medication">
     </div>
   </div>
 
-  <div class="review-trust-bar">
-    <img src="images/q71YhcTKCOiW4b9mngB0m3C6QNY06cd.png" alt="Trust badges">
+  <!-- Trust strip -->
+  <div class="rh-trust-strip">
+    <div class="rh-trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6B5A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Trusted by 100k+ Americans
+    </div>
+    <div class="rh-trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6B5A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      1:1 Medical Support
+    </div>
+    <div class="rh-trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6B5A" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      US-Certified Pharmacy
+    </div>
+    <div class="rh-trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6B5A" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Personalized Treatments
+    </div>
+    <div class="rh-trust-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A6B5A" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Trusted by 100k+ Americans
+    </div>
   </div>
 
-  <div class="review-btns">
-    <a href="#quiz" class="btn-primary">Get Started</a>
-    <a href="#pricing" class="btn-outline">See Pricing →</a>
+  <div class="btns-row" style="justify-content:center;margin-bottom:10px;">
+    <a href="#quiz" class="btn-dark">Get Started</a>
+    <a href="#pricing" class="btn-outline">See Pricing</a>
   </div>
-  <div style="font-size:12px;color:#999;margin-top:8px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
+  <div class="micro-trust" style="justify-content:center;">
     <span>🚫 No Hidden Fees</span>
     <span>🚫 No Membership</span>
     <span>✓ Cancel Anytime</span>
   </div>
+  <img src="images/trustpilot.png" alt="Trustpilot" style="max-height:28px;width:auto;margin:12px auto 0;">
 </section>
 
-<!-- REAL CUSTOMERS / CONFIDENCE -->
+<!-- CONFIDENCE / REAL CUSTOMERS -->
 <section class="confidence" id="reviews">
-  <!-- Rotating bottle decorators -->
-  <div class="conf-bottle conf-bottle-left">
-    <img src="images/bottle-blue.png" alt="">
-  </div>
-  <div class="conf-bottle conf-bottle-top">
-    <img src="images/bottle-blue.png" alt="">
-  </div>
-  <div class="conf-bottle conf-bottle-right">
-    <img src="images/bottle-mint.png" alt="">
-  </div>
+  <!-- Rotating bottles at edges -->
+  <div class="cb cb-left"><img src="images/bottle-blue.png" alt=""></div>
+  <div class="cb cb-top"><img src="images/bottle-blue.png" alt=""></div>
+  <div class="cb cb-right"><img src="images/bottle-mint.png" alt=""></div>
 
-  <div class="conf-inner">
+  <div class="confidence-inner">
     <h2 class="conf-h">Real Customers. No shame.<br><em>All Confidence.</em></h2>
-    <p class="conf-p">There's no shame in using medical programs to support your health when traditional approaches stop working. Malmo is here with evidence-based weight-loss solutions, delivered compassionately. No judgment — just progress.</p>
+    <p class="conf-p">There's no shame in using medical weight loss to support your health when traditional methods aren't cutting it. Paired with a balanced diet and regular exercise, a Malmo treatment plan can help you overcome biological barriers, maintain healthy habits, and reach your goals.</p>
     <p class="conf-sub">Watch what our customers have to say about losing weight with Malmo:</p>
     <span class="conf-arrow">↓</span>
 
-    <!-- 4 video thumbnails -->
-    <div class="video-grid">
-      <div class="video-thumb">
-        <img src="images/video-thumb-1.png" alt="Customer video">
-        <div class="video-play">▶</div>
-      </div>
-      <div class="video-thumb">
-        <img src="images/video-thumb-2.png" alt="Customer video">
-        <div class="video-play">▶</div>
-      </div>
-      <div class="video-thumb">
-        <img src="images/video-thumb-3.png" alt="Customer video">
-        <div class="video-play">▶</div>
-      </div>
-      <div class="video-thumb">
-        <img src="images/video-thumb-4.png" alt="Customer video">
-        <div class="video-play">▶</div>
-      </div>
+    <div class="video-row">
+      <div class="vt"><img src="images/video-thumb-1.png" alt="Customer video"><div class="vt-play">▶</div></div>
+      <div class="vt"><img src="images/video-thumb-2.png" alt="Customer video"><div class="vt-play">▶</div></div>
+      <div class="vt"><img src="images/video-thumb-3.png" alt="Customer video"><div class="vt-play">▶</div></div>
+      <div class="vt"><img src="images/video-thumb-4.png" alt="Customer video"><div class="vt-play">▶</div></div>
     </div>
 
-    <p class="conf-ready">Ready to lose 20% of your body weight?</p>
-    <div class="review-btns">
-      <a href="#quiz" class="btn-primary">Get Started</a>
-      <a href="#pricing" class="btn-outline">See Pricing →</a>
+    <p class="conf-cta-label">Ready to lose 20% of your body weight?</p>
+    <div class="btns-row" style="justify-content:center;margin-bottom:10px;">
+      <a href="#quiz" class="btn-dark">Get Started</a>
+      <a href="#pricing" class="btn-outline">See Pricing</a>
     </div>
-    <div style="font-size:12px;color:#999;margin-top:10px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;">
+    <div class="micro-trust" style="justify-content:center;">
       <span>🚫 No Hidden Fees</span><span>🚫 No Membership</span><span>✓ Cancel Anytime</span>
     </div>
-    <img src="images/trustpilot.png" alt="Trustpilot" style="max-width:220px;margin:14px auto 0;">
+    <img src="images/trustpilot.png" alt="Trustpilot" style="max-height:28px;width:auto;margin:12px auto 0;">
   </div>
 </section>
 
-<!-- WHY WE'RE BETTER -->
+<!-- WHY BETTER -->
 <section class="why-section" id="why">
-  <div class="why-inner">
-    <div class="why-content">
+  <div class="why-card">
+    <div class="why-text">
       <h2 class="why-h">Why we're better at weight loss</h2>
       <p class="why-sub">Fast, effective prescriptions — without long waits or doctor denials.</p>
-      <ul class="why-steps">
-        <li class="why-step"><strong>Get $140 OFF today!</strong></li>
-        <li class="why-step">Your order ships from our licensed US pharmacies</li>
-        <li class="why-step">100% online — see a provider in minutes</li>
-        <li class="why-step">Free 2-day discreet delivery</li>
-        <li class="why-step">Ongoing care &amp; support every step</li>
-        <li class="why-step">Begin treatment &amp; start losing weight</li>
+      <ul class="why-list">
+        <li class="why-item"><strong>Get $140 OFF today!</strong></li>
+        <li class="why-item">Your order ships from our licensed US pharmacies</li>
+        <li class="why-item">100% online — see a provider in minutes</li>
+        <li class="why-item">Free 2-day discreet delivery</li>
+        <li class="why-item">Ongoing care &amp; support every step</li>
+        <li class="why-item">Begin treatment &amp; start losing weight</li>
       </ul>
     </div>
     <div class="why-phone">
-      <img src="https://malmohealth.com/images/phone.png" alt="Malmo prescription app">
+      <img src="https://malmohealth.com/images/phone.png" alt="Malmo app prescription">
     </div>
   </div>
 </section>
 
-<!-- 100K REVIEWS CARDS -->
+<!-- REVIEWS CARDS -->
 <section class="reviews-section">
-  <div style="max-width:1200px;margin:0 auto;">
+  <div class="reviews-inner">
     <h2 class="reviews-h">100k+ Happy Customers :)</h2>
     <p class="reviews-sub">Normally you'd pay a fortune for a doctor who does this. Not anymore.</p>
     <div class="reviews-grid">
-
-      <div class="review-card">
+      <div class="rc">
         <div class="rc-stars">★★★★★</div>
-        <p class="rc-text">"Best decision I've made this year. My doctor couldn't help me lose weight, but Malmo's GLP-1 program changed everything. Down 28lbs in 3 months!"</p>
-        <div class="rc-user">
-          <img src="images/umGWIUm0PObXy9orQFxVdBhARvY6ddb.png" alt="Sarah M.">
-          <div><strong>Sarah M.</strong><span>Verified Malmo Customer</span></div>
-        </div>
+        <p class="rc-title">Life-Changing!</p>
+        <p class="rc-text">"Best decision I've made this year. My doctor couldn't help but Malmo's GLP-1 program changed everything. Down 28lbs in 3 months!"</p>
+        <div class="rc-user"><img src="images/umGWIUm0PObXy9orQFxVdBhARvY6ddb.png" alt=""><div><p class="rc-name">Sarah M.</p><p class="rc-tag">Verified Malmo Customer</p></div></div>
       </div>
-
-      <div class="review-card">
+      <div class="rc">
         <div class="rc-stars">★★★★★</div>
-        <p class="rc-text">"The team really cares — always available to answer questions. Process was simple and the results speak for themselves."</p>
-        <div class="rc-user">
-          <img src="images/E4Ug22dkN8UjPKv1S42lGTnD9Gw6ddb.png" alt="James R.">
-          <div><strong>James R.</strong><span>Verified Malmo Customer</span></div>
-        </div>
+        <p class="rc-title">Highly Recommend</p>
+        <p class="rc-text">"The team really cares. Always available to answer questions. Process was simple and results speak for themselves."</p>
+        <div class="rc-user"><img src="images/E4Ug22dkN8UjPKv1S42lGTnD9Gw6ddb.png" alt=""><div><p class="rc-name">James R.</p><p class="rc-tag">Verified Malmo Customer</p></div></div>
       </div>
-
-      <div class="review-card">
+      <div class="rc">
         <div class="rc-stars">★★★★★</div>
-        <p class="rc-text">"Incredibly convenient. The doctors at Malmo truly listen and personalize everything. I've never felt so supported in my health journey."</p>
-        <div class="rc-user">
-          <img src="images/y0AL8t4W0G9pfYVGHMwiogQ6xW86ddb.png" alt="Maria C.">
-          <div><strong>Maria C.</strong><span>Verified Malmo Customer</span></div>
-        </div>
+        <p class="rc-title">Incredibly Convenient</p>
+        <p class="rc-text">"The doctors at Malmo truly listen and personalize everything. I've never felt so supported in my health journey."</p>
+        <div class="rc-user"><img src="images/y0AL8t4W0G9pfYVGHMwiogQ6xW86ddb.png" alt=""><div><p class="rc-name">Maria C.</p><p class="rc-tag">Verified Malmo Customer</p></div></div>
       </div>
-
-      <div class="review-card">
+      <div class="rc">
         <div class="rc-stars">★★★★★</div>
-        <p class="rc-text">"I was skeptical at first but after 2 months I've lost 22 pounds. The Malmo team truly listens. I wish I'd started sooner!"</p>
-        <div class="rc-user">
-          <img src="images/qYehZkH4GwzwWQxxYOE7EkIwUHg6ddb.png" alt="David T.">
-          <div><strong>David T.</strong><span>Verified Malmo Customer</span></div>
-        </div>
+        <p class="rc-title">Absolutely Incredible!</p>
+        <p class="rc-text">"I was skeptical at first but after 2 months I've lost 22 pounds. I wish I'd started sooner!"</p>
+        <div class="rc-user"><img src="images/qYehZkH4GwzwWQxxYOE7EkIwUHg6ddb.png" alt=""><div><p class="rc-name">David T.</p><p class="rc-tag">Verified Malmo Customer</p></div></div>
       </div>
-
-      <div class="review-card">
+      <div class="rc">
         <div class="rc-stars">★★★★★</div>
-        <p class="rc-text">"Quick process, friendly staff, and real results. 18lbs down! I was doubtful but Malmo has really come through for me."</p>
-        <div class="rc-user">
-          <img src="images/Yrm8DvlqJolUld3WAkQVXJNh6I6ddb.png" alt="Linda K.">
-          <div><strong>Linda K.</strong><span>Verified Malmo Customer</span></div>
-        </div>
+        <p class="rc-title">Don't Be Afraid!</p>
+        <p class="rc-text">"Quick process, friendly staff, real results. 18lbs down! I was doubtful but Malmo has really come through."</p>
+        <div class="rc-user"><img src="images/Yrm8DvlqJolUld3WAkQVXJNh6I6ddb.png" alt=""><div><p class="rc-name">Linda K.</p><p class="rc-tag">Verified Malmo Customer</p></div></div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- STATS -->
 <section class="stats-section" id="pricing">
-  <h2 class="stats-h">Why are so many patients signing up for <span style="color:#1A6B5A;">Malmo?</span> It Works</h2>
+  <p class="stats-eyebrow">Why are so many patients signing up for</p>
+  <h2 class="stats-h"><strong style="color:#1A6B5A;">Malmo?</strong> It Works</h2>
   <p class="stats-sub">Currently 94% of Malmo patients complete the program &amp; meet their weight goal</p>
   <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-num">18%</div>
-      <div class="stat-label">Average body weight reduction</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">9/10</div>
-      <div class="stat-label">Patients feel better after 30 days</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">6.5<sup>★</sup></div>
-      <div class="stat-label">Average customer satisfaction score</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">93%</div>
-      <div class="stat-label">Feelings of wellbeing &amp; satisfaction</div>
-    </div>
+    <div class="stat-card"><div class="stat-num">18%</div><div class="stat-label">Average body weight reduction</div></div>
+    <div class="stat-card"><div class="stat-num">9/10</div><div class="stat-label">Patients feel better after 30 days</div></div>
+    <div class="stat-card"><div class="stat-num">6.5<sup>★</sup></div><div class="stat-label">Average customer satisfaction score</div></div>
+    <div class="stat-card"><div class="stat-num">93%</div><div class="stat-label">Feelings of wellbeing &amp; satisfaction</div></div>
   </div>
 </section>
 
@@ -683,66 +551,37 @@ a{text-decoration:none;color:inherit;}
     <h2 class="faq-h">We've got you.</h2>
     <p class="faq-sub">No fine print, no hidden answers.</p>
 
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How does Malmo work? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Malmo connects you with licensed healthcare providers who prescribe GLP-1 medications like semaglutide or tirzepatide. Complete a quick online intake form, have a virtual consultation, and receive your prescription delivered to your door. Includes medication, supplies, doctor review and shipping. Full refund if not approved.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How do I know this is safe? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>All doctors are vetted and licensed in your state. Pharmacies are US-based 503A compounding pharmacies. We maintain LegitScript certification — the telemedicine industry's most recognized compliance authority.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How does the signup process work? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><ol><li>Complete the health qualifier (~5 min)</li><li>Select your preferred prescription</li><li>Pay for the first month*</li><li>Complete medical intake form in your patient portal</li><li>Provider reviews within 24 hrs (often &lt;5 hrs)</li><li>If approved, pharmacy ships via 1-day FedEx or UPS</li></ol><p>*Full refund if not approved.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">What states/jurisdictions are eligible? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Malmo currently provides services to all 50 US states.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How does the pricing work? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Semaglutide: $297/month. Tirzepatide: $497/month. Oral sublingual: $249/month. All pricing includes medication, doctor visits, 1-day FedEx or UPS shipping, and all supplies. No hidden fees or membership charges.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">What if I need to cancel? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>No contracts. Cancel anytime by emailing <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or calling <a href="tel:+13433035101">+1-343-303-5101</a>. We offer a patient satisfaction guarantee.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">Is the medication GLP-1 &amp; GLP-1 + GIP? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Yes! We offer both semaglutide (GLP-1) and tirzepatide (dual GLP-1/GIP). Your provider recommends the best option based on your health profile and goals.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">Do you offer non-injectable options? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Yes! Oral sublingual Semaglutide and Tirzepatide. Place one tablet under your tongue and let it dissolve for 30 seconds — a great alternative to injections.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">What is the dosage I'll be taking? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Your dosage is personalized by your provider based on your weight, health history and treatment response. Most patients start low and titrate gradually over several weeks.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">Where do my prescriptions come from? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>All prescriptions are fulfilled by licensed US 503A compounding pharmacies. FDA-registered, PCAB-accredited. We never source from overseas or unregulated suppliers.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How do I take my medication? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Injectable medications are administered subcutaneously (under the skin) once weekly. Oral options are taken daily. Your Malmo provider gives full instructions and our care team is always available.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How is it shipped? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Prescriptions received before 2pm CT ship same-day via next-day UPS, temperature-controlled. Fully insured with tracking. Weekend orders ship Monday.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How much weight will I lose? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Clinical studies show an average of 15–20% of body weight over 12–18 months on GLP-1 therapy. Our average customer reports losing 18% of starting body weight. Results vary based on adherence, diet and exercise.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn" onclick="toggleFaq(this)">How do I contact support? <span class="faq-icon">+</span></button>
-      <div class="faq-body"><p>Our care team is available 7 days a week. Email <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or call <a href="tel:+13433035101">+1-343-303-5101</a>. Average response time under 2 hours.</p></div>
-    </div>
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How does Malmo work?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Malmo connects you with licensed healthcare providers who prescribe GLP-1 medications like semaglutide or tirzepatide. One simple monthly price covers medication, supplies, doctor review and shipping. Full refund if not approved.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How do I know this is safe?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">All doctors are vetted and licensed in your state. Pharmacies are US-based 503A compounding pharmacies. We maintain LegitScript certification — the telemedicine industry's most recognized compliance authority.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How does the signup process work?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner"><ol><li>Complete the health qualifier (~5 min)</li><li>Select your preferred prescription</li><li>Pay for the first month*</li><li>Complete medical intake form in your patient portal</li><li>Provider reviews within 24 hrs (often &lt;5 hrs)</li><li>If approved, pharmacy ships via 1-day FedEx or UPS</li></ol>*Full refund if not approved.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">What states/jurisdictions are eligible?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Malmo currently provides services to all 50 US states.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How does the pricing work?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Semaglutide: $297/month. Tirzepatide: $497/month. Oral sublingual: $249/month. All pricing includes medication, doctor visits, 1-day shipping, and all supplies. No hidden fees or membership charges.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">What if I need to cancel?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">No contracts. Cancel anytime by emailing <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or calling <a href="tel:+13433035101">+1-343-303-5101</a>.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">Is the medication GLP-1 &amp; GLP-1 + GIP?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Yes — we offer both semaglutide (GLP-1) and tirzepatide (dual GLP-1/GIP). Your provider recommends the best option for your goals.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">Do you offer non-injectable options?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Yes! Oral sublingual Semaglutide and Tirzepatide. Dissolve under your tongue for 30 seconds — a great alternative to injections.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">What is the dosage I'll be taking?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Your dosage is personalized based on your weight, health history and treatment response. Most patients start low and titrate gradually.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">Where do my prescriptions come from?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">All prescriptions are fulfilled by licensed US 503A compounding pharmacies. FDA-registered and PCAB-accredited.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How do I take my medication?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Injectable medications are administered subcutaneously once weekly. Oral options daily. Your provider gives full instructions and our care team is always available.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How is it shipped?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Prescriptions received before 2pm CT ship same-day via next-day UPS, temperature-controlled. Fully insured with tracking.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How much weight will I lose?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Clinical studies show an average of 15–20% of body weight over 12–18 months. Our average customer reports losing 18% of starting body weight.</div></div></div>
+
+    <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)">How do I contact support?<span class="faq-icon">+</span></button><div class="faq-body"><div class="faq-body-inner">Email <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a> or call <a href="tel:+13433035101">+1-343-303-5101</a>. Available 7 days a week, response under 2 hours.</div></div></div>
   </div>
 </section>
 
-<!-- QUIZ CTA -->
+<!-- QUIZ -->
 <section class="quiz-section" id="quiz">
   <h2 class="quiz-h">What Is Your Weight Goal?</h2>
   <div class="quiz-card">
@@ -752,17 +591,17 @@ a{text-decoration:none;color:inherit;}
       <label class="quiz-opt"><input type="radio" name="goal" value="40+"><span>Lose 40+ lbs</span></label>
       <label class="quiz-opt"><input type="radio" name="goal" value="maintain"><span>Maintain my current weight</span></label>
     </div>
-    <button class="quiz-submit">Continue →</button>
+    <button class="quiz-submit" onclick="this.textContent='Continue →'">Continue</button>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-grid">
+    <div class="footer-top">
       <div>
-        <div class="footer-logo-wrap"><img src="https://malmohealth.com/images/Malmologo.png" alt="Malmo" style="height:30px;width:auto;"></div>
-        <p class="footer-tagline">© 2026 Malmo Health, Inc. All rights reserved.</p>
+        <div class="footer-logo"><img src="https://malmohealth.com/images/Malmologo.png" alt="Malmo"></div>
+        <p class="footer-desc">© 2026 Malmo Health, Inc. All rights reserved.<br>Evidence-based GLP-1 weight loss, delivered to your door.</p>
         <div class="footer-contact">
           <a href="mailto:hello@malmohealth.com">hello@malmohealth.com</a>
           <a href="tel:+13433035101">+1-343-303-5101</a>
@@ -780,49 +619,51 @@ a{text-decoration:none;color:inherit;}
         <a href="#">GLP-1 Injections</a>
         <a href="#">Oral Tablets</a>
         <a href="#">How It Works</a>
-        <a href="#">Pricing</a>
+        <a href="#pricing">Pricing</a>
       </div>
       <div class="footer-col">
         <h4>Support</h4>
         <a href="#">Contact Us</a>
         <a href="#">Patient Portal</a>
-        <a href="#">FAQ</a>
-        <a href="#">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#reviews">Reviews</a>
       </div>
     </div>
-    <p class="footer-disc">* Based on the average weight loss in three 68-week clinical trials of patients without diabetes who reached and maintained a dose of 2.4 mg/week of GLP-1 treatment, along with a reduced-calorie diet and increased physical activity. Results may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Medical treatment is provided and approved by a licensed medical professional.</p>
-    <div class="footer-bottom">© 2026 Malmo Health, Inc. All rights reserved.</div>
+    <p class="footer-disc">* Based on the average weight loss in three 68-week clinical trials of patients without diabetes who reached and maintained a dose of 2.4 mg/week of GLP-1 treatment, along with a reduced-calorie diet and increased physical activity. Results may vary. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure or prevent any disease. Medical treatment is provided and approved by a licensed medical professional. Wegovy® is for weight loss. Ozempic® is for type 2 diabetes treatment. All trademarks belong to their respective owners.</p>
+    <div class="footer-bottom">
+      <span>© 2026 Malmo Health, Inc. All rights reserved.</span>
+      <span>hello@malmohealth.com · +1-343-303-5101</span>
+    </div>
   </div>
 </footer>
 
 <script>
+// Navbar shadow on scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>10);
+});
+
 // FAQ accordion
-function toggleFaq(btn) {
-  const body = btn.nextElementSibling;
-  const isOpen = body.classList.contains('open');
-  // close all
-  document.querySelectorAll('.faq-body.open').forEach(b => { b.classList.remove('open'); b.previousElementSibling.classList.remove('open'); });
-  if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+function toggleFaq(btn){
+  const body=btn.nextElementSibling;
+  const isOpen=body.classList.contains('open');
+  document.querySelectorAll('.faq-body.open').forEach(b=>{b.classList.remove('open');b.previousElementSibling.classList.remove('open');});
+  if(!isOpen){body.classList.add('open');btn.classList.add('open');}
 }
 
-// Quiz option highlight
-document.querySelectorAll('.quiz-opt').forEach(opt => {
-  opt.addEventListener('click', () => {
-    document.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('active'));
-    opt.classList.add('active');
+// Quiz highlight
+document.querySelectorAll('.quiz-opt').forEach(o=>{
+  o.addEventListener('click',()=>{
+    document.querySelectorAll('.quiz-opt').forEach(x=>x.classList.remove('sel'));
+    o.classList.add('sel');
   });
 });
 
-// Navbar scroll shadow
-window.addEventListener('scroll', () => {
-  document.querySelector('.navbar').style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,.08)' : 'none';
-});
-
-// Smooth anchor scrolling
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); }
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-68,behavior:'smooth'});}
   });
 });
 </script>
