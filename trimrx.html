@@ -981,7 +981,7 @@ footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 48px}
           </div>
         </div>
         <div class="hero-img">
-          <img class="hero-person" src="https://malmohealth.com/images/oaeQGuAehnYnc06iSGikNW7L1E4.png" alt="Malmo patient" onerror="this.src='https://framerusercontent.com/images/aY9AiKab5fQhyZPofxXuPw6RoE.jpeg'">
+          <img class="hero-person" src="https://malmohealth.com/images/heroimagewoman.webp" alt="Malmo patient">
           <!-- Two bottles side by side like TrimRx -->
           <div class="hero-bottles">
             <img src="https://framerusercontent.com/images/Pf1CiNDRhvpyTahyDvlblpTxlg.png?width=365&height=663" alt="GLP-1 + GIP Medication">
@@ -1088,17 +1088,17 @@ footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 48px}
   <div class="vimeo-grid wide" style="margin-top:32px">
     <div class="vimeo-card">
       <div style="padding:177.78% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/1202261350?h=f2f78cef65&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Malmo - UGC 1"></iframe>
+        <iframe src="https://player.vimeo.com/video/1202261350?h=f2f78cef65&badge=0&autopause=0&loop=1&title=0&byline=0&portrait=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Malmo - UGC 1"></iframe>
       </div>
     </div>
     <div class="vimeo-card">
       <div style="padding:177.78% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/1202261351?h=ed617128da&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Malmo - UGC 2"></iframe>
+        <iframe src="https://player.vimeo.com/video/1202261351?h=ed617128da&badge=0&autopause=0&loop=1&title=0&byline=0&portrait=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Malmo - UGC 2"></iframe>
       </div>
     </div>
     <div class="vimeo-card">
       <div style="padding:177.78% 0 0 0;position:relative;">
-        <iframe src="https://player.vimeo.com/video/1202261353?h=c72ceae078&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Malmo - UGC 3"></iframe>
+        <iframe src="https://player.vimeo.com/video/1202261353?h=c72ceae078&badge=0&autopause=0&loop=1&title=0&byline=0&portrait=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Malmo - UGC 3"></iframe>
       </div>
     </div>
   </div>
@@ -1541,5 +1541,22 @@ footer{background:#fff;border-top:1px solid var(--line);padding:56px 0 48px}
 
 <!-- Vimeo Player API -->
 <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+// Wait for Vimeo API to be available, then attach end-screen reset
+(function initVimeo() {
+  if (typeof Vimeo === 'undefined' || typeof Vimeo.Player === 'undefined') {
+    setTimeout(initVimeo, 100);
+    return;
+  }
+  document.querySelectorAll('.vimeo-card iframe').forEach(function(iframe) {
+    var player = new Vimeo.Player(iframe);
+    player.on('ended', function() {
+      player.setCurrentTime(0).then(function() {
+        player.pause();
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
