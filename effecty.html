@@ -177,10 +177,6 @@
   }
   .gallery__thumb:hover { transform: scale(1.1); }
   .gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (max-width: 640px) {
-    .gallery__thumb { width: 2.5rem; height: 2.5rem; }
-    .gallery__thumbs { gap: 0.5rem; bottom: 0.75rem; }
-  }
 
   /* Hero info */
   .hero__info { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -406,30 +402,86 @@
   .footer__legal-link { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
   .footer__legal-link:hover { color: rgba(255,255,255,0.7); }
 
-  /* RESPONSIVE */
+  /* ── TABLET (≤991px) ── */
   @media (max-width: 991px) {
+    .nav__links { display: none; }
+    .hero { padding: 2rem 0; }
     .hero__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero__headline { font-size: clamp(2rem, 6vw, 3rem); }
     .benefits__grid { grid-template-columns: repeat(2, 1fr); }
     .comparison__grid { grid-template-columns: 1fr auto auto; }
+    .comp-cell { font-size: 0.82rem; padding: 0.75rem 0.9rem; }
     .progesterone__grid { grid-template-columns: 1fr; }
-    .stat-grid { grid-template-columns: 1fr; }
-    .stat-img { aspect-ratio: 16/9; }
+    .progesterone__img { aspect-ratio: 16/9; }
     .treatments__grid { grid-template-columns: repeat(2, 1fr); }
+    .how-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .how-card__title { font-size: 1.1rem; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .stat-img { aspect-ratio: 16/9; order: -1; }
+    .stat-content { order: 1; }
     .reviews__grid { grid-template-columns: repeat(2, 1fr); }
     .why-grid { grid-template-columns: 1fr 1fr; }
-    .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .cta-card__inner { grid-template-columns: 1fr; }
+    .cta-card__inner { grid-template-columns: 1fr; min-height: auto; }
     .cta-card__img { display: none; }
-    .nav__links { display: none; }
+    .cta-card__content { padding: 2.5rem 2rem; }
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer__brand { grid-column: 1 / -1; }
   }
+
+  /* ── MOBILE (≤640px) ── */
   @media (max-width: 640px) {
     section { padding: 3rem 0; }
+    .container, .container--wide, .container--narrow { padding: 0 1.25rem; }
+    .nav__inner { padding: 0 1.25rem; }
+    .nav__logo img { height: 1.6rem; }
+    .hero { padding: 1.5rem 0 2rem; }
+    .hero__grid { padding: 0 1.25rem; gap: 1.75rem; }
+    .hero__headline { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+    .hero__sub { font-size: 0.88rem; }
+    .hero__tags { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+    .hero__tag { font-size: 0.75rem; padding: 0.4rem 0.65rem; }
+    .hero__tag svg { width: 0.85rem; height: 0.85rem; }
+    .gallery__thumb { width: 2.5rem; height: 2.5rem; }
+    .gallery__thumbs { gap: 0.5rem; bottom: 0.75rem; }
+    .section__header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .section__title { font-size: clamp(1.9rem, 7vw, 2.8rem); }
     .benefits__grid { grid-template-columns: 1fr; }
+    .benefit-card { min-height: 10rem; }
+    .comp-cell { font-size: 0.75rem; padding: 0.6rem 0.5rem; }
+    .comp-cell.header { font-size: 0.68rem; letter-spacing: 0; }
+    .progesterone__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .progesterone__img { aspect-ratio: 4/3; }
     .treatments__grid { grid-template-columns: 1fr; }
+    .treatment-card__title { font-size: 1.2rem; }
+    .treatment-price { font-size: 1.3rem; }
+    .how-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .how-card__img { aspect-ratio: 16/9; }
+    .stat-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stat-img { aspect-ratio: 4/3; }
     .reviews__grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
-    .footer__grid { grid-template-columns: 1fr; }
-    .how-grid { grid-template-columns: 1fr; }
+    .why-card { padding: 1.5rem; }
+    .faq__q { font-size: 1rem; font-weight: 600; }
+    .faq__a { font-size: 0.88rem; }
+    .cta-card__content { padding: 2rem 1.5rem; }
+    .cta-card__title { font-size: 1.2rem; }
+    .footer { padding: 3rem 0 1.5rem; }
+    .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer__brand { grid-column: auto; }
+    .footer__email-form { flex-direction: column; }
+    .footer__email-input { border-radius: 0.5rem; }
+    .footer__email-btn { border-radius: 0.5rem; width: 100%; padding: 0.65rem; }
+    .footer__bottom { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .footer__legal-links { flex-direction: column; gap: 0.5rem; }
+    .promo-banner__item { font-size: 0.78rem; }
+  }
+
+  /* ── SMALL MOBILE (≤400px) ── */
+  @media (max-width: 400px) {
+    .hero__tags { grid-template-columns: 1fr; }
+    .hero__headline { font-size: 1.75rem; }
+    .section__title { font-size: 1.75rem; }
+    .comp-cell { font-size: 0.68rem; padding: 0.5rem 0.4rem; }
   }
 </style>
 </head>
@@ -479,16 +531,16 @@
           <span class="check">✓</span>
           <span>HSA &amp; FSA eligible</span>
         </div>
-        <img src="https://malmohealth.com/images/2asdf.webp" alt="Malmo HRT treatment" id="gallery-img"/>
+        <img src="https://malmohealth.com/images/2asdf.png" alt="Malmo HRT treatment" id="gallery-img"/>
         <div class="gallery__thumbs">
-          <div class="gallery__thumb active" data-src="https://malmohealth.com/images/2asdf.webp">
-            <img src="https://malmohealth.com/images/2asdf.webp" alt="Image 1"/>
+          <div class="gallery__thumb active" data-src="https://malmohealth.com/images/2asdf.png">
+            <img src="https://malmohealth.com/images/2asdf.png" alt="Image 1"/>
           </div>
-          <div class="gallery__thumb" data-src="https://malmohealth.com/images/3asdf.webp">
-            <img src="https://malmohealth.com/images/3asdf.webp" alt="Image 2"/>
+          <div class="gallery__thumb" data-src="https://malmohealth.com/images/3asdf.png">
+            <img src="https://malmohealth.com/images/3asdf.png" alt="Image 2"/>
           </div>
-          <div class="gallery__thumb" data-src="https://malmohealth.com/images/1asdf.webp">
-            <img src="https://malmohealth.com/images/1asdf.webp" alt="Image 3"/>
+          <div class="gallery__thumb" data-src="https://malmohealth.com/images/1asdf.png">
+            <img src="https://malmohealth.com/images/1asdf.png" alt="Image 3"/>
           </div>
         </div>
       </div>
@@ -652,7 +704,7 @@
   <div class="container">
     <div class="progesterone__grid">
       <div class="progesterone__img">
-        <img src="https://malmohealth.com/images/4asdf.webp" alt="Smiling woman"/>
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd1326_95b4d7daaf5279967ce3fd8bb23ffab0_progesterone.avif" alt="Smiling woman"/>
       </div>
       <div class="progesterone__content">
         <h2>Do you need <span class="gradient-text">Progesterone</span> too</h2>
