@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Estradiol HRT | Malmo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0D3B27;
+    --white: #ffffff;
+    --off-white: #F5F0E8;
+    --green-deep: #0D3B27;
+    --green-teal: #0D6C5C;
+    --green-mid: #2F9B7C;
+    --green-light: #d4ede7;
+    --green-pale: #e6f4f1;
+    --green-gradient: linear-gradient(135deg, #2F9B7C 0%, #0D6C5C 100%);
+    --banner-gradient: linear-gradient(135deg, #0D3B27 0%, #0D6C5C 49%, #0D3B27 100%);
+    --text-muted: rgba(13,59,39,0.6);
+    --radius: 1rem;
+    --radius-sm: 0.5rem;
+    --container: 1140px;
+    --container-wide: 1280px;
+    --container-narrow: 720px;
+  }
+
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Poppins', sans-serif; color: var(--black); background: var(--white); line-height: 1.6; }
+  h1, h2, .hero__headline, .section__title, .h1, .h2 { font-family: 'Poppins', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  ul { list-style: none; }
+
+  /* UTILITY */
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+  .container--wide { max-width: var(--container-wide); margin: 0 auto; padding: 0 2rem; }
+  .container--narrow { max-width: var(--container-narrow); margin: 0 auto; padding: 0 2rem; }
+  .text-center { text-align: center; }
+  .text-muted { color: var(--text-muted); }
+  .u-mb-0 { margin-bottom: 0 !important; }
+
+  /* TYPE SCALE */
+  h1, .h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; }
+  h2, .h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; letter-spacing: -0.015em; }
+  h3, .h3 { font-size: clamp(1.2rem, 2vw, 1.8rem); font-weight: 400; line-height: 1.3; }
+  h4, .h4 { font-size: 1.2rem; font-weight: 400; }
+  h5, .h5 { font-size: 1.05rem; font-weight: 600; }
+  h6, .h6 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  p { font-size: 1rem; line-height: 1.65; }
+  .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  h1, h2, .hero__headline, .section__title, .h1, .h2 { font-family: 'Poppins', sans-serif; }
+
+  /* GRADIENT TEXT */
+  .gradient-text {
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.5rem; border-radius: 100rem;
+    font-weight: 600; font-size: 0.95rem; cursor: pointer;
+    transition: all 0.2s; border: 1.5px solid transparent;
+    text-decoration: none; white-space: nowrap;
+  }
+  .btn--primary { background: var(--green-deep); color: var(--white); }
+  .btn--primary:hover { background: var(--green-teal); }
+  .btn--secondary { background: var(--white); color: var(--green-deep); border-color: rgba(13,59,39,0.2); }
+  .btn--secondary:hover { border-color: var(--green-deep); }
+  .btn--full { width: 100%; justify-content: center; }
+  .btn-arrow { font-size: 0.9rem; transition: transform 0.3s; }
+  .btn:hover .btn-arrow { transform: rotate(-45deg); }
+
+  /* PROMO BANNER */
+  .promo-banner {
+    background: var(--banner-gradient);
+    color: var(--white); overflow: hidden; height: 2.5rem;
+    display: flex; align-items: center; position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 100;
+  }
+  .promo-banner__track {
+    display: flex; width: fit-content;
+    animation: scroll-banner 30s linear infinite;
+    white-space: nowrap;
+  }
+  .promo-banner:hover .promo-banner__track { animation-play-state: paused; }
+  .promo-banner__item { font-size: 0.9rem; letter-spacing: 0.3px; padding: 0 0.5rem; flex-shrink: 0; }
+  .promo-banner__code { font-weight: 700; }
+  @keyframes scroll-banner { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 90; background: var(--white);
+    border-bottom: 1px solid rgba(13,59,39,0.12);
+  }
+  .nav__inner {
+    max-width: var(--container-wide); margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 3.5rem; gap: 2rem;
+  }
+  .nav__logo { display: flex; align-items: center; }
+  .nav__logo svg { height: 1.2rem; width: auto; }
+  .nav__links { display: flex; align-items: center; gap: 1.75rem; }
+  .nav__link { font-size: 0.9rem; font-weight: 500; color: rgba(13,59,39,0.6); transition: color 0.2s; }
+  .nav__link:hover { color: var(--black); }
+  .nav__cta { display: flex; gap: 0.75rem; align-items: center; }
+
+  /* HERO */
+  .hero { padding: 2.5rem 0 3rem; }
+  .hero__grid {
+    max-width: var(--container-wide); margin: 0 auto; padding: 0 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+  }
+  /* Gallery */
+  .gallery { position: relative; }
+  .gallery__main {
+    aspect-ratio: 1;
+    border-radius: var(--radius);
+    overflow: visible;
+    position: relative;
+    background: #e8f2ee;
+  }
+  .gallery__main > img#gallery-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: block;
+    transition: opacity 0.4s;
+    position: absolute; top: 0; left: 0;
+  }
+  .gallery__main::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.38));
+    pointer-events: none; z-index: 1;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+  .gallery__badge {
+    position: absolute; top: 1rem; left: 1rem; z-index: 3;
+    background: var(--white); border-radius: 100rem;
+    padding: 0.4rem 0.75rem; display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.8rem; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .gallery__badge .check { color: #2F9B7C; }
+  /* Thumbs: absolute at bottom-center, inside the image, with gap between each */
+  .gallery__thumbs {
+    position: absolute;
+    bottom: 1rem;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+    z-index: 4;
+  }
+  .gallery__thumb {
+    width: 3.5rem; height: 3.5rem;
+    border-radius: 50%; overflow: hidden;
+    cursor: pointer;
+    border: 2.5px solid rgba(255,255,255,0.55);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    background: #e8f2ee; flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.28);
+  }
+  .gallery__thumb.active {
+    border-color: #fff;
+    border-width: 3px;
+    box-shadow: 0 0 0 2.5px var(--green-mid), 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .gallery__thumb:hover { transform: scale(1.1); }
+  .gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 640px) {
+    .gallery__thumb { width: 2.5rem; height: 2.5rem; }
+    .gallery__thumbs { gap: 0.5rem; bottom: 0.75rem; }
+  }
+
+  /* Hero info */
+  .hero__info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .hero__trustpilot {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero__trustpilot-score { font-weight: 600; font-size: 0.95rem; }
+  .tp-divider { width: 1px; height: 1.1rem; background: rgba(13,59,39,0.2); }
+  .tp-stars { display: flex; gap: 3px; }
+  .tp-star { width: 1.3rem; height: 1.3rem; fill: #2F9B7C; }
+  .tp-star.half { fill: #dbdbdb; }
+  .hero__headline { font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; }
+  .hero__sub { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+  .hero__tags {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .hero__tag {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem; font-weight: 500;
+    background: var(--off-white);
+    border: 1px solid rgba(13,59,39,0.1);
+    border-radius: 100rem;
+    padding: 0.45rem 0.85rem;
+    color: var(--black);
+    white-space: nowrap;
+  }
+  .hero__tag svg { width: 1rem; height: 1rem; flex-shrink: 0; opacity: 0.7; }
+
+  /* FAQ accordion */
+  .hero__faq { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(13,59,39,0.1); margin-top: 0; }
+  .accordion-item { border-bottom: 1px solid rgba(13,59,39,0.1); }
+  .accordion-trigger {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 0.85rem 0; cursor: pointer; background: none; border: none; text-align: left; color: var(--black);
+  }
+  .accordion-title { font-size: 0.9rem; font-weight: 500; }
+  .accordion-icon { font-size: 0.75rem; transition: transform 0.3s; opacity: 0.45; flex-shrink: 0; }
+  .accordion-item.open .accordion-icon { transform: rotate(180deg); }
+  .accordion-content {
+    overflow: hidden; max-height: 0; transition: max-height 0.35s ease;
+  }
+  .accordion-item.open .accordion-content { max-height: 300px; }
+  .accordion-body { padding: 0 0 1rem; font-size: 0.86rem; color: var(--text-muted); line-height: 1.65; }
+  .accordion-body ul { padding-left: 1.2rem; list-style: disc; display: flex; flex-direction: column; gap: 0.3rem; }
+
+  /* SECTION */
+  section { padding: 5rem 0; }
+  section.section--sm { padding: 3rem 0; }
+  .section__header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+  .section__title { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 400; letter-spacing: -0.02em; }
+
+  /* BENEFITS */
+  .benefits { background: var(--white); }
+  .benefits__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .benefit-card {
+    border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+    position: relative; overflow: hidden; min-height: 14rem; cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  .benefit-card:hover { box-shadow: 0 0 0 1.5px var(--green-mid); }
+  .benefit-card__info { position: relative; z-index: 2; flex: 1; }
+  .benefit-card__title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .benefit-card__desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+  .benefit-card__btn { margin-top: auto; position: relative; z-index: 2; }
+  .benefit-card__img {
+    position: absolute; right: 0.5rem; bottom: 2.5rem; width: 5rem; height: 5rem; opacity: 0.5;
+  }
+
+  /* COMPARISON TABLE */
+  .comparison { background: var(--off-white); }
+  .comparison__title { text-align: center; margin-bottom: 2.5rem; }
+  .comparison__grid {
+    display: grid; grid-template-columns: 1fr auto auto; gap: 0;
+    background: var(--white); border-radius: var(--radius); overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+  .comp-cell {
+    padding: 0.9rem 1.25rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.9rem; display: flex; align-items: center;
+  }
+  .comp-cell:nth-child(3n+2) { background: #d4ede7; justify-content: center; }
+  .comp-cell:nth-child(3n+3) { justify-content: center; }
+  .comp-cell.header { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid rgba(0,0,0,0.1); background: var(--white) !important; }
+  .comp-cell.header:nth-child(2) { background: #b8dfd7 !important; }
+  .comp-header-logo svg { height: 1rem; width: auto; }
+  .check-icon { color: #2F9B7C; font-weight: 900; font-size: 1.1rem; }
+  .x-icon { color: rgba(0,0,0,0.35); font-size: 1.1rem; font-weight: 700; }
+
+  /* PROGESTERONE SECTION */
+  .progesterone { background: var(--white); }
+  .progesterone__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .progesterone__img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; }
+  .progesterone__img img { width: 100%; height: 100%; object-fit: cover; }
+  .progesterone__content { display: flex; flex-direction: column; gap: 1.5rem; }
+  .prog-benefit { display: flex; flex-direction: column; gap: 0.4rem; }
+  .prog-benefit__header { display: flex; justify-content: space-between; align-items: center; }
+  .prog-benefit__title { font-weight: 700; font-size: 0.95rem; }
+  .prog-benefit__icon { font-size: 1rem; opacity: 0.7; }
+  .prog-benefit__text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* TREATMENTS */
+  .treatments { background: var(--off-white); }
+  .treatments__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .treatment-card {
+    background: var(--white); border-radius: var(--radius); overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .treatment-card__header { padding: 1.25rem 1.25rem 0; }
+  .treatment-card__title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .treatment-card__category {
+    display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--text-muted);
+    border: 1px solid rgba(0,0,0,0.12); border-radius: 100rem; padding: 0.2rem 0.65rem;
+  }
+  .treatment-card__pricing { padding: 0.6rem 1.25rem; display: flex; align-items: baseline; gap: 0.3rem; }
+  .treatment-price { font-size: 1.6rem; font-weight: 700; }
+  .treatment-period { font-size: 1rem; color: var(--text-muted); }
+  .treatment-note { font-size: 0.75rem; color: var(--text-muted); }
+  .treatment-card__img { aspect-ratio: 4/3; overflow: hidden; }
+  .treatment-card__img img { width: 100%; height: 100%; object-fit: cover; }
+  .treatment-card__footer { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .treatment-disclaimer { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* HOW IT WORKS */
+  .how-it-works { background: var(--white); }
+  .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .how-card { border-radius: var(--radius); overflow: hidden; position: relative; }
+  .how-card__img { aspect-ratio: 1; overflow: hidden; }
+  .how-card__img img { width: 100%; height: 100%; object-fit: cover; }
+  .how-card__info { padding: 1.25rem 0 0; }
+  .how-card__title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .how-card__text { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* STAT SECTION */
+  .stat-section { background: var(--off-white); }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .stat-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; }
+  .stat-img img { width: 100%; height: 100%; object-fit: cover; }
+  .stat-content { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stat-eyebrow { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green-teal); }
+
+  /* REVIEWS */
+  .reviews { background: var(--white); }
+  .reviews__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  }
+  .review-card {
+    background: var(--off-white); border-radius: var(--radius); padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .review-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
+  .reviewer { font-weight: 700; font-size: 0.88rem; }
+
+  /* WHY EFFECTY */
+  .why-effecty { background: var(--off-white); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .why-card {
+    background: var(--white); border-radius: var(--radius); padding: 2rem;
+    display: flex; flex-direction: column; gap: 1rem; overflow: hidden;
+  }
+  .why-card__title { font-size: 1rem; font-weight: 700; }
+  .why-card__text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+  .why-card__img { width: 100%; height: auto; object-fit: cover; border-radius: var(--radius-sm); margin-top: auto; display: block; }
+
+  /* FAQ SECTION */
+  .faq { background: var(--white); }
+  .faq__list { display: flex; flex-direction: column; gap: 0; }
+  .faq__item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq__trigger {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 0; cursor: pointer; background: none; border: none; text-align: left;
+  }
+  .faq__q { font-size: 1.3rem; font-weight: 700; }
+  .faq__icon { font-size: 1.2rem; transition: transform 0.3s; opacity: 0.5; }
+  .faq__item.open .faq__icon { transform: rotate(180deg); }
+  .faq__content { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+  .faq__item.open .faq__content { max-height: 400px; }
+  .faq__a { padding: 0 0 1.25rem; font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* CTA CARD */
+  .cta-card { padding: 2rem 0; }
+  .cta-card__inner {
+    border-radius: 1.5rem; overflow: hidden; position: relative;
+    background: var(--green-deep); color: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr; min-height: 22rem;
+  }
+  .cta-card__content { padding: 3rem; display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
+  .cta-card__title { font-size: 1.4rem; font-weight: 700; }
+  .cta-card__text { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
+  .cta-card__img { overflow: hidden; }
+  .cta-card__img img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* FOOTER */
+  .footer { background: var(--green-deep); color: var(--white); padding: 4rem 0 2rem; }
+  .footer__grid { display: grid; grid-template-columns: 1fr auto auto; gap: 4rem; }
+  .footer__brand { display: flex; flex-direction: column; gap: 1.5rem; }
+  .footer__logo svg { height: 1.1rem; width: auto; fill: var(--white); }
+  .footer__email-form { display: flex; gap: 0.5rem; }
+  .footer__email-input {
+    flex: 1; padding: 0.65rem 1rem; border-radius: 100rem;
+    border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+    color: var(--white); font-size: 0.88rem; outline: none;
+  }
+  .footer__email-input::placeholder { color: rgba(255,255,255,0.4); }
+  .footer__email-btn {
+    padding: 0.65rem 1.25rem; border-radius: 100rem; background: var(--white);
+    color: var(--black); font-weight: 600; font-size: 0.88rem; border: none; cursor: pointer;
+  }
+  .footer__legal-text { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .footer__social { display: flex; gap: 0.75rem; }
+  .footer__social-link { width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
+  .footer__social-link:hover { border-color: rgba(255,255,255,0.6); }
+  .footer__social-link svg { width: 1rem; height: 1rem; fill: var(--white); }
+  .footer__nav-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+  .footer__nav-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer__nav-link { font-size: 0.88rem; color: rgba(255,255,255,0.7); transition: color 0.2s; }
+  .footer__nav-link:hover { color: var(--white); }
+  .footer__divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 2rem 0; }
+  .footer__bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer__copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+  .footer__legal-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer__legal-link { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .footer__legal-link:hover { color: rgba(255,255,255,0.7); }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .benefits__grid { grid-template-columns: repeat(2, 1fr); }
+    .comparison__grid { grid-template-columns: 1fr auto auto; }
+    .progesterone__grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .stat-img { aspect-ratio: 16/9; }
+    .treatments__grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews__grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .cta-card__inner { grid-template-columns: 1fr; }
+    .cta-card__img { display: none; }
+    .nav__links { display: none; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 3rem 0; }
+    .benefits__grid { grid-template-columns: 1fr; }
+    .treatments__grid { grid-template-columns: 1fr; }
+    .reviews__grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .footer__grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  <div class="promo-banner__track">
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;⭐️&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;✨&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;⭐️&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;✨&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;⭐️&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;✨&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;⭐️&nbsp;</span>
+    <span class="promo-banner__item">Up to 20% off your first order with code <span class="promo-banner__code">MALMO20</span> &nbsp;✨&nbsp;</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" aria-label="Malmo homepage">
+      <img src="https://malmohealth.com/images/malmologo.png" alt="Malmo" style="height:2rem;width:auto;display:block;"/>
+    </a>
+    <div class="nav__links">
+      <a href="#" class="nav__link">Weight Loss</a>
+      <a href="#" class="nav__link">Longevity</a>
+      <a href="#" class="nav__link">Hormone Therapy</a>
+      <a href="#" class="nav__link">About us</a>
+      <a href="#" class="nav__link">FAQ</a>
+    </div>
+    <div class="nav__cta">
+      <a href="https://malmohealth.com/login" class="btn btn--secondary" target="_blank">Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<main>
+<section class="hero">
+  <div class="hero__grid">
+    <!-- Gallery -->
+    <div class="gallery">
+      <div class="gallery__main" id="gallery-main">
+        <div class="gallery__badge">
+          <span class="check">✓</span>
+          <span>HSA &amp; FSA eligible</span>
+        </div>
+        <img src="https://malmohealth.com/images/2asdf.webp" alt="Malmo HRT treatment" id="gallery-img"/>
+        <div class="gallery__thumbs">
+          <div class="gallery__thumb active" data-src="https://malmohealth.com/images/2asdf.webp">
+            <img src="https://malmohealth.com/images/2asdf.webp" alt="Image 1"/>
+          </div>
+          <div class="gallery__thumb" data-src="https://malmohealth.com/images/3asdf.webp">
+            <img src="https://malmohealth.com/images/3asdf.webp" alt="Image 2"/>
+          </div>
+          <div class="gallery__thumb" data-src="https://malmohealth.com/images/1asdf.webp">
+            <img src="https://malmohealth.com/images/1asdf.webp" alt="Image 3"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="hero__info">
+      <div class="hero__trustpilot">
+        <span class="hero__trustpilot-score">Excellent</span>
+        <div class="tp-divider"></div>
+        <div class="tp-stars">
+          <svg class="tp-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star half" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+      </div>
+
+      <h1 class="hero__headline">HRT treats <span class="gradient-text" id="animated-word">brain fog</span> so you can feel like you again.</h1>
+      <p class="hero__sub">Perimenopause and Menopause relief to support hormonal balance.</p>
+
+      <div class="hero__tags">
+        <div class="hero__tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          Progesterone included for free
+        </div>
+        <div class="hero__tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          No membership fee
+        </div>
+        <div class="hero__tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          No insurance required
+        </div>
+        <div class="hero__tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          24/7 support
+        </div>
+      </div>
+
+      <a href="https://malmohealth.com/start" class="btn btn--primary btn--full" target="_blank">Get started</a>
+
+      <div class="hero__faq">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span class="accordion-title">What do I get with Malmo?</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <ul>
+                <li>Treatment plans built around you</li>
+                <li>Fast online visit, reviewed by a licensed provider</li>
+                <li>24/7 secure messaging plus check-ins with your care team</li>
+                <li>Medication delivered straight to your door — no pharmacy lines</li>
+                <li>Every plan includes supplies, free shipping, prescription and medication (if eligible) and ongoing medical support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span class="accordion-title">What form of HRT is right for me?</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">Malmo offers Estradiol in two topical forms (a patch and vaginal cream) and one oral form (a tablet). If you're starting Estradiol for the first time, one of the topical options is generally recommended. Your Malmo provider will help guide you to the best option based on your history, preferences, and symptoms.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span class="accordion-title">When will I start to feel relief?</span>
+            <span class="accordion-icon">▾</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">Most people start feeling some improvement within 2–4 weeks. Full effects may take up to 8 weeks, depending on your body and symptoms.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Why <span class="gradient-text">Estradiol?</span></h2>
+      <a href="#" class="btn btn--primary">Get started</a>
+    </div>
+    <div class="benefits__grid">
+      <div class="benefit-card" style="background:#d4ede7;">
+        <div class="benefit-card__info">
+          <h3 class="benefit-card__title">Cardiovascular-friendly</h3>
+          <p class="benefit-card__desc">Fit for those with high blood pressure or clotting risks</p>
+        </div>
+        <a href="#" class="btn btn--secondary benefit-card__btn">Get started</a>
+      </div>
+      <div class="benefit-card" style="background:#c5e7df;">
+        <div class="benefit-card__info">
+          <h3 class="benefit-card__title">Sleep support</h3>
+          <p class="benefit-card__desc">May improve sleep quality by addressing hormonal causes</p>
+        </div>
+        <a href="#" class="btn btn--secondary benefit-card__btn">Get started</a>
+      </div>
+      <div class="benefit-card" style="background:#b5e0d7;">
+        <div class="benefit-card__info">
+          <h3 class="benefit-card__title">Mental &amp; emotional support</h3>
+          <p class="benefit-card__desc">Helps ease mood swings, irritability, brain fog, and fatigue</p>
+        </div>
+        <a href="#" class="btn btn--secondary benefit-card__btn">Get started</a>
+      </div>
+      <div class="benefit-card" style="background:#a5d9ce;">
+        <div class="benefit-card__info">
+          <h3 class="benefit-card__title">Multi-symptom relief</h3>
+          <p class="benefit-card__desc">Reduces hot flashes, night sweats, vaginal dryness</p>
+        </div>
+        <a href="#" class="btn btn--secondary benefit-card__btn">Get started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comparison">
+  <div class="container">
+    <h2 class="comparison__title">The <span class="gradient-text">Smarter Way</span> to Do Menopause</h2>
+    <div class="comparison__grid">
+      <div class="comp-cell header"><span>BENEFITS</span></div>
+      <div class="comp-cell header" style="background:#d8d4f0!important;">
+        <span style="font-size:0.8rem;font-weight:800;letter-spacing:-0.02em;">Malmo</span>
+      </div>
+      <div class="comp-cell header"><span>Traditional Menopause Care</span></div>
+
+      <div class="comp-cell">Care from menopause specialists</div>
+      <div class="comp-cell"><span class="check-icon">✓</span></div>
+      <div class="comp-cell"><span class="x-icon">✕</span></div>
+
+      <div class="comp-cell">Quick, convenient telehealth</div>
+      <div class="comp-cell"><span class="check-icon">✓</span></div>
+      <div class="comp-cell"><span class="x-icon">✕</span></div>
+
+      <div class="comp-cell">Personalized treatment plans</div>
+      <div class="comp-cell"><span class="check-icon">✓</span></div>
+      <div class="comp-cell"><span class="x-icon">✕</span></div>
+
+      <div class="comp-cell">Exclusively bioidentical hormones</div>
+      <div class="comp-cell"><span class="check-icon">✓</span></div>
+      <div class="comp-cell"><span class="x-icon">✕</span></div>
+
+      <div class="comp-cell">Direct home delivery</div>
+      <div class="comp-cell"><span class="check-icon">✓</span></div>
+      <div class="comp-cell"><span class="x-icon">✕</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGESTERONE -->
+<section class="progesterone">
+  <div class="container">
+    <div class="progesterone__grid">
+      <div class="progesterone__img">
+        <img src="https://malmohealth.com/images/4asdf.webp" alt="Smiling woman"/>
+      </div>
+      <div class="progesterone__content">
+        <h2>Do you need <span class="gradient-text">Progesterone</span> too</h2>
+        <p class="text-muted">If you still have a uterus and you're taking systemic estrogen, progesterone is prescribed as well to help protect your uterine lining. We make it easy — oral progesterone is added for free to your treatment plan during your initial intake.</p>
+
+        <div class="prog-benefit">
+          <div class="prog-benefit__header">
+            <h3 class="prog-benefit__title">Balanced hormone delivery</h3>
+            <span class="prog-benefit__icon">♀</span>
+          </div>
+          <p class="prog-benefit__text">Estrogen alone can thicken the uterine lining over time, increasing your risk of endometrial cancer. Progesterone helps keep things balanced.</p>
+        </div>
+        <div class="prog-benefit">
+          <div class="prog-benefit__header">
+            <h3 class="prog-benefit__title">Supports better sleep</h3>
+            <span class="prog-benefit__icon">🌙</span>
+          </div>
+          <p class="prog-benefit__text">Many people find progesterone has a calming effect and helps improve sleep quality.</p>
+        </div>
+        <div class="prog-benefit">
+          <div class="prog-benefit__header">
+            <h3 class="prog-benefit__title">Eases anxiety + mood swings</h3>
+            <span class="prog-benefit__icon">🧠</span>
+          </div>
+          <p class="prog-benefit__text">It can help smooth out emotional ups and downs.</p>
+        </div>
+        <div class="prog-benefit">
+          <div class="prog-benefit__header">
+            <h3 class="prog-benefit__title">Whole-hormone harmony</h3>
+            <span class="prog-benefit__icon">☯</span>
+          </div>
+          <p class="prog-benefit__text">Estrogen and progesterone work best as a team, especially during menopause.</p>
+        </div>
+
+        <a href="/legal/hormone-replacement-safety" class="btn btn--primary" style="align-self:flex-start;">Safety information <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treatments">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">Treatments</h2>
+      <a href="#" class="btn btn--primary">Find my treatment</a>
+    </div>
+    <div class="treatments__grid">
+      <div class="treatment-card">
+        <div class="treatment-card__header">
+          <h3 class="treatment-card__title">Estradiol Patch</h3>
+          <span class="treatment-card__category">Hormones</span>
+        </div>
+        <div class="treatment-card__pricing">
+          <span class="treatment-price">$105</span>
+          <span class="treatment-period">/month</span>
+          <span class="treatment-note">*</span>
+        </div>
+        <div class="treatment-card__img">
+          <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd123a/6a3101d89b36f1797275144b_estradiol-patch.avif" alt="Estradiol Patch"/>
+        </div>
+        <div class="treatment-card__footer">
+          <a href="#" class="btn btn--primary btn--full">Get Started</a>
+          <p class="treatment-disclaimer">* Price for purchase of 12 month supply.</p>
+        </div>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-card__header">
+          <h3 class="treatment-card__title">Estradiol Cream</h3>
+          <span class="treatment-card__category">Hormones</span>
+        </div>
+        <div class="treatment-card__pricing">
+          <span class="treatment-price">$95</span>
+          <span class="treatment-period">/month</span>
+          <span class="treatment-note">*</span>
+        </div>
+        <div class="treatment-card__img">
+          <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd123a/6a31024251b280568ec8c4b6_estradiol-cream.avif" alt="Estradiol Cream"/>
+        </div>
+        <div class="treatment-card__footer">
+          <a href="#" class="btn btn--primary btn--full">Get Started</a>
+          <p class="treatment-disclaimer">* Price for purchase of 12 month supply.</p>
+        </div>
+      </div>
+      <div class="treatment-card">
+        <div class="treatment-card__header">
+          <h3 class="treatment-card__title">Estradiol Tablet</h3>
+          <span class="treatment-card__category">Hormones</span>
+        </div>
+        <div class="treatment-card__pricing">
+          <span class="treatment-price">$55</span>
+          <span class="treatment-period">/month</span>
+          <span class="treatment-note">*</span>
+        </div>
+        <div class="treatment-card__img">
+          <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd123a/6a31026096542386c9b35d08_estradiol-tablet.avif" alt="Estradiol Tablet"/>
+        </div>
+        <div class="treatment-card__footer">
+          <a href="#" class="btn btn--primary btn--full">Get Started</a>
+          <p class="treatment-disclaimer">* Price for purchase of 12 month supply.</p>
+        </div>
+      </div>
+    </div>
+    <p class="eyebrow text-muted" style="margin-top:1.5rem;font-size:0.7rem;">Malmo is a technology platform that connects individuals with independent licensed medical providers. Malmo does not practice medicine or prescribe medications. Licensed independent medical providers determine whether treatment is appropriate. If prescribed, medication is dispensed by state-licensed pharmacies, including compounding pharmacies. Compounded medications are not FDA-approved. Eligibility for treatment is determined by a licensed provider and is not guaranteed. Individual results vary.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">How Malmo <span class="gradient-text">works</span></h2>
+      <a href="#" class="btn btn--primary">Get started</a>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-card__img">
+          <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12a6_9b392de9c3139e8113a2fc284cb078a6_prescription.avif" alt="Woman on laptop"/>
+        </div>
+        <div class="how-card__info">
+          <h3 class="how-card__title">Medical questionnaire</h3>
+          <p class="how-card__text text-muted">Complete our quick health intake form to help us tailor your treatment.</p>
+        </div>
+      </div>
+      <div class="how-card">
+        <div class="how-card__img">
+          <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12bf_1d2ec2a0eabe64ac521876a20cbdcee9_medical-sq.avif" alt="Doctor smiling"/>
+        </div>
+        <div class="how-card__info">
+          <h3 class="how-card__title">Prescription</h3>
+          <p class="how-card__text text-muted">A licensed provider reviews your intake and prescribes treatment if eligible.</p>
+        </div>
+      </div>
+      <div class="how-card">
+        <div class="how-card__img">
+          <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12c0_delivery-sq.avif" alt="Malmo delivery box"/>
+        </div>
+        <div class="how-card__info">
+          <h3 class="how-card__title">Delivery</h3>
+          <p class="how-card__text text-muted">Medication is shipped straight to your door with expedited shipping.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT SECTION -->
+<section class="stat-section">
+  <div class="container">
+    <div class="stat-grid">
+      <div class="stat-content">
+        <p class="stat-eyebrow">FDA-approved Bioidentical Treatments</p>
+        <h2>Did you know that HRT, when started early in menopause, can reduce all-cause mortality by <span class="gradient-text">almost 40%?*</span></h2>
+        <p class="text-muted">Bioidentical HRT isn't just a trend — it's a medically proven solution to help women navigate perimenopause and menopause with more ease and fewer symptoms.</p>
+        <a href="#" class="btn btn--primary" style="align-self:flex-start;">Get Started</a>
+        <p class="eyebrow text-muted" style="font-size:0.72rem;">*National Library of Medicine (based on women who started within 10 years of menopause)</p>
+      </div>
+      <div class="stat-img">
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/696f130dbb58313cee7fd71b_estradiol-model.avif" alt="Woman smiling"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="container">
+    <div class="section__header">
+      <h2 class="section__title">What <span class="gradient-text">people say</span> about Malmo</h2>
+      <a href="#" class="btn btn--primary">Get started</a>
+    </div>
+    <div class="reviews__grid">
+      <div class="review-card">
+        <div class="tp-stars">
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">I'm loving Malmo! Unlike other companies with confusing pricing and endless hurdles, Malmo made getting a prescription straightforward and affordable. No hoops, just a simple process and transparent pricing. So glad I made the switch!</p>
+        <span class="reviewer">Sarah F</span>
+      </div>
+      <div class="review-card">
+        <div class="tp-stars">
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">With Malmo, the process is simple: complete a survey, have a virtual doctor's visit, and you're in! They're truly setting the bar high. My experience has been seamless and enjoyable.</p>
+        <span class="reviewer">Fatima S</span>
+      </div>
+      <div class="review-card">
+        <div class="tp-stars">
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="tp-star" viewBox="0 0 24 24" style="width:1rem;height:1rem;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">Ordering from Malmo is not complicated. They have instant communication with a doctor and make it easy to follow up. They let you know when your medication has been shipped and when it reaches each location before it gets to you.</p>
+        <span class="reviewer">Corinne M</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY EFFECTY -->
+<section class="why-effecty">
+  <div class="container--wide">
+    <h2 class="section__title text-center" style="margin-bottom:2.5rem;">Why <span class="gradient-text">Estradiol?</span></h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3 class="why-card__title">Licensed pharmacies</h3>
+        <p class="why-card__text">All medication is dispensed by licensed U.S. pharmacies that meet strict safety and quality standards.</p>
+        <a href="#" class="btn btn--primary" style="align-self:flex-start;">Get started</a>
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12b4_cd8d0309b11d20ca96daac389ff3ca47_pharmacy.avif" alt="Pharmacy Licensed" class="why-card__img"/>
+      </div>
+      <div class="why-card">
+        <h3 class="why-card__title">Your Physician, Board Certified.</h3>
+        <p class="why-card__text">Unlimited answers to questions, anytime, 100% online.</p>
+        <a href="#" class="btn btn--primary" style="align-self:flex-start;">Get started</a>
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12be_b0491b29a28d8bc23bee4a82f16fa3fe_24%3A7.avif" alt="Board Certified Doctor" class="why-card__img"/>
+      </div>
+      <div class="why-card">
+        <h3 class="why-card__title">No hidden fees</h3>
+        <p class="why-card__text">The price you see is the price you get, no hidden fees, ever.</p>
+        <a href="#" class="btn btn--primary" style="align-self:flex-start;">Get started</a>
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12bc_5fabad0cf8550bc17c9bad8d28b8602d_cards.avif" alt="No hidden fees" class="why-card__img"/>
+      </div>
+      <div class="why-card">
+        <h3 class="why-card__title">Free shipping</h3>
+        <p class="why-card__text">Every order ships free with expedited delivery at no added cost.</p>
+        <a href="#" class="btn btn--primary" style="align-self:flex-start;">Get started</a>
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/68c8e1f82998e98e8dbd12bd_2a4f75ced6e57acc5ed01a6260e9256c_shipping.avif" alt="Free shipping" class="why-card__img"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container--narrow">
+    <h2 class="section__title" style="margin-bottom:2rem;">Frequently asked <span class="gradient-text">questions</span></h2>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__trigger" onclick="toggleFaq(this)">
+          <span class="faq__q">What is Malmo?</span>
+          <span class="faq__icon">▾</span>
+        </button>
+        <div class="faq__content">
+          <p class="faq__a">Malmo offers treatments for weight loss, longevity and women's hormone therapy, connecting customers with compassionate, licensed practitioners through telehealth for personalized care and guidance.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__trigger" onclick="toggleFaq(this)">
+          <span class="faq__q">How does it work?</span>
+          <span class="faq__icon">▾</span>
+        </button>
+        <div class="faq__content">
+          <p class="faq__a">At Malmo, we believe in being your comprehensive ally in wellness. Our user-friendly, three-step journey makes starting treatment effortless: (1) Fill out a medical questionnaire. (2) Engage in a chat-based telehealth visit with a physician licensed in your state. (3) If eligible, receive your medication directly to your doorstep from our trusted pharmacy partner.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__trigger" onclick="toggleFaq(this)">
+          <span class="faq__q">Do you accept insurance?</span>
+          <span class="faq__icon">▾</span>
+        </button>
+        <div class="faq__content">
+          <p class="faq__a">Malmo does not accept insurance at this time. You may be able to submit a claim with your insurance carrier on your own after you pay Malmo directly, but Malmo doesn't provide superbills or communicate with insurance carriers in any case.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__trigger" onclick="toggleFaq(this)">
+          <span class="faq__q">What pharmacies does Malmo work with?</span>
+          <span class="faq__icon">▾</span>
+        </button>
+        <div class="faq__content">
+          <p class="faq__a">Malmo works with state-licensed compounding pharmacies for treatment fulfillment. Compounding is regulated by state boards of pharmacy.</p>
+        </div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__trigger" onclick="toggleFaq(this)">
+          <span class="faq__q">What states do you ship to?</span>
+          <span class="faq__icon">▾</span>
+        </button>
+        <div class="faq__content">
+          <p class="faq__a">Malmo ships to all states nationwide.</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-muted" style="margin-top:2rem;font-size:0.95rem;">Have more questions? <a href="/contact-us" style="text-decoration:underline;">Send us a message.</a></p>
+  </div>
+</section>
+
+<!-- CTA CARD -->
+<section style="padding:1rem 0 4rem;">
+  <div class="container">
+    <div class="cta-card__inner">
+      <div class="cta-card__content">
+        <h2 class="cta-card__title">Start your menopause treatment</h2>
+        <p class="cta-card__text">Take the first step toward the healthier, happier life you deserve</p>
+        <a href="#" class="btn btn--secondary" style="align-self:flex-start;">Get started</a>
+      </div>
+      <div class="cta-card__img">
+        <img src="https://cdn.prod.website-files.com/68c8e1f82998e98e8dbd122c/696f09b38c0e294d45c841cd_8451483a96ea3bc81baf081e4f858ca0_estradiol-card.avif" alt=""/>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container--wide">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+        <img src="https://malmohealth.com/images/malmologo.png" alt="Malmo" style="height:1.8rem;width:auto;display:block;filter:brightness(0) invert(1);"/>
+      </a>
+        <h3 style="font-size:1.3rem;font-weight:700;">Connect with Malmo</h3>
+        <div class="footer__email-form">
+          <input type="email" placeholder="Enter your email" class="footer__email-input"/>
+          <button class="footer__email-btn">Submit</button>
+        </div>
+        <p class="footer__legal-text">By subscribing you agree to with our <a href="/legal/privacy-policy" style="color:rgba(255,255,255,0.6);text-decoration:underline;">Privacy Policy</a> and provide consent to receive updates from Malmo.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/malmohealth/" target="_blank" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M16 3H8C5.24 3 3 5.24 3 8v8c0 2.76 2.24 5 5 5h8c2.76 0 5-2.24 5-5V8c0-2.76-2.24-5-5-5zm3.25 13c-.01 1.79-1.46 3.24-3.25 3.25H8C6.21 19.24 4.76 17.79 4.75 16V8C4.76 6.21 6.21 4.76 8 4.75h8C17.79 4.76 19.24 6.21 19.25 8v8zm-2.5-10.75a1 1 0 100 2 1 1 0 000-2zM12 7.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 7.25a2.75 2.75 0 110-5.5 2.75 2.75 0 010 5.5z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/malmohealth" target="_blank" class="footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.19 2.24.19v2.48h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.77l-.44 2.91h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__nav-title">Company</p>
+        <ul class="footer__nav-list">
+          <li><a href="/weight-loss" class="footer__nav-link">Weight Loss</a></li>
+          <li><a href="/longevity" class="footer__nav-link">Longevity</a></li>
+          <li><a href="/hormones" class="footer__nav-link">Hormones</a></li>
+          <li><a href="/wellness-library" class="footer__nav-link">Wellness Library</a></li>
+          <li><a href="/bmi-calculator" class="footer__nav-link">BMI Calculator</a></li>
+          <li><a href="/about-us" class="footer__nav-link">About Us</a></li>
+          <li><a href="/testimonials" class="footer__nav-link">Testimonials</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__nav-title">Support</p>
+        <ul class="footer__nav-list">
+          <li><a href="/contact-us" class="footer__nav-link">Contact Us</a></li>
+          <li><a href="/faq" class="footer__nav-link">FAQ</a></li>
+          <li><a href="https://support.Malmocom/en/" target="_blank" class="footer__nav-link">Help Center</a></li>
+          <li><a href="/legal/shipping-returns" class="footer__nav-link">Shipping &amp; Returns</a></li>
+          <li><a href="/influencer-program" class="footer__nav-link">Influencer Program</a></li>
+          <li><a href="/referral-program" class="footer__nav-link">Referral Program</a></li>
+          <li><a href="/legal/terms-of-service" class="footer__nav-link">Terms of Service</a></li>
+          <li><a href="/legal/safety" class="footer__nav-link">Safety &amp; Legal</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer__divider"/>
+    <div class="footer__bottom">
+      <p class="footer__copy">© <span id="footer-year">2025</span> Malmo Health LLC. All rights reserved.</p>
+      <div class="footer__legal-links">
+        <a href="/legal/physician-code-of-conduct" class="footer__legal-link">Physician Code of Conduct</a>
+        <a href="/legal/consent-to-telehealth" class="footer__legal-link">Consent to Telehealth</a>
+        <a href="/legal/privacy-policy" class="footer__legal-link">Privacy Policy</a>
+        <a href="/legal/cookie-policy" class="footer__legal-link">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // Animated headline
+  const words = ['brain fog','fatigue','night sweats','hot flashes','sleep issues','low libido'];
+  let idx = 0;
+  const el = document.getElementById('animated-word');
+  setInterval(() => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      idx = (idx + 1) % words.length;
+      el.textContent = words[idx];
+      el.style.transition = 'none';
+      el.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        el.style.transition = 'opacity 0.5s, transform 0.5s';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      }, 50);
+    }, 400);
+  }, 3000);
+  el.style.transition = 'opacity 0.5s, transform 0.5s';
+  el.style.display = 'inline-block';
+
+  // Gallery thumbs
+  document.querySelectorAll('.gallery__thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      document.querySelectorAll('.gallery__thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      document.getElementById('gallery-img').src = thumb.dataset.src;
+    });
+  });
+
+  // Hero accordion
+  function toggleAccordion(btn) {
+    const item = btn.closest('.accordion-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq__item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
