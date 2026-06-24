@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Malmo — ED Treatment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --deep:#0D3B27;--teal:#0D6C5C;--mid:#2F9B7C;
+  --white:#fff;--navy:#0d1f18;--navy2:#252d3d;
+  --grey:#e9eaec;--muted:rgba(255,255,255,0.55);
+  --blue:#2f9b7c;--r:0.75rem;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#fff;background:var(--white)}
+img{max-width:100%;display:block}
+.nav__logo a{line-height:0;display:flex}
+.nav__logo a img{height:26px!important;width:auto!important;max-width:120px!important;object-fit:contain!important}
+a{color:inherit;text-decoration:none}
+button{font-family:'Poppins',sans-serif;cursor:pointer;border:none}
+
+/* ── BANNER ── */
+.banner{background:linear-gradient(90deg,var(--deep),var(--teal),var(--deep));color:rgba(255,255,255,0.9);height:2.4rem;display:flex;align-items:center;justify-content:center;font-size:0.82rem;font-weight:500;letter-spacing:0.01em}
+
+/* ── NAV ── */
+.nav{background:var(--navy);position:sticky;top:0;z-index:100;overflow:hidden}
+.nav__inner{max-width:1200px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:3.5rem}
+.nav__logo img{height:1.6rem !important;width:auto !important;max-width:130px !important;max-height:1.6rem !important;object-fit:contain !important;filter:brightness(0) invert(1) !important;display:block !important}
+.tp-row{display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.85)}
+.tp-stars{display:flex;gap:2px}
+.tp-s{width:0.85rem;height:0.85rem;fill:#2F9B7C}
+
+/* ══════════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════════ */
+.hero{background:linear-gradient(160deg,#0d1f18 0%,#0a1a14 100%);padding:3rem 2.5rem 4rem;position:relative;overflow:visible;z-index:3}
+.hero__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:55% 45%;gap:2rem;align-items:start;padding-bottom:2rem}
+.hero__left{padding-top:0.5rem}
+.hero__h1{font-size:clamp(2.4rem,4.2vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1rem}
+.hero__h1 em{font-style:normal;color:var(--mid)}
+.hero__sub{font-size:0.9rem;color:var(--muted);line-height:1.6;margin-bottom:1.1rem;max-width:28rem}
+.hero__tags{display:flex;flex-wrap:wrap;gap:0.85rem;margin-bottom:1rem}
+.hero__tag{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.3rem}
+.hero__discount{font-size:0.92rem;font-weight:700;color:#fff}
+.hero__discount span{color:#ffd040}
+.delivery__discount strong{color:#ffd040}
+.hero__right{display:flex;flex-direction:column;align-items:stretch;gap:0.85rem}
+.quiz-card{background:#fff;color:#1a2232;border-radius:1rem;padding:1.75rem 2rem;box-shadow:0 20px 60px rgba(0,0,0,0.35)}
+.quiz-steps{display:flex;background:linear-gradient(135deg,var(--deep),var(--teal));border-radius:100rem;padding:0.3rem;gap:0.2rem;margin-bottom:1.75rem;box-shadow:0 4px 16px rgba(0,0,0,0.25)}
+.quiz-step{flex:1;text-align:center;padding:0.5rem 0;font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.4);border-radius:100rem;transition:all 0.25s;letter-spacing:0.03em}
+.quiz-step.active{background:linear-gradient(135deg,#fff,#f0fff8);color:var(--deep);box-shadow:0 3px 12px rgba(0,0,0,0.25);font-weight:800}
+.quiz-step.done{color:rgba(255,255,255,0.45)}
+.quiz-card__q{font-size:1.1rem;font-weight:700;text-align:center;line-height:1.35;margin-bottom:1.25rem;color:#1a2232}
+.quiz-opts{display:flex;flex-direction:column;gap:0.5rem}
+.quiz-opt{border-radius:100rem;padding:0.8rem 1rem;font-size:0.9rem;font-weight:600;width:100%;text-align:center;transition:all 0.18s}
+.quiz-opt.blue{background:var(--mid);color:#fff}
+.quiz-opt.blue:hover{background:var(--teal)}
+.quiz-opt.grey{background:#f0f0f0;color:#444}
+.quiz-opt.grey:hover{background:#e4e4e4}
+.quiz-skip{text-align:center;font-size:0.82rem;font-weight:600;color:#1a2232;text-decoration:underline;cursor:pointer;margin-top:0.85rem}
+.hero__trust{text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;gap:0.35rem}
+
+/* ── PILLS + STRIPE + LOGOS ── */
+.hero-bottom{position:relative;overflow:visible;z-index:2;background:#fff}
+.hero-stripe{height:6px;background:var(--mid);position:relative;z-index:2}
+.pills-wrap{position:absolute;bottom:-48%;left:30%;transform:translateX(-50%);z-index:20;pointer-events:none;width:620px;}
+.pills-wrap img{width:100%;display:block;filter:hue-rotate(-100deg) saturate(0.7) brightness(0.9) drop-shadow(0 20px 50px rgba(0,0,0,0.4))}
+
+.logos{background:#fff;color:#1a2232;padding:6rem 2.5rem 2.5rem;position:relative;z-index:1;border-bottom:1px solid #eee}
+.logos__inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:flex-end;gap:0;flex-wrap:nowrap}
+.logos__label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#bbb;white-space:nowrap;margin-left:2rem;margin-right:0}
+.logos__item{padding:0 2.25rem;border-right:1px solid #e8e8e8;display:flex;align-items:center}
+.logos__item:last-child{border-right:none}
+.logo-text{white-space:nowrap}
+.logo-ok{font-style:italic;font-weight:800;font-size:1.7rem;color:#c0c0c0}
+.logo-mh{font-family:Georgia,serif;font-style:italic;font-weight:700;font-size:1.45rem;color:#c0c0c0}
+.logo-law{font-weight:800;font-size:1.2rem;letter-spacing:0.05em;color:#c0c0c0}
+.logo-lt{font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:1.6rem;color:#c0c0c0}
+.logo-hl{font-family:Georgia,serif;font-weight:700;font-size:1.3rem;color:#c0c0c0}
+
+/* ══════════════════════════════════════════
+   QUIZ SECTIONS
+══════════════════════════════════════════ */
+.quiz-sec{background:var(--grey);padding:5rem 2.5rem}
+.quiz-sec:nth-child(even){background:#dfe1e5}
+.qwrap{max-width:600px;margin:0 auto;background:#fff;border-radius:1rem;padding:2.5rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);color:#1a2232}
+.qprogress{display:flex;background:linear-gradient(135deg,var(--deep),var(--teal));border-radius:100rem;padding:0.3rem;gap:0.2rem;margin-bottom:2rem;max-width:360px;margin-left:auto;margin-right:auto;box-shadow:0 4px 16px rgba(13,59,39,0.3)}
+.qdot{flex:1;text-align:center;padding:0.5rem 0;font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.4);border-radius:100rem;transition:all 0.25s;letter-spacing:0.03em}
+.qdot.active{background:linear-gradient(135deg,#fff,#f0fff8);color:var(--deep);box-shadow:0 3px 12px rgba(0,0,0,0.25);font-weight:800}
+.qdot.done{color:rgba(255,255,255,0.45)}
+.qq{font-size:clamp(1.3rem,2.5vw,1.75rem);font-weight:700;line-height:1.3;text-align:center;margin-bottom:1.75rem;color:#1a2232}
+.qopts{display:flex;flex-direction:column;gap:0.85rem}
+.qopt{background:#f2f2f2;border:1.5px solid transparent;border-radius:0.6rem;padding:1rem 1.25rem;font-size:0.9rem;font-weight:500;color:#1a2232;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;transition:all 0.18s}
+.qopt:hover{border-color:var(--mid);background:rgba(47,155,124,0.06)}
+.qopt.picked{border-color:var(--mid);background:rgba(47,155,124,0.1);color:var(--teal)}
+.qopt span{opacity:0.3}
+.qskip{text-align:center;margin-top:1.25rem;font-size:0.8rem;font-weight:600;color:#888;text-decoration:underline;cursor:pointer}
+
+/* ══════════════════════════════════════════
+   PRODUCT SECTION
+══════════════════════════════════════════ */
+.product-wrap{position:relative;overflow:visible}
+.product-stripe{height:6px;background:var(--mid)}
+.product{background:linear-gradient(160deg,#0d1f18 0%,#0a1a14 100%);padding:4rem 2.5rem 9rem;position:relative;overflow:hidden}
+.product__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.product__eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem}
+.product__eyebrow img{height:1.2rem;filter:brightness(0) invert(1)}
+.product__tp{display:flex;align-items:center;gap:0.35rem;font-size:0.78rem;color:rgba(255,255,255,0.55)}
+.product__h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-0.025em;margin-bottom:0.6rem}
+.product__h2 em{font-style:normal;color:#ffd040}
+.product__sub{font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem}
+.product__feats{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem}
+.product__feat{display:flex;align-items:center;gap:0.75rem;font-size:0.85rem;color:rgba(255,255,255,0.85);background:rgba(47,155,124,0.1);border:1px solid rgba(47,155,124,0.25);border-radius:100rem;padding:0.6rem 1.1rem}
+.product__feat-icon{font-size:0.9rem;flex-shrink:0}
+.product__feat strong{color:#fff}
+.product__badges{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.product__badge{font-size:0.76rem;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.3rem}
+.product__mockup-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.product__trust{font-size:0.78rem;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:0.35rem}
+
+/* ══════════════════════════════════════════
+   DELIVERY SECTION
+══════════════════════════════════════════ */
+.delivery{background:var(--deep);color:#fff;padding:9rem 2.5rem;position:relative;z-index:4}
+.delivery__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.delivery__h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;line-height:1.2;letter-spacing:-0.02em;margin-bottom:0.75rem;color:var(--mid)}
+.delivery__sub{font-size:0.88rem;color:var(--muted);line-height:1.65;margin-bottom:1.25rem}
+.delivery__discount{font-size:0.82rem;font-weight:600;margin-bottom:1.25rem}
+.delivery__discount strong{color:#ffd040}
+.btn-delivery{background:var(--mid);color:#fff;padding:0.8rem 1.75rem;border-radius:0.5rem;font-size:0.9rem;font-weight:700;transition:background 0.2s;display:inline-block}
+.btn-delivery:hover{background:var(--teal)}
+
+/* ══════════════════════════════════════════
+   REVIEWS
+══════════════════════════════════════════ */
+.reviews{background:#fff;color:#1a2232;padding:5rem 2.5rem}
+.reviews__inner{max-width:1200px;margin:0 auto}
+.reviews__hd{text-align:center;margin-bottom:2.5rem}
+.reviews__count{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;letter-spacing:-0.02em;color:#1a2232;margin-bottom:0.35rem}
+.reviews__sub{font-size:0.82rem;color:#888}
+.reviews__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.85rem}
+.rcard{background:#f5f5f5;border-radius:0.75rem;padding:1.25rem;display:flex;flex-direction:column;gap:0.6rem}
+.rcard__stars{display:flex;gap:2px}
+.rstar{width:0.85rem;height:0.85rem;fill:#2F9B7C}
+.rcard__text{font-size:0.8rem;color:#666;line-height:1.6;flex:1}
+.rcard__name{font-size:0.78rem;font-weight:700;color:#1a2232}
+
+/* ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ */
+.faq{background:var(--deep);color:#fff;padding:5rem 2.5rem}
+.faq__inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start}
+.faq__left{position:sticky;top:4rem}
+.faq__logo{margin-bottom:0.5rem}
+.faq__logo img{height:1.4rem;filter:brightness(0) invert(1)}
+.faq__title-main{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:0.25rem}
+.faq__title-sub{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:rgba(255,255,255,0.45);margin-bottom:1rem}
+.faq__tagline{font-size:0.88rem;font-weight:700;color:rgba(255,255,255,0.85);margin-bottom:0.75rem}
+.faq__sub{font-size:0.84rem;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:1.5rem}
+.btn-faq{background:var(--mid);color:#fff;padding:0.7rem 1.5rem;border-radius:100rem;font-size:0.88rem;font-weight:700;transition:background 0.2s}
+.btn-faq:hover{background:#3aac8a}
+.faq__list{display:flex;flex-direction:column;gap:0.6rem}
+.faqitem{background:rgba(255,255,255,0.04);border:1.5px solid rgba(47,155,124,0.25);border-radius:0.75rem;overflow:hidden;transition:border-color 0.2s}
+.faqitem.open{border-color:rgba(47,155,124,0.6)}
+.faqitem__btn{width:100%;display:flex;align-items:center;padding:1rem 1.25rem;background:none;border:none;color:#fff;text-align:left;gap:0.85rem;cursor:pointer}
+.faqitem__avatar{width:2.2rem;height:2.2rem;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--deep));border:1.5px solid rgba(47,155,124,0.4);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.9rem;overflow:hidden}
+.faqitem__avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.faqitem__q{font-size:0.9rem;font-weight:600;line-height:1.4;flex:1}
+.faqitem__icon{font-size:0.7rem;opacity:0.4;transition:transform 0.3s;flex-shrink:0}
+.faqitem.open .faqitem__icon{transform:rotate(180deg)}
+.faqitem__body{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+.faqitem.open .faqitem__body{max-height:400px}
+.faqitem__a{padding:0.25rem 1.25rem 1.25rem 4.3rem;font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7}
+
+/* ══════════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════════ */
+.finalcta{background:#e8e9ec;padding:5rem 2.5rem;text-align:center}
+.finalcta__inner{max-width:620px;margin:0 auto}
+.finalcta__img{width:220px;margin:0 auto 1.5rem}
+.finalcta__img img{width:100%;filter:hue-rotate(-100deg) saturate(0.7) brightness(0.9) drop-shadow(0 8px 24px rgba(0,0,0,0.18))}
+.finalcta__eyebrow{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#888;margin-bottom:0.75rem}
+.finalcta__h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:0.85rem;color:#1a2232}
+.finalcta__h2 em{font-style:normal;color:#ffd040}
+.finalcta__sub{font-size:0.88rem;color:#666;margin-bottom:1.75rem;line-height:1.6}
+.btn-final{background:var(--deep);color:#fff;padding:1rem 2.5rem;border-radius:100rem;font-size:1rem;font-weight:700;transition:background 0.2s}
+.btn-final:hover{background:var(--teal)}
+.finalcta__legal{font-size:0.73rem;color:#999;margin-top:0.85rem}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{background:var(--deep);color:rgba(255,255,255,0.5);padding:3rem 2.5rem 2rem}
+.footer__grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.7fr 2.1fr;gap:3rem;margin-bottom:2rem}
+.footer__logo img{height:1.5rem;filter:brightness(0) invert(1);margin-bottom:0.85rem}
+.footer__tagline{font-size:0.8rem;line-height:1.6;color:rgba(255,255,255,0.4)}
+.footer__copy-sm{font-size:0.75rem;color:rgba(255,255,255,0.25);margin-top:1rem}
+.footer__col-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.9);margin-bottom:0.85rem}
+.footer__links{display:flex;flex-direction:column;gap:0.55rem}
+.footer__link{font-size:0.85rem;color:var(--mid);transition:color 0.2s}
+.footer__link:hover{color:#fff}
+.footer__legal-col{display:flex;flex-direction:column;gap:0.85rem}
+.footer__legal-p{font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.65}
+.footer__divider{max-width:1200px;margin:0 auto 1.5rem;border:none;border-top:1px solid rgba(255,255,255,0.08)}
+.footer__bottom{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.footer__legit img{height:55px;width:auto;opacity:0.75}
+.footer__copyright{font-size:0.78rem;color:rgba(255,255,255,0.25)}
+
+.prod-transition{position:relative;overflow:visible;z-index:5}
+.prod-stripe{height:6px;background:var(--mid)}
+.prod-pills{position:absolute;top:3px;left:10%;transform:translateY(-55%);z-index:10;pointer-events:none;width:380px}
+.prod-pills img{width:100%;display:block;filter:hue-rotate(-100deg) saturate(0.7) brightness(0.9) drop-shadow(0 16px 40px rgba(0,0,0,0.5))}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero__inner{gap:2rem}
+  .product__inner{gap:2.5rem}
+  .reviews__grid{grid-template-columns:repeat(3,1fr)}
+  .footer__grid{grid-template-columns:1fr 1fr}
+  .footer__legal-col{grid-column:1/-1}
+}
+@media(max-width:768px){
+  .nav__inner{padding:0 1.25rem}
+  .hero{padding:2.5rem 1.25rem 0}
+  .hero__inner{grid-template-columns:1fr;gap:2rem;padding-bottom:5rem}
+  .hero__h1{font-size:2.6rem}
+  .pills-wrap{width:360px;left:50%;transform:translateX(-55%)}
+  .logos{padding:4rem 1.25rem 2rem}
+  .logos__inner{flex-wrap:wrap;justify-content:center;gap:0.5rem}
+  .logos__item{padding:0.4rem 1rem;border-right:none}
+  .logos__label{display:none}
+  .quiz-sec{padding:3.5rem 1.25rem}
+  .qwrap{max-width:100%;padding:2rem 1.5rem}
+  .product{padding:3rem 1.25rem 4rem}
+  .product__inner{grid-template-columns:1fr}
+  .product__mockup-wrap{order:-1}
+  .product__mockup{max-width:380px;margin:0 auto}
+  .delivery{padding:3rem 1.25rem}
+  .delivery__inner{grid-template-columns:1fr}
+  .reviews{padding:3.5rem 1.25rem}
+  .reviews__grid{grid-template-columns:repeat(2,1fr)}
+  .faq{padding:3.5rem 1.25rem}
+  .faq__inner{grid-template-columns:1fr}
+  .faq__left{position:static}
+  .finalcta{padding:3.5rem 1.25rem}
+  footer{padding:2.5rem 1.25rem 1.5rem}
+  .footer__grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero__h1{font-size:2rem}
+  .pills-wrap{width:280px;transform:translateX(-50%)}
+  .logos{padding:3.5rem 1rem 1.5rem}
+  .reviews__grid{grid-template-columns:1fr 1fr}
+  .footer__grid{grid-template-columns:1fr;gap:1.5rem}
+  .finalcta__h2{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner">
+  Get stronger, lasting erections in 2026. &nbsp;<a href="https://malmohealth.com/start" style="color:#fff;font-weight:700;text-decoration:underline;">Get 33% off instantly &rsaquo;</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" style="display:flex;align-items:center;flex-shrink:0;line-height:0;"><img src="https://malmohealth.com/images/malmologo.png" alt="Malmo" width="120" height="26" style="height:26px!important;width:auto!important;max-width:120px!important;object-fit:contain!important;filter:brightness(0) invert(1)!important;display:block!important;flex-shrink:0!important;"/></a>
+    <div class="tp-row">
+      <div class="tp-stars">
+        <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <span>Excellent 4.6</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__left">
+      <h1 class="hero__h1">Unleash the best <em>sex</em> of your life.</h1>
+      <p class="hero__sub">[REPLACE: Fast acting formulas with up to 3x the power of generics — built for maximum enjoyment.]</p>
+      <div class="hero__tags">
+        <span class="hero__tag">🚀 Lasts 3x Longer</span>
+        <span class="hero__tag">⚡ 3x More Effective</span>
+        <span class="hero__tag">✅ Performance Guarantee</span>
+      </div>
+      <div class="hero__discount">Limited Time <span>33% OFF!</span></div>
+    </div>
+    <div class="hero__right">
+      <!-- QUIZ STEP 1 (hero) -->
+      <div class="quiz-card">
+        <div class="quiz-steps">
+          <div class="quiz-step active">01</div>
+          <div class="quiz-step">02</div>
+          <div class="quiz-step">03</div>
+          <div class="quiz-step">04</div>
+        </div>
+        <div class="quiz-card__q">How do you want to level up your sex life?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt blue" onclick="heroNext()">Get harder, faster</button>
+          <button class="quiz-opt grey" onclick="heroNext()">Longer Sex</button>
+          <button class="quiz-opt grey" onclick="heroNext()">All the above</button>
+        </div>
+        <div class="quiz-skip" onclick="window.location.href='https://malmohealth.com/start'">Skip and start online visit</div>
+      </div>
+      <div class="hero__trust" style="justify-content:center;text-align:center;">🔥 Trusted by over 175,000 customers</div>
+    </div>
+  <!-- Pills bleeding from hero bottom -->
+  <div class="pills-wrap">
+    <img src="https://assets.directmeds.com/direct-max/1/direct-max-tabs-2.png" alt="Malmo tabs"/>
+  </div>
+</section>
+
+<!-- HERO BOTTOM: stripe + logos -->
+<div class="hero-bottom">
+  <div class="hero-stripe"></div>
+  <div class="logos">
+    <div class="logos__inner">
+      <div class="logos__item"><span class="logo-text logo-ok">OK! magazine</span></div>
+      <div class="logos__item"><span class="logo-text logo-mh">Men'sHealth</span></div>
+      <div class="logos__item"><span class="logo-text logo-law">■WEEKLY</span></div>
+      <div class="logos__item"><span class="logo-text logo-lt">Lifetime</span></div>
+      <div class="logos__item"><span class="logo-text logo-hl">Health</span></div>
+      <span class="logos__label">WE'VE BEEN FEATURED ALL OVER</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ STEP 2: Have you tried other ED meds? -->
+<section class="quiz-sec" id="quiz-1">
+  <div class="qwrap">
+    <div class="qprogress">
+      <div class="qdot done">01</div>
+      <div class="qdot active">02</div>
+      <div class="qdot">03</div>
+      <div class="qdot">04</div>
+    </div>
+    <h2 class="qq">Have you tried other ED meds before?</h2>
+    <div class="qopts">
+      <button class="qopt" onclick="pickQ(this,'quiz-2')">Yes <span>›</span></button>
+      <button class="qopt" onclick="pickQ(this,'quiz-2')">No <span>›</span></button>
+    </div>
+    <div class="qskip" onclick="goTo('quiz-2')">Skip and start online visit</div>
+  </div>
+</section>
+
+<!-- QUIZ STEP 3: Most excited about Malmo? -->
+<section class="quiz-sec" id="quiz-2">
+  <div class="qwrap">
+    <div class="qprogress">
+      <div class="qdot done">01</div>
+      <div class="qdot done">02</div>
+      <div class="qdot active">03</div>
+      <div class="qdot">04</div>
+    </div>
+    <h2 class="qq">What are you most excited about Malmo?</h2>
+    <div class="qopts">
+      <button class="qopt" onclick="pickQ(this,'quiz-3')">Works when other meds fail <span>›</span></button>
+      <button class="qopt" onclick="pickQ(this,'quiz-3')">Targets brain and body <span>›</span></button>
+      <button class="qopt" onclick="pickQ(this,'quiz-3')">Fewer side effects than the rest <span>›</span></button>
+      <button class="qopt" onclick="pickQ(this,'quiz-3')">Made in the USA <span>›</span></button>
+    </div>
+    <div class="qskip" onclick="goTo('quiz-3')">Skip and start online visit</div>
+  </div>
+</section>
+
+<!-- QUIZ STEP 4: Most important with treatment? -->
+<section class="quiz-sec" id="quiz-3">
+  <div class="qwrap">
+    <div class="qprogress">
+      <div class="qdot done">01</div>
+      <div class="qdot done">02</div>
+      <div class="qdot done">03</div>
+      <div class="qdot active">04</div>
+    </div>
+    <h2 class="qq">What's most important to you with treatment?</h2>
+    <div class="qopts">
+      <button class="qopt" onclick="window.location.href='https://malmohealth.com/start'">Being ready for sex in 15 minutes <span>›</span></button>
+      <button class="qopt" onclick="window.location.href='https://malmohealth.com/start'">Stronger than Viagra, Cialis or other <span>›</span></button>
+      <button class="qopt" onclick="window.location.href='https://malmohealth.com/start'">Longer-lasting endurance <span>›</span></button>
+      <button class="qopt" onclick="window.location.href='https://malmohealth.com/start'">Pleasing my partner <span>›</span></button>
+      <button class="qopt" onclick="window.location.href='https://malmohealth.com/start'">An always-on daily solution <span>›</span></button>
+    </div>
+    <div class="qskip" onclick="window.location.href='https://malmohealth.com/start'">Skip and start online visit</div>
+  </div>
+</section>
+
+<!-- PRODUCT WRAP -->
+<div class="product-wrap">
+  <div class="product-stripe"></div>
+  <section class="product">
+    <div class="product__inner">
+      <div>
+        <div class="product__eyebrow">
+          <img src="https://malmohealth.com/images/malmologo.png" alt="Malmo"/>
+          <div class="product__tp">
+            <div class="tp-stars">
+              <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="tp-s" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span>Trusted by 17,000+ customers</span>
+          </div>
+        </div>
+        <h2 class="product__h2">Stronger. <em>Faster.</em><br>More Intense.</h2>
+        <p class="product__sub">Fast-acting. Doctor-approved. Delivered discreetly.</p>
+        <div class="product__feats">
+          <div class="product__feat"><span class="product__feat-icon">🔥</span><span><strong>Apomorphine</strong> to boost arousal</span></div>
+          <div class="product__feat"><span class="product__feat-icon">📈</span><span><strong>Sildenafil</strong> to get harder faster</span></div>
+          <div class="product__feat"><span class="product__feat-icon">⏱</span><span><strong>Tadalafil</strong> to stay hard longer</span></div>
+          <div class="product__feat"><span class="product__feat-icon">⚡</span><span>Effects in <strong>15 minutes</strong> or less*</span></div>
+        </div>
+        <div class="product__badges">
+          <span class="product__badge">🚫 No Heartburn</span>
+          <span class="product__badge">⚡ Longer Bigger Faster</span>
+          <span class="product__badge">✅ 3x Better Than Others</span>
+        </div>
+      </div>
+      <div class="product__mockup-wrap">
+        <img src="https://malmohealth.com/images/productsectionimage1.webp" alt="Malmo ED" style="width:100%;max-width:340px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 16px 40px rgba(0,0,0,0.5));"/>
+        <div class="product__trust" style="margin-top:1rem;justify-content:center;">🔥 Trusted by over 175,000 customers</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PRODUCT → DELIVERY TRANSITION -->
+<div class="prod-transition">
+  <div class="prod-stripe"></div>
+  <div class="prod-pills">
+    <img src="https://assets.directmeds.com/direct-max/1/direct-max-tabs-2.png" alt=""/>
+  </div>
+</div>
+
+<!-- DELIVERY -->
+<section class="delivery">
+  <div class="delivery__inner">
+    <div>
+      <h2 class="delivery__h2">Max performance shipped in 1-2 days.</h2>
+      <p class="delivery__sub">[REPLACE: A triple-action formula built to boost arousal, get you harder and help you stay ready longer. Delivered discreetly to your door from a licensed U.S. pharmacy.]</p>
+      <div class="delivery__discount"><strong>Limited Time 33% OFF</strong></div>
+      <button class="btn-delivery" onclick="window.location.href='https://malmohealth.com/start'">Order Now</button>
+    </div>
+    <div style="position:relative;">
+      <img src="https://malmohealth.com/images/productsect2image.webp" alt="Malmo delivery" style="width:100%;border-radius:0.75rem;height:320px;object-fit:cover;display:block;"/>
+      <div style="position:absolute;bottom:0.85rem;right:0.85rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:0.5rem;padding:0.35rem 0.75rem;font-size:0.75rem;font-weight:600;color:#fff;backdrop-filter:blur(8px);">✦ Malmo</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="reviews__inner">
+    <div class="reviews__hd">
+      <div class="reviews__count">175K+ Very Happy Customers ;)</div>
+      <p class="reviews__sub">Real results, real customers — here's what they say.</p>
+    </div>
+    <div class="reviews__grid">
+      <div class="rcard">
+        <div class="rcard__stars"><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rcard__text">"[REPLACE with customer review]"</p>
+        <div class="rcard__name">R.M.</div>
+      </div>
+      <div class="rcard">
+        <div class="rcard__stars"><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rcard__text">"[REPLACE with customer review]"</p>
+        <div class="rcard__name">J.T.</div>
+      </div>
+      <div class="rcard">
+        <div class="rcard__stars"><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rcard__text">"[REPLACE with customer review]"</p>
+        <div class="rcard__name">D.K.</div>
+      </div>
+      <div class="rcard">
+        <div class="rcard__stars"><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rcard__text">"[REPLACE with customer review]"</p>
+        <div class="rcard__name">M.S.</div>
+      </div>
+      <div class="rcard">
+        <div class="rcard__stars"><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="rstar" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="rcard__text">"[REPLACE with customer review]"</p>
+        <div class="rcard__name">A.R.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq__inner">
+    <div class="faq__left">
+      <div class="faq__logo"><img src="https://malmohealth.com/images/malmologo.png" alt="Malmo"/></div>
+      <div class="faq__title-main">Malmo</div>
+      <div class="faq__title-sub">FAQ's</div>
+      <div class="faq__tagline">We've got your back.</div>
+      <p class="faq__sub">Remember, you will always have full access to our discreet doctors and nursing staff to answer any questions you have at any time.</p>
+      <button class="btn-faq" onclick="window.location.href='https://malmohealth.com/start'">Start online visit →</button>
+    </div>
+    <div class="faq__list">
+      <div class="faqitem">
+        <button class="faqitem__btn" onclick="toggleFaq(this)">
+          <div class="faqitem__avatar"><img src="https://i.pravatar.cc/40?img=11" alt=""/></div>
+          <span class="faqitem__q">If the blue pill didn't work for me, could Malmo?</span>
+          <span class="faqitem__icon">▾</span>
+        </button>
+        <div class="faqitem__body"><p class="faqitem__a">[REPLACE: Your satisfaction/refund policy.]</p></div>
+      </div>
+      <div class="faqitem">
+        <button class="faqitem__btn" onclick="toggleFaq(this)">
+          <div class="faqitem__avatar"><img src="https://i.pravatar.cc/40?img=15" alt=""/></div>
+          <span class="faqitem__q">How quickly does Malmo start working?</span>
+          <span class="faqitem__icon">▾</span>
+        </button>
+        <div class="faqitem__body"><p class="faqitem__a">[REPLACE: How fast it kicks in, what to expect the first time.]</p></div>
+      </div>
+      <div class="faqitem">
+        <button class="faqitem__btn" onclick="toggleFaq(this)">
+          <div class="faqitem__avatar"><img src="https://i.pravatar.cc/40?img=18" alt=""/></div>
+          <span class="faqitem__q">How long do the effects last?</span>
+          <span class="faqitem__icon">▾</span>
+        </button>
+        <div class="faqitem__body"><p class="faqitem__a">[REPLACE: Duration of the compound effect vs standard pills.]</p></div>
+      </div>
+      <div class="faqitem">
+        <button class="faqitem__btn" onclick="toggleFaq(this)">
+          <div class="faqitem__avatar"><img src="https://i.pravatar.cc/40?img=52" alt=""/></div>
+          <span class="faqitem__q">What about some of the common side effects?</span>
+          <span class="faqitem__icon">▾</span>
+        </button>
+        <div class="faqitem__body"><p class="faqitem__a">[REPLACE: Common side effects, how Malmo monitors and adjusts your plan.]</p></div>
+      </div>
+      <div class="faqitem">
+        <button class="faqitem__btn" onclick="toggleFaq(this)">
+          <div class="faqitem__avatar"><img src="https://i.pravatar.cc/40?img=33" alt=""/></div>
+          <span class="faqitem__q">How much does Malmo cost?</span>
+          <span class="faqitem__icon">▾</span>
+        </button>
+        <div class="faqitem__body"><p class="faqitem__a">[REPLACE: Your pricing, pack options, subscription terms.]</p></div>
+      </div>
+      <div class="faqitem">
+        <button class="faqitem__btn" onclick="toggleFaq(this)">
+          <div class="faqitem__avatar"><img src="https://i.pravatar.cc/40?img=57" alt=""/></div>
+          <span class="faqitem__q">How do I contact support?</span>
+          <span class="faqitem__icon">▾</span>
+        </button>
+        <div class="faqitem__body"><p class="faqitem__a">You can reach our care team via secure message anytime, or email hello@malmohealth.com. We respond within 24 hours, 7 days a week.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="finalcta">
+  <div class="finalcta__inner">
+    <div class="finalcta__img">
+      <img src="https://assets.directmeds.com/direct-max/1/direct-max-tabs-2.png" alt="Malmo"/>
+    </div>
+    <div class="finalcta__eyebrow">Malmo ED</div>
+    <h2 class="finalcta__h2">Ready for the best sex of your life? Get <em>33% OFF</em> your prescription instantly.</h2>
+    <p class="finalcta__sub">[REPLACE: Doctor-reviewed. Fast-acting. Delivered to your door in 1–2 days.]</p>
+    <button class="btn-final" onclick="window.location.href='https://malmohealth.com/start'">Order Now</button>
+    <p class="finalcta__legal">Trusted by 17,000+ satisfied customers. Discount applied at checkout.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__grid">
+    <div>
+      <div class="footer__logo"><img src="https://malmohealth.com/images/malmologo.png" alt="Malmo"/></div>
+      <p class="footer__tagline">Telehealth-based ED treatment — fast-acting, doctor-approved, delivered discreetly.</p>
+      <p class="footer__copy-sm">© <span id="yr">2025</span> Malmo Health LLC.</p>
+    </div>
+    <div>
+      <div class="footer__col-title">Links</div>
+      <div class="footer__links">
+        <a href="https://malmohealth.com/terms-and-conditions" class="footer__link">Terms &amp; Conditions</a>
+        <a href="https://malmohealth.com/privacy-policy" class="footer__link">Privacy Policy</a>
+        <a href="https://malmohealth.com/refund-policy" class="footer__link">Refund Policy</a>
+        <a href="#" class="footer__link">Affiliates</a>
+        <a href="#" class="footer__link">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer__legal-col">
+      <p class="footer__legal-p">* Timing and results vary. Some men may feel effects in as little as 15 minutes, while others may take longer. Your provider will help determine the right treatment and dosing for you.</p>
+      <p class="footer__legal-p">Important safety information: Prescription ED medications are not for everyone. Do not use ED medications if you take nitrates (for chest pain) or guanylate cyclase stimulators (such as riociguat), as this can cause a dangerous drop in blood pressure. Tell your provider about all medications and supplements you take, and any medical conditions—especially heart problems, low blood pressure, recent heart attack or stroke, kidney or liver disease, or eye conditions.</p>
+      <p class="footer__legal-p">Seek emergency care for an erection lasting more than 4 hours (priapism), sudden vision loss, sudden hearing loss, chest pain, or severe dizziness. Common side effects may include headache, flushing, indigestion, nasal congestion, back pain, and dizziness.</p>
+      <p class="footer__legal-p">This website provides general information and is not medical advice. Medical treatment (when appropriate) is prescribed and managed by a licensed clinician after reviewing your health history.</p>
+    </div>
+  </div>
+  <hr class="footer__divider"/>
+  <div class="footer__bottom">
+    <div class="footer__legit">
+      <img src="https://malmohealth.com/images/1gq44RBhR5fTo4JBo34JZ9T4f7k8445.png" alt="LegitScript Certified"/>
+    </div>
+    <div class="footer__copyright">© <span class="yr2">2025</span> Malmo Health LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('#yr,.yr2').forEach(el=>el.textContent=new Date().getFullYear());
+
+// Hero Q1 answered → scroll to Q2, mark step 01 done, activate 02
+function heroNext(){
+  var steps = document.querySelectorAll('.quiz-steps .quiz-step');
+  steps[0].classList.remove('active');
+  steps[0].classList.add('done');
+  steps[1].classList.add('active');
+  setTimeout(()=>{document.getElementById('quiz-1').scrollIntoView({behavior:'smooth',block:'start'})},300);
+}
+
+function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'})}
+
+// Page quiz answers — highlight picked, scroll to next
+function pickQ(el,nextId){
+  var opts = el.closest('.qopts').querySelectorAll('.qopt');
+  opts.forEach(o=>o.classList.remove('picked'));
+  el.classList.add('picked');
+  setTimeout(()=>{document.getElementById(nextId).scrollIntoView({behavior:'smooth',block:'start'})},300);
+}
+
+function toggleFaq(btn){
+  var item=btn.closest('.faqitem');
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faqitem').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>
