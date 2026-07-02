@@ -5,7 +5,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>NAD+ Injections - Malmo Health</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link href="directmedsassets/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script>
         function toggleFAQ(id) {
@@ -21,11 +22,11 @@
     <!-- Swiper CSS -->
     <link
             rel="stylesheet"
-            href="directmedsassets/npm/swiper@11/swiper-bundle.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"
     />
 
     <!-- Swiper JS -->
-    <script src="directmedsassets/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 
     </head>
 <body class="bg-white text-gray-900">
@@ -34,30 +35,33 @@
 :root {
   --brand-green:      #2F9B7C;
   --brand-dark-green: #0D6C5C;
+  --brand-forest:     #0D3B27;
   --brand-gold:       #D0A85A;
-  --text-primary:     #242220;
+  --text-primary:     #1E2820;
   --text-secondary:   #5E6862;
-  --bg-cream:         #F7F4EF;
+  --bg-cream:         #F5F0E8;
   --bg-pale-green:    #EEF8F2;
-  --bg-soft:          #F3F6ED;
-  --border:           #E9E5DF;
+  --bg-soft:          #F5F0E8;
+  --border:           #E4E0D8;
 }
 
 /* ── Typography ───────────────────────────────────────── */
 body {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Red Hat Text', Arial, sans-serif;
   color: var(--text-primary);
 }
 h1, h2 {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: 'Red Hat Text', Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -.04em;
   color: var(--text-primary);
 }
 h3, h4, h5, h6 {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Red Hat Text', Arial, sans-serif;
   color: var(--text-primary);
 }
 p, li, td, th, label, nav a, button, .text-gray-600, .text-gray-700, .text-gray-800 {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Red Hat Text', Arial, sans-serif;
 }
 
 /* ── Tailwind colour overrides ────────────────────────── */
@@ -68,33 +72,34 @@ section.bg-white, .bg-white { background-color: #ffffff; }
 .bg-gray-50  { background-color: var(--bg-pale-green) !important; }
 .bg-blue-50  { background-color: var(--bg-pale-green) !important; }
 
-/* Hero gradient → brand greens */
+/* Hero gradient → brand greens (matches malmohealth.com hero-card gradient) */
 .bg-gradient-to-br.from-yellow-200.via-pink-200.to-purple-300 {
-  background: linear-gradient(135deg, var(--bg-pale-green) 0%, #d4ede4 50%, #c8e8db 100%) !important;
+  background: linear-gradient(145deg,#a8d8bc 0%,#bde4ce 18%,#cdeedd 38%,#dff5ea 58%,#eef9f3 78%,#f5fdf8 100%) !important;
 }
 /* Footer gradient */
 .bg-gradient-to-br.from-yellow-100.via-pink-100.to-purple-100 {
-  background: linear-gradient(135deg, var(--bg-pale-green) 0%, #d4ede4 100%) !important;
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #eef8f2 100%) !important;
 }
 
 /* ── Buttons ──────────────────────────────────────────── */
-.bg-black { background-color: var(--brand-green) !important; border-color: var(--brand-green) !important; }
-.bg-black:hover, .hover\:bg-blue-500:hover { background-color: var(--brand-dark-green) !important; }
-.hover\:bg-blue-500:hover { background-color: var(--brand-dark-green) !important; }
+.bg-black { background-color: var(--text-primary) !important; border-color: var(--text-primary) !important; }
+.bg-black:hover, .hover\:bg-blue-500:hover { background-color: var(--brand-green) !important; }
+.hover\:bg-blue-500:hover { background-color: var(--brand-green) !important; }
 .hover\:text-white:hover { color: #ffffff !important; }
+.hover\:bg-gray-800:hover { background-color: var(--brand-green) !important; }
 
 /* ── Links / accents ──────────────────────────────────── */
 a { color: var(--brand-green); }
 a:hover { color: var(--brand-dark-green); }
-.text-blue-500, .hover\:text-blue-500:hover { color: var(--brand-green) !important; }
+.text-blue-500, .hover\:text-blue-500:hover { color: var(--brand-dark-green) !important; }
 
 /* ── Comparison table highlight column ───────────────── */
-.bg-blue-500 { background-color: var(--brand-green) !important; }
+.bg-blue-500 { background-color: var(--brand-dark-green) !important; }
 .text-white  { color: #ffffff !important; }
 
 /* ── Borders / dividers ───────────────────────────────── */
 .border-gray-200 { border-color: var(--border) !important; }
-.shadow-md { box-shadow: 0 4px 16px rgba(15,108,92,0.08) !important; }
+.shadow-md { box-shadow: 0 4px 16px rgba(13,108,92,0.08) !important; }
 
 /* ── Star / gold accents ──────────────────────────────── */
 .text-yellow-400 { color: var(--brand-gold) !important; }
@@ -111,12 +116,19 @@ a:hover { color: var(--brand-dark-green); }
 
 /* ── "In Stock" tag ───────────────────────────────────── */
 .bg-gradient-to-br.from-yellow-200.via-pink-200.to-purple-300:not(.rounded-\[58px\]) {
-  background: linear-gradient(135deg, #d4ede4, #EEF8F2) !important;
-  color: var(--text-primary) !important;
+  background: linear-gradient(90deg,#efad29,#e9d330) !important;
+  color: #1a1000 !important;
 }
 
 /* ── indigo group-open colour ─────────────────────────── */
 .group-open\:text-indigo-600 { color: var(--brand-green) !important; }
+
+/* ── Section date/step label colors → brand gold/green tints (was rainbow) */
+.space-y-1 p[style*="color:#d9b596"],
+.space-y-1 p[style*="color:#b89e73"] { color: var(--brand-gold) !important; }
+.space-y-1 p[style*="color:#c9a9c9"],
+.space-y-1 p[style*="color:#e7a1d9"],
+.space-y-1 p[style*="color:#c87ad4"] { color: var(--brand-dark-green) !important; }
 </style>
 
 <style>
@@ -307,7 +319,7 @@ a:hover { color: var(--brand-dark-green); }
                         </p>
                         <!-- Image -->
                         <div class="w-3/5 flex justify-center">
-                            <img src="directmedsassets/img/2/hero2.png" alt="Happy Woman" class="w-full h-auto"/>
+                            <img src="https://malmohealth.com/images/headerdrkmed.webp" alt="Happy Woman" class="w-full h-auto"/>
                         </div>
                     </div>
                 </div>
@@ -400,7 +412,7 @@ a:hover { color: var(--brand-dark-green); }
             <!-- Right: Product visual or label -->
             <div class="hidden md:block w-full md:w-1/2 flex justify-center">
 
-                <img src="directmedsassets/img/2/hero2.png">
+                <img src="https://malmohealth.com/images/headerdrkmed.webp">
 
             </div>
 
@@ -467,7 +479,7 @@ a:hover { color: var(--brand-dark-green); }
 
   <!-- Center image + CTA (unchanged) -->
   <div class="order-2 flex flex-col items-center">
-    <img src="directmedsassets/img/product-benefits.png" alt="Product image" class="w-full max-w-md mx-auto" />
+    <img src="https://malmohealth.com/images/malmohealthdrkmbodyimage.webp" alt="Product image" class="w-full max-w-md mx-auto" />
    
   </div>
 
@@ -628,9 +640,9 @@ a:hover { color: var(--brand-dark-green); }
 <div class="bg-gray-100" id="reviews">
 <section class="relative hero-bg overflow-hidden px-6 pt-20 text-center">
   <!-- Pen Images -->
-  <img src="directmedsassets/img/mounjaro.png" alt="Pen Left" class="pen pen-left" id="penLeft">
-  <img src="directmedsassets/img/ozempic.png" alt="Pen Top" class="pen pen-top" id="penTop">
-  <img src="directmedsassets/img/ozempic.png" alt="Pen Right" class="pen pen-right" id="penRight">
+  <img src="https://malmohealth.com/images/Nadbottlea.webp" alt="Pen Left" class="pen pen-left" id="penLeft">
+  <img src="https://malmohealth.com/images/Nadbottlea.webp" alt="Pen Top" class="pen pen-top" id="penTop">
+  <img src="https://malmohealth.com/images/Nadbottlea.webp" alt="Pen Right" class="pen pen-right" id="penRight">
 
   <!-- Main Content -->
   <div class="relative z-10 max-w-3xl mx-auto mt-30">
@@ -858,7 +870,7 @@ a:hover { color: var(--brand-dark-green); }
 
             <!-- Right Column: Phone Image -->
             <div class="flex justify-center">
-                <img src="directmedsassets/img/2/phone.jpg" alt="Phone with app screen" class="w-full max-w-lg rounded-xl shadow-lg">
+                <img src="https://malmohealth.com/images/malmo-phone.png" alt="Phone with app screen" class="w-full max-w-lg rounded-xl shadow-lg">
             </div>
         </section>
     </div>
@@ -868,7 +880,7 @@ a:hover { color: var(--brand-dark-green); }
             <!-- Left Column: Steps -->
               <!-- Right Column: Phone Image -->
             <div class="flex justify-center">
-              <img src="directmedsassets/img/lifestyle-about.jpg" alt="NAD+ Healthy Life" class="w-full max-w-lg rounded-xl shadow-lg">
+              <img src="https://malmohealth.com/images/cellularporup.webp" alt="NAD+ Healthy Life" class="w-full max-w-lg rounded-xl shadow-lg">
           </div>
             <div class="space-y-8">
                 <h2 class="text-4xl md:text-6xl font-thin text-gray-900">What Happens When You Give Your Cells Exactly What They Need?</h2>
@@ -1080,8 +1092,8 @@ a:hover { color: var(--brand-dark-green); }
     <!-- SwiperJS & Styles -->
     <link
             rel="stylesheet"
-            href="directmedsassets/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="directmedsassets/npm/swiper@11/swiper-bundle.min.js"></script>
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
     <script>
         new Swiper('.testimonials-carousel', {
             slidesPerView: 1.2,
@@ -1117,7 +1129,7 @@ a:hover { color: var(--brand-dark-green); }
             <div class="text-center md:text-left max-w-md">
                 <h2 class="text-5xl font-light tracking-tight text-gray-900 mb-4">Compounded NAD+ Injections</h2>
                 <hr class="my-5">
-                <img src="directmedsassets/img/2/lp-product.jpg">
+                <img src="https://malmohealth.com/images/twinbotlesnad.jpg">
             </div>
         </div>
 
